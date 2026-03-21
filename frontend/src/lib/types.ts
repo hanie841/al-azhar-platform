@@ -1,0 +1,150 @@
+// API response types matching Laravel backend
+
+export interface LibraryItem {
+  id: number;
+  slug: string;
+  title: string;
+  subtitle: string | null;
+  description: string | null;
+  abstract: string | null;
+  type: string;
+  authors: string[] | null;
+  publisher: string | null;
+  publication_year: number | null;
+  edition: string | null;
+  isbn: string | null;
+  issn: string | null;
+  doi: string | null;
+  language: string;
+  subjects: string[] | null;
+  faculty: Faculty | null;
+  department: Department | null;
+  era: string | null;
+  page_count: number | null;
+  access_level: string;
+  file_path: string | null;
+  cover_image: string | null;
+  manuscript_images: string[] | null;
+  views_count: number;
+  downloads_count: number;
+  published_at: string | null;
+  created_at: string;
+}
+
+export interface LibraryCollection {
+  id: number;
+  slug: string;
+  name: string;
+  description: string | null;
+  cover_image: string | null;
+  items_count?: number;
+  items?: LibraryItem[];
+}
+
+export interface Faculty {
+  id: number;
+  slug: string;
+  name: string;
+  description: string | null;
+  dean_message: string | null;
+  featured_image: string | null;
+  departments_count: number;
+  created_at: string;
+}
+
+export interface Department {
+  id: number;
+  slug: string;
+  name: string;
+  description: string | null;
+}
+
+export interface NewsArticle {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string | null;
+  content: string | null;
+  featured_image: string | null;
+  category: NewsCategory | null;
+  views_count: number;
+  published_at: string | null;
+  created_at: string;
+}
+
+export interface NewsCategory {
+  id: number;
+  slug: string;
+  name: string;
+}
+
+export interface TimelineEra {
+  id: number;
+  slug: string;
+  name: string;
+  description: string | null;
+  start_year: number;
+  end_year: number | null;
+  order: number;
+  events: TimelineEvent[];
+  created_at: string;
+}
+
+export interface TimelineEvent {
+  id: number;
+  slug: string;
+  title: string;
+  description: string | null;
+  year: number | null;
+  image: string | null;
+  order: number;
+  created_at: string;
+}
+
+export interface Person {
+  id: number;
+  slug: string;
+  name: string;
+  title: string;
+  bio: string | null;
+  photo: string | null;
+  era: string | null;
+  is_historical: boolean;
+  is_current_leadership: boolean;
+  order: number;
+  created_at: string;
+}
+
+export interface Event {
+  id: number;
+  slug: string;
+  title: string;
+  description: string | null;
+  location: string | null;
+  featured_image: string | null;
+  starts_at: string;
+  ends_at: string | null;
+  created_at: string;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  links?: {
+    first: string;
+    last: string;
+    prev: string | null;
+    next: string | null;
+  };
+  meta?: {
+    current_page: number;
+    from: number | null;
+    last_page: number;
+    per_page: number;
+    to: number | null;
+    total: number;
+  };
+}
+
+export interface ListResponse<T> {
+  data: T[];
+}

@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="#0d4f4f" />
+  <!-- Simplified dome -->
+  <path d="M8 20 Q16 8 24 20" stroke="#c9a84c" stroke-width="2" fill="none" />
+  <!-- Base -->
+  <rect x="8" y="20" width="16" height="4" rx="1" fill="#c9a84c" />
+  <!-- Crescent -->
+  <path d="M16 10 Q13.5 7.5 16 5 Q17.5 7.5 16 10" fill="#c9a84c" />
+  <line x1="16" y1="5" x2="16" y2="3" stroke="#c9a84c" stroke-width="1" />
+  <!-- Minarets -->
+  <rect x="5" y="12" width="2" height="8" fill="#c9a84c" />
+  <rect x="25" y="12" width="2" height="8" fill="#c9a84c" />
+</svg>
