@@ -19,7 +19,8 @@
     "viewAll": "View All",
     "language": "Language",
     "programs": "Programs",
-    "admissions": "Admissions"
+    "admissions": "Admissions",
+    "media": "Media Center"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -231,5 +232,27 @@
     "thinking": "Thinking...",
     "welcome": "Hello! I'm Al-Azhar University's assistant. How can I help you?",
     "suggestedTitle": "Suggested questions:"
+  },
+  "media": {
+    "title": "Media Center",
+    "subtitle": "Live streams, videos, and photos from Al-Azhar University",
+    "liveNow": "Live Now",
+    "liveStreams": "Live Streams",
+    "videoLibrary": "Video Library",
+    "photoGallery": "Photo Gallery",
+    "fridayPrayer": "Friday Prayer from Al-Azhar Mosque",
+    "grandImamLectures": "Grand Imam Lectures",
+    "ceremonies": "Ceremonies & Events",
+    "watchNow": "Watch Now",
+    "viewAll": "View All",
+    "noVideos": "No videos available",
+    "subscribe": "Subscribe to Channel",
+    "latestVideos": "Latest Videos",
+    "categories": "Categories",
+    "all": "All",
+    "lectures": "Lectures",
+    "prayers": "Prayers",
+    "events": "Events",
+    "documentaries": "Documentaries"
   }
 }

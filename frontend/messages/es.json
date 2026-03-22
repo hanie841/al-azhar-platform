@@ -19,7 +19,8 @@
     "viewAll": "View All",
     "language": "Language",
     "programs": "Programas",
-    "admissions": "Admisiones"
+    "admissions": "Admisiones",
+    "media": "Centro de Medios"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -226,5 +227,27 @@
     "thinking": "Pensando...",
     "welcome": "\u00a1Hola! Soy el asistente de la Universidad Al-Azhar. \u00bfC\u00f3mo puedo ayudarle?",
     "suggestedTitle": "Preguntas sugeridas:"
+  },
+  "media": {
+    "title": "Centro de Medios",
+    "subtitle": "Transmisiones en vivo, videos y fotos de la Universidad Al-Azhar",
+    "liveNow": "En vivo ahora",
+    "liveStreams": "Transmisiones en vivo",
+    "videoLibrary": "Videoteca",
+    "photoGallery": "Galer\u00eda de fotos",
+    "fridayPrayer": "Oraci\u00f3n del viernes desde la Mezquita Al-Azhar",
+    "grandImamLectures": "Conferencias del Gran Im\u00e1n",
+    "ceremonies": "Ceremonias y eventos",
+    "watchNow": "Ver ahora",
+    "viewAll": "Ver todo",
+    "noVideos": "No hay videos disponibles",
+    "subscribe": "Suscribirse al canal",
+    "latestVideos": "\u00daltimos videos",
+    "categories": "Categor\u00edas",
+    "all": "Todo",
+    "lectures": "Conferencias",
+    "prayers": "Oraciones",
+    "events": "Eventos",
+    "documentaries": "Documentales"
   }
 }
