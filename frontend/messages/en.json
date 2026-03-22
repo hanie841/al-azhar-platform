@@ -20,7 +20,8 @@
     "language": "Language",
     "programs": "Programs",
     "admissions": "Admissions",
-    "media": "Media Center"
+    "media": "Media Center",
+    "elearning": "E-Learning"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -254,5 +255,43 @@
     "prayers": "Prayers",
     "events": "Events",
     "documentaries": "Documentaries"
+  },
+  "elearning": {
+    "title": "E-Learning Portal",
+    "subtitle": "Learn from Al-Azhar scholars anywhere in the world - Free courses in Islamic sciences and Arabic language",
+    "featuredCourses": "Featured Courses",
+    "allCourses": "All Courses",
+    "categories": "Categories",
+    "all": "All",
+    "quran": "Holy Quran",
+    "hadith": "Hadith",
+    "fiqh": "Islamic Jurisprudence",
+    "arabic": "Arabic Language",
+    "theology": "Theology",
+    "history": "Islamic History",
+    "lessons": "Lessons",
+    "hours": "Hours",
+    "students": "Students",
+    "certificate": "Certificate of Completion",
+    "free": "Free",
+    "enrollNow": "Enroll Now",
+    "courseDetails": "Course Details",
+    "instructor": "Instructor",
+    "duration": "Duration",
+    "level": "Level",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "startLearning": "Start Learning",
+    "noCourses": "No courses available",
+    "whyLearn": "Why Learn with Al-Azhar?",
+    "reason1Title": "Certified Scholars",
+    "reason1Desc": "Learn from certified Al-Azhar professors with global expertise",
+    "reason2Title": "Recognized Certificates",
+    "reason2Desc": "Earn completion certificates accredited by Al-Azhar University",
+    "reason3Title": "Flexible Learning",
+    "reason3Desc": "Study anytime, anywhere at your own pace",
+    "reason4Title": "Comprehensive Content",
+    "reason4Desc": "Complete curricula covering various Islamic sciences and Arabic language"
   }
 }

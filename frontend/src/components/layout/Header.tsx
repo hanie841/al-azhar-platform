@@ -33,8 +33,8 @@ export function Header({ locale }: HeaderProps) {
     { href: '/library' as const, label: t('library') },
     { href: '/news' as const, label: t('news') },
     { href: '/media' as const, label: t('media') },
+    { href: '/elearning' as const, label: t('elearning') },
     { href: '/about/leadership' as const, label: t('leadership') },
-    { href: '/global' as const, label: t('global') },
     { href: '/contact' as const, label: t('contact') },
   ];
 

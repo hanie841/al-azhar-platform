@@ -49,6 +49,7 @@ export function Footer({ locale }: FooterProps) {
               <li><Link href="/library" className="hover:text-white transition-colors">{t('library')}</Link></li>
               <li><Link href="/news" className="hover:text-white transition-colors">{t('news')}</Link></li>
               <li><Link href="/media" className="hover:text-white transition-colors">{t('media')}</Link></li>
+              <li><Link href="/elearning" className="hover:text-white transition-colors">{t('elearning')}</Link></li>
               <li><Link href="/events" className="hover:text-white transition-colors">{t('events')}</Link></li>
             </ul>
           </div>

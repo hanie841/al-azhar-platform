@@ -20,7 +20,8 @@
     "language": "Language",
     "programs": "Programmes",
     "admissions": "Admissions",
-    "media": "Centre M\u00e9diatique"
+    "media": "Centre M\u00e9diatique",
+    "elearning": "E-Learning"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -249,5 +250,43 @@
     "prayers": "Pri\u00e8res",
     "events": "\u00c9v\u00e9nements",
     "documentaries": "Documentaires"
+  },
+  "elearning": {
+    "title": "Portail E-Learning",
+    "subtitle": "Apprenez aupr\u00e8s des savants d'Al-Azhar o\u00f9 que vous soyez - Cours gratuits en sciences islamiques et langue arabe",
+    "featuredCourses": "Cours en vedette",
+    "allCourses": "Tous les cours",
+    "categories": "Cat\u00e9gories",
+    "all": "Tout",
+    "quran": "Saint Coran",
+    "hadith": "Hadith",
+    "fiqh": "Jurisprudence islamique",
+    "arabic": "Langue arabe",
+    "theology": "Th\u00e9ologie",
+    "history": "Histoire islamique",
+    "lessons": "Le\u00e7ons",
+    "hours": "Heures",
+    "students": "\u00c9tudiants",
+    "certificate": "Certificat de fin de formation",
+    "free": "Gratuit",
+    "enrollNow": "S'inscrire maintenant",
+    "courseDetails": "D\u00e9tails du cours",
+    "instructor": "Instructeur",
+    "duration": "Dur\u00e9e",
+    "level": "Niveau",
+    "beginner": "D\u00e9butant",
+    "intermediate": "Interm\u00e9diaire",
+    "advanced": "Avanc\u00e9",
+    "startLearning": "Commencer \u00e0 apprendre",
+    "noCourses": "Aucun cours disponible",
+    "whyLearn": "Pourquoi apprendre avec Al-Azhar ?",
+    "reason1Title": "Savants certifi\u00e9s",
+    "reason1Desc": "Apprenez aupr\u00e8s de professeurs certifi\u00e9s d'Al-Azhar avec une expertise mondiale",
+    "reason2Title": "Certificats reconnus",
+    "reason2Desc": "Obtenez des certificats de fin de formation accr\u00e9dit\u00e9s par l'Universit\u00e9 Al-Azhar",
+    "reason3Title": "Apprentissage flexible",
+    "reason3Desc": "\u00c9tudiez \u00e0 tout moment, n'importe o\u00f9, \u00e0 votre propre rythme",
+    "reason4Title": "Contenu complet",
+    "reason4Desc": "Programmes complets couvrant diverses sciences islamiques et la langue arabe"
   }
 }

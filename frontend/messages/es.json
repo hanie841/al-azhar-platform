@@ -20,7 +20,8 @@
     "language": "Language",
     "programs": "Programas",
     "admissions": "Admisiones",
-    "media": "Centro de Medios"
+    "media": "Centro de Medios",
+    "elearning": "E-Learning"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -249,5 +250,43 @@
     "prayers": "Oraciones",
     "events": "Eventos",
     "documentaries": "Documentales"
+  },
+  "elearning": {
+    "title": "Portal de E-Learning",
+    "subtitle": "Aprende de los eruditos de Al-Azhar en cualquier parte del mundo - Cursos gratuitos en ciencias isl\u00e1micas y lengua \u00e1rabe",
+    "featuredCourses": "Cursos destacados",
+    "allCourses": "Todos los cursos",
+    "categories": "Categor\u00edas",
+    "all": "Todo",
+    "quran": "Sagrado Cor\u00e1n",
+    "hadith": "Hadiz",
+    "fiqh": "Jurisprudencia isl\u00e1mica",
+    "arabic": "Lengua \u00e1rabe",
+    "theology": "Teolog\u00eda",
+    "history": "Historia isl\u00e1mica",
+    "lessons": "Lecciones",
+    "hours": "Horas",
+    "students": "Estudiantes",
+    "certificate": "Certificado de finalizaci\u00f3n",
+    "free": "Gratis",
+    "enrollNow": "Inscribirse ahora",
+    "courseDetails": "Detalles del curso",
+    "instructor": "Instructor",
+    "duration": "Duraci\u00f3n",
+    "level": "Nivel",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado",
+    "startLearning": "Empezar a aprender",
+    "noCourses": "No hay cursos disponibles",
+    "whyLearn": "\u00bfPor qu\u00e9 aprender con Al-Azhar?",
+    "reason1Title": "Eruditos certificados",
+    "reason1Desc": "Aprende de profesores certificados de Al-Azhar con experiencia mundial",
+    "reason2Title": "Certificados reconocidos",
+    "reason2Desc": "Obt\u00e9n certificados de finalizaci\u00f3n acreditados por la Universidad Al-Azhar",
+    "reason3Title": "Aprendizaje flexible",
+    "reason3Desc": "Estudia en cualquier momento, en cualquier lugar, a tu propio ritmo",
+    "reason4Title": "Contenido completo",
+    "reason4Desc": "Planes de estudio completos que cubren diversas ciencias isl\u00e1micas y lengua \u00e1rabe"
   }
 }
