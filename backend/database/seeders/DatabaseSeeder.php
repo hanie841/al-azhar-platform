@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             TimelineSeeder::class,
             FacultySeeder::class,
             DepartmentSeeder::class,
+            AcademicProgramSeeder::class,
             PersonSeeder::class,
             OrganizationalUnitSeeder::class,
             NewsCategorySeeder::class,

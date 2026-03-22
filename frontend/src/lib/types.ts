@@ -85,6 +85,21 @@ export interface Department {
   description: string | null;
 }
 
+export interface AcademicProgram {
+  id: number;
+  slug: string;
+  name: string;
+  description: string | null;
+  degree_level: string;
+  duration: string | null;
+  credit_hours: number | null;
+  requirements: string | null;
+  career_prospects: string | null;
+  faculty: Faculty | null;
+  department: Department | null;
+  created_at: string;
+}
+
 export interface NewsArticle {
   id: number;
   slug: string;

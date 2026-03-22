@@ -36,7 +36,11 @@ class FacultyController extends Controller
             ->with(['departments' => function ($q) {
                 $q->where('is_published', true)->orderBy('name');
             }])
+            ->with(['academicPrograms' => function ($q) {
+                $q->where('is_published', true)->orderBy('order');
+            }])
             ->withCount('departments')
+            ->withCount('academicPrograms')
             ->firstOrFail();
 
         return new FacultyResource($faculty);

@@ -44,6 +44,8 @@ export function Footer({ locale }: FooterProps) {
             <h3 className="font-serif text-accent-400 font-bold mb-4">{t('faculties')}</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link href="/faculties" className="hover:text-white transition-colors">{t('faculties')}</Link></li>
+              <li><Link href="/programs" className="hover:text-white transition-colors">{t('programs')}</Link></li>
+              <li><Link href="/admissions" className="hover:text-white transition-colors">{t('admissions')}</Link></li>
               <li><Link href="/library" className="hover:text-white transition-colors">{t('library')}</Link></li>
               <li><Link href="/news" className="hover:text-white transition-colors">{t('news')}</Link></li>
               <li><Link href="/events" className="hover:text-white transition-colors">{t('events')}</Link></li>

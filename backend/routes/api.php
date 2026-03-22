@@ -34,6 +34,9 @@ Route::prefix('v1')->group(function () {
     Route::get('departments', [V1\DepartmentController::class, 'index']);
     Route::get('departments/{slug}', [V1\DepartmentController::class, 'show']);
 
+    Route::get('programs', [V1\AcademicProgramController::class, 'index']);
+    Route::get('programs/{slug}', [V1\AcademicProgramController::class, 'show']);
+
     Route::get('people', [V1\PersonController::class, 'index']);
     Route::get('people/{slug}', [V1\PersonController::class, 'show']);
 

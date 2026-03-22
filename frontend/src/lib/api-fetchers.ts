@@ -5,6 +5,7 @@ import type {
   RegisterData,
   LibraryItem,
   Faculty,
+  AcademicProgram,
   NewsArticle,
   TimelineEra,
   Person,
@@ -63,6 +64,27 @@ export async function fetchFaculties(locale: string): Promise<Faculty[]> {
 
 export async function fetchFaculty(locale: string, slug: string): Promise<Faculty> {
   const res = await api<{ data: Faculty }>(`/faculties/${slug}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+// --- Programs ---
+
+export async function fetchPrograms(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<AcademicProgram>> {
+  return api<PaginatedResponse<AcademicProgram>>('/programs', {
+    headers: localeHeaders(locale),
+    params: { per_page: 100, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchProgram(locale: string, slug: string): Promise<AcademicProgram> {
+  const res = await api<{ data: AcademicProgram }>(`/programs/${slug}`, {
     headers: localeHeaders(locale),
     next: { revalidate: 60 },
   } as any);

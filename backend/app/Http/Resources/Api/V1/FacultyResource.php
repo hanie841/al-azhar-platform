@@ -21,7 +21,9 @@ class FacultyResource extends JsonResource
             'featured_image' => $this->featured_image,
             'established_year' => $this->established_year,
             'departments_count' => $this->whenCounted('departments'),
+            'programs_count' => $this->academic_programs_count ?? $this->academicPrograms()->count(),
             'departments' => DepartmentResource::collection($this->whenLoaded('departments')),
+            'programs' => AcademicProgramResource::collection($this->whenLoaded('academicPrograms')),
             'created_at' => $this->created_at?->toISOString(),
         ];
     }

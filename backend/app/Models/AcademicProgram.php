@@ -5,34 +5,41 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Faculty extends Model
+class AcademicProgram extends Model
 {
-    use HasFactory, HasSlug, HasTranslations, Searchable, SoftDeletes;
+    use HasFactory, HasSlug, HasTranslations, SoftDeletes;
 
     protected $fillable = [
-        'name',
         'slug',
+        'name',
         'description',
-        'dean_message',
-        'featured_image',
-        'is_active',
+        'degree_level',
+        'duration',
+        'credit_hours',
+        'requirements',
+        'career_prospects',
+        'faculty_id',
+        'department_id',
+        'order',
+        'is_published',
     ];
 
     public array $translatable = [
         'name',
         'description',
-        'dean_message',
+        'requirements',
+        'career_prospects',
     ];
 
     protected function casts(): array
     {
         return [
-            'is_active' => 'boolean',
+            'is_published' => 'boolean',
+            'credit_hours' => 'integer',
         ];
     }
 
@@ -47,30 +54,13 @@ class Faculty extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function toSearchableArray(): array
+    public function faculty()
     {
-        $array = [];
-
-        foreach (['ar', 'en'] as $locale) {
-            $array["name_{$locale}"] = $this->getTranslation('name', $locale, false);
-            $array["description_{$locale}"] = $this->getTranslation('description', $locale, false);
-        }
-
-        return $array;
+        return $this->belongsTo(Faculty::class);
     }
 
-    public function departments()
+    public function department()
     {
-        return $this->hasMany(Department::class);
-    }
-
-    public function academicPrograms()
-    {
-        return $this->hasMany(AcademicProgram::class);
-    }
-
-    public function libraryItems()
-    {
-        return $this->hasMany(LibraryItem::class);
+        return $this->belongsTo(Department::class);
     }
 }
