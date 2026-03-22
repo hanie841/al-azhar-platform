@@ -102,12 +102,12 @@ class DepartmentResource extends Resource
                     ->getOptionLabelFromRecordUsing(fn (Faculty $record) => $record->getTranslation('name', 'ar', false) ?? $record->getTranslation('name', 'en', false)),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                \Filament\Actions\EditAction::make(),
+                \Filament\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                \Filament\Actions\BulkActionGroup::make([
+                    \Filament\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
