@@ -8,8 +8,10 @@ use App\Http\Resources\Api\V1\LibraryItemResource;
 use App\Models\Faculty;
 use App\Models\LibraryCollection;
 use App\Models\LibraryItem;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class LibraryController extends Controller
 {
@@ -108,6 +110,70 @@ class LibraryController extends Controller
             ->get();
 
         return LibraryCollectionResource::collection($collections);
+    }
+
+    public function upload(Request $request, string $slug): JsonResponse
+    {
+        $item = LibraryItem::where('slug', $slug)->firstOrFail();
+
+        $request->validate([
+            'file' => 'required|file',
+            'collection' => 'required|in:pdf,cover_image',
+        ]);
+
+        $collection = $request->input('collection');
+        $file = $request->file('file');
+
+        // Validate mime type based on collection
+        if ($collection === 'pdf') {
+            $request->validate(['file' => 'mimes:pdf|max:102400']); // 100MB max
+        } else {
+            $request->validate(['file' => 'image|mimes:jpeg,png,webp|max:10240']); // 10MB max
+        }
+
+        $item->addMedia($file)->toMediaCollection($collection);
+
+        return response()->json([
+            'message' => 'File uploaded successfully.',
+            'data' => new LibraryItemResource($item->fresh()),
+        ]);
+    }
+
+    public function download(string $slug): StreamedResponse
+    {
+        $item = LibraryItem::where('slug', $slug)->firstOrFail();
+
+        $media = $item->getFirstMedia('pdf');
+
+        if (! $media) {
+            abort(404, 'No PDF file available for this item.');
+        }
+
+        $item->increment('downloads_count');
+
+        return response()->streamDownload(function () use ($media) {
+            echo file_get_contents($media->getPath());
+        }, $media->file_name, [
+            'Content-Type' => 'application/pdf',
+        ]);
+    }
+
+    public function preview(string $slug): StreamedResponse
+    {
+        $item = LibraryItem::where('slug', $slug)->firstOrFail();
+
+        $media = $item->getFirstMedia('pdf');
+
+        if (! $media) {
+            abort(404, 'No PDF file available for this item.');
+        }
+
+        return response()->streamDownload(function () use ($media) {
+            echo file_get_contents($media->getPath());
+        }, $media->file_name, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="' . $media->file_name . '"',
+        ]);
     }
 
     public function collection(string $slug): LibraryCollectionResource

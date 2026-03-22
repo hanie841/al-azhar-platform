@@ -143,6 +143,26 @@
     "title": "World Records",
     "subtitle": "Historic achievements that make Al-Azhar unique among world universities"
   },
+  "auth": {
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "registerButton": "Create Account",
+    "registering": "Creating account...",
+    "noAccount": "Don't have an account?",
+    "registerLink": "Register",
+    "hasAccount": "Already have an account?",
+    "loginLink": "Login",
+    "loginFailed": "Invalid email or password",
+    "registerFailed": "Registration failed. Please try again."
+  },
   "contact": {
     "title": "Contact Us",
     "subtitle": "We welcome your inquiries and look forward to hearing from you",

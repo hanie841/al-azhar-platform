@@ -7,6 +7,7 @@ import { isRtl, type Locale } from '@/i18n/config';
 import { amiri, notoKufiArabic, inter, playfairDisplay } from '@/lib/fonts';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { AuthProvider } from '@/lib/auth-context';
 import '@/styles/globals.css';
 
 export async function generateMetadata({
@@ -83,9 +84,11 @@ export default async function LocaleLayout({
         className={`${inter.variable} ${playfairDisplay.variable} ${amiri.variable} ${notoKufiArabic.variable} antialiased bg-sand-50 text-gray-900`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header locale={locale as Locale} />
-          <main className="min-h-screen">{children}</main>
-          <Footer locale={locale as Locale} />
+          <AuthProvider>
+            <Header locale={locale as Locale} />
+            <main className="min-h-screen">{children}</main>
+            <Footer locale={locale as Locale} />
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

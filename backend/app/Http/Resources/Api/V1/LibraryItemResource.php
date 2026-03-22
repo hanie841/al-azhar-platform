@@ -38,6 +38,12 @@ class LibraryItemResource extends JsonResource
                 $this->file_path
             ),
             'cover_image' => $this->cover_image,
+            'cover_image_url' => $this->getFirstMediaUrl('cover_image') ?: null,
+            'has_pdf' => $this->hasMedia('pdf'),
+            'pdf_url' => $this->when(
+                $this->hasMedia('pdf'),
+                fn () => url("/api/v1/library/{$this->slug}/preview")
+            ),
             'manuscript_images' => $this->manuscript_images,
             'views_count' => $this->views_count ?? 0,
             'downloads_count' => $this->downloads_count ?? 0,

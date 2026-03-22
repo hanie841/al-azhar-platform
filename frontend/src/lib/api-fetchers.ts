@@ -1,5 +1,8 @@
 import { api } from './api';
 import type {
+  User,
+  AuthResponse,
+  RegisterData,
   LibraryItem,
   Faculty,
   NewsArticle,
@@ -9,6 +12,7 @@ import type {
   LibraryCollection,
   PaginatedResponse,
   ListResponse,
+  SearchResults,
 } from './types';
 
 // Helper: fetch with locale header
@@ -114,4 +118,76 @@ export async function fetchEvents(locale: string): Promise<Event[]> {
     next: { revalidate: 60 },
   } as any);
   return res.data;
+}
+
+// --- Search ---
+
+export async function searchAll(
+  locale: string,
+  query: string,
+  type?: string
+): Promise<SearchResults> {
+  const params: Record<string, string> = { q: query };
+  if (type) {
+    params.type = type;
+  }
+  return api<SearchResults>('/search', {
+    headers: localeHeaders(locale),
+    params,
+  });
+}
+
+// --- Auth ---
+
+const AUTH_BASE = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1') + '/auth';
+
+async function authFetch<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+  const response = await fetch(`${AUTH_BASE}${endpoint}`, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      ...options.headers,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    const error = new Error(data.message || `Error ${response.status}`) as Error & {
+      errors?: Record<string, string[]>;
+    };
+    error.errors = data.errors;
+    throw error;
+  }
+
+  return data as T;
+}
+
+export async function loginUser(email: string, password: string): Promise<AuthResponse> {
+  return authFetch<AuthResponse>('/login', {
+    method: 'POST',
+    body: JSON.stringify({ email, password }),
+  });
+}
+
+export async function registerUser(data: RegisterData): Promise<AuthResponse> {
+  return authFetch<AuthResponse>('/register', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}
+
+export async function logoutUser(token: string): Promise<void> {
+  await authFetch<{ message: string }>('/logout', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+  });
+}
+
+export async function fetchCurrentUser(token: string): Promise<User> {
+  const res = await authFetch<{ user: User }>('/me', {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return res.user;
 }

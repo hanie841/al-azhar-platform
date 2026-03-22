@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class LibraryItem extends Model
+class LibraryItem extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasTranslations, SoftDeletes;
+    use HasFactory, HasSlug, HasTranslations, InteractsWithMedia, Searchable, SoftDeletes;
 
     protected $fillable = [
         'title',
@@ -63,6 +66,22 @@ class LibraryItem extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function toSearchableArray(): array
+    {
+        $array = [];
+
+        foreach (['ar', 'en'] as $locale) {
+            $array["title_{$locale}"] = $this->getTranslation('title', $locale, false);
+            $array["description_{$locale}"] = $this->getTranslation('description', $locale, false);
+            $array["abstract_{$locale}"] = $this->getTranslation('abstract', $locale, false);
+        }
+
+        $array['authors'] = is_array($this->authors) ? implode(' ', $this->authors) : $this->authors;
+        $array['isbn'] = $this->isbn ?? '';
+
+        return $array;
+    }
+
     public function faculty()
     {
         return $this->belongsTo(Faculty::class);
@@ -83,5 +102,16 @@ class LibraryItem extends Model
     public function bookmarks()
     {
         return $this->hasMany(LibraryBookmark::class);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('pdf')
+            ->singleFile()
+            ->acceptsMimeTypes(['application/pdf']);
+
+        $this->addMediaCollection('cover_image')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp']);
     }
 }

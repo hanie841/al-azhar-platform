@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Faculty extends Model
 {
-    use HasFactory, HasSlug, HasTranslations, SoftDeletes;
+    use HasFactory, HasSlug, HasTranslations, Searchable, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -44,6 +45,18 @@ class Faculty extends Model
                     ?? '';
             })
             ->saveSlugsTo('slug');
+    }
+
+    public function toSearchableArray(): array
+    {
+        $array = [];
+
+        foreach (['ar', 'en'] as $locale) {
+            $array["name_{$locale}"] = $this->getTranslation('name', $locale, false);
+            $array["description_{$locale}"] = $this->getTranslation('description', $locale, false);
+        }
+
+        return $array;
     }
 
     public function departments()

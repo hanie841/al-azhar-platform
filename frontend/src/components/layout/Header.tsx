@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { type Locale, localeNames, locales } from '@/i18n/config';
 import { useRouter } from '@/i18n/navigation';
-import { Menu, X, Search, Globe } from 'lucide-react';
+import { Menu, X, Search, Globe, User, LogOut, ChevronDown } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
+import { GlobalSearch } from '@/components/search/GlobalSearch';
+import { useAuth } from '@/lib/auth-context';
 
 interface HeaderProps {
   locale: Locale;
@@ -16,8 +18,11 @@ export function Header({ locale }: HeaderProps) {
   const t = useTranslations('common');
   const pathname = usePathname();
   const router = useRouter();
+  const { user, isAuthenticated, isLoading: authLoading, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const navItems = [
     { href: '/' as const, label: t('home') },
@@ -34,6 +39,10 @@ export function Header({ locale }: HeaderProps) {
     router.replace(pathname, { locale: newLocale });
     setLangMenuOpen(false);
   }
+
+  const handleSearchClose = useCallback(() => {
+    setSearchOpen(false);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-sand-200 shadow-sm">
@@ -66,7 +75,11 @@ export function Header({ locale }: HeaderProps) {
           {/* Actions */}
           <div className="flex items-center gap-2">
             {/* Search */}
-            <button className="p-2 text-gray-600 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors">
+            <button
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="p-2 text-gray-600 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors"
+              aria-label={t('search')}
+            >
               <Search className="w-5 h-5" />
             </button>
 
@@ -96,6 +109,50 @@ export function Header({ locale }: HeaderProps) {
               )}
             </div>
 
+            {/* Auth */}
+            {!authLoading && (
+              <>
+                {isAuthenticated && user ? (
+                  <div className="relative hidden sm:block">
+                    <button
+                      onClick={() => setUserMenuOpen(!userMenuOpen)}
+                      className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors"
+                    >
+                      <User className="w-4 h-4" />
+                      <span className="max-w-[100px] truncate">{user.name}</span>
+                      <ChevronDown className="w-3.5 h-3.5" />
+                    </button>
+                    {userMenuOpen && (
+                      <div className="absolute end-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-sand-200 py-1 z-50">
+                        <div className="px-4 py-2 border-b border-sand-100">
+                          <p className="text-sm font-medium text-gray-900 truncate">{user.name}</p>
+                          <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                        </div>
+                        <button
+                          onClick={async () => {
+                            setUserMenuOpen(false);
+                            await logout();
+                          }}
+                          className="w-full flex items-center gap-2 text-start px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                        >
+                          <LogOut className="w-4 h-4" />
+                          {locale === 'ar' ? 'تسجيل الخروج' : 'Logout'}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white bg-primary-700 hover:bg-primary-800 rounded-lg transition-colors"
+                  >
+                    <User className="w-4 h-4" />
+                    {locale === 'ar' ? 'تسجيل الدخول' : 'Login'}
+                  </Link>
+                )}
+              </>
+            )}
+
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -105,6 +162,13 @@ export function Header({ locale }: HeaderProps) {
             </button>
           </div>
         </div>
+
+        {/* Search Overlay */}
+        {searchOpen && (
+          <div className="py-4 border-t border-sand-200">
+            <GlobalSearch onClose={handleSearchClose} />
+          </div>
+        )}
 
         {/* Mobile Nav */}
         {mobileMenuOpen && (
@@ -119,6 +183,36 @@ export function Header({ locale }: HeaderProps) {
                 {item.label}
               </Link>
             ))}
+            {!authLoading && (
+              <div className="mt-2 pt-2 border-t border-sand-200">
+                {isAuthenticated && user ? (
+                  <>
+                    <div className="px-3 py-2 text-sm text-gray-500">
+                      {user.name} ({user.email})
+                    </div>
+                    <button
+                      onClick={async () => {
+                        setMobileMenuOpen(false);
+                        await logout();
+                      }}
+                      className="flex items-center gap-2 w-full px-3 py-3 text-base font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                    >
+                      <LogOut className="w-5 h-5" />
+                      {locale === 'ar' ? 'تسجيل الخروج' : 'Logout'}
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="flex items-center gap-2 px-3 py-3 text-base font-medium text-primary-700 hover:bg-primary-50 rounded-lg transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <User className="w-5 h-5" />
+                    {locale === 'ar' ? 'تسجيل الدخول' : 'Login'}
+                  </Link>
+                )}
+              </div>
+            )}
           </nav>
         )}
       </div>

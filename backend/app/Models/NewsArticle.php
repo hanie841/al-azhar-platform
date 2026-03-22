@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class NewsArticle extends Model
 {
-    use HasFactory, HasSlug, HasTranslations, SoftDeletes;
+    use HasFactory, HasSlug, HasTranslations, Searchable, SoftDeletes;
 
     protected $fillable = [
         'title',
@@ -48,6 +49,19 @@ class NewsArticle extends Model
                     ?? '';
             })
             ->saveSlugsTo('slug');
+    }
+
+    public function toSearchableArray(): array
+    {
+        $array = [];
+
+        foreach (['ar', 'en'] as $locale) {
+            $array["title_{$locale}"] = $this->getTranslation('title', $locale, false);
+            $array["excerpt_{$locale}"] = $this->getTranslation('excerpt', $locale, false);
+            $array["content_{$locale}"] = $this->getTranslation('content', $locale, false);
+        }
+
+        return $array;
     }
 
     public function category()

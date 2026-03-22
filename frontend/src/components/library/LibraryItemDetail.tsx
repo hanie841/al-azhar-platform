@@ -1,10 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import { BookOpen, Download, Quote, Bookmark, Eye, Lock, Unlock, ArrowLeft, ArrowRight } from 'lucide-react';
 import type { LibraryItem } from '@/lib/types';
+import { PdfViewer } from './PdfViewer';
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
 
 const typeLabels: Record<string, { ar: string; en: string }> = {
   manuscript: { ar: 'مخطوطة', en: 'Manuscript' },
@@ -35,6 +39,15 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
   const isAr = locale === 'ar';
   const color = typeColors[item.type] ?? '#1a6b6b';
   const isFree = item.access_level === 'free' || item.access_level === 'open';
+  const [showPdfViewer, setShowPdfViewer] = useState(false);
+
+  const previewUrl = `${API_BASE_URL}/library/${item.slug}/preview`;
+  const downloadUrl = `${API_BASE_URL}/library/${item.slug}/download`;
+
+  const handleDownload = () => {
+    if (!item.has_pdf) return;
+    window.open(downloadUrl, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-sand-50">
@@ -57,15 +70,25 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
           <div className="flex flex-col lg:flex-row">
             {/* Cover */}
             <div className="lg:w-96 flex-shrink-0">
-              <div
-                className="h-64 lg:h-full min-h-[320px] flex items-center justify-center"
-                style={{ backgroundColor: color + '18' }}
-              >
-                <BookOpen
-                  className="w-24 h-24 opacity-25"
-                  style={{ color }}
-                />
-              </div>
+              {item.cover_image_url ? (
+                <div className="h-64 lg:h-full min-h-[320px] relative">
+                  <img
+                    src={item.cover_image_url}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div
+                  className="h-64 lg:h-full min-h-[320px] flex items-center justify-center"
+                  style={{ backgroundColor: color + '18' }}
+                >
+                  <BookOpen
+                    className="w-24 h-24 opacity-25"
+                    style={{ color }}
+                  />
+                </div>
+              )}
             </div>
 
             {/* Details */}
@@ -134,11 +157,27 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
 
                 {/* Action buttons */}
                 <div className="flex flex-wrap gap-3">
-                  <button className="flex items-center gap-2 bg-primary-700 hover:bg-primary-800 text-white font-bold px-6 py-3 rounded-xl transition-colors">
+                  <button
+                    onClick={() => item.has_pdf && setShowPdfViewer(true)}
+                    disabled={!item.has_pdf}
+                    className={`flex items-center gap-2 font-bold px-6 py-3 rounded-xl transition-colors ${
+                      item.has_pdf
+                        ? 'bg-primary-700 hover:bg-primary-800 text-white cursor-pointer'
+                        : 'bg-sand-200 text-sand-400 cursor-not-allowed'
+                    }`}
+                  >
                     <Eye className="w-4 h-4" />
                     {t('readOnline')}
                   </button>
-                  <button className="flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold px-6 py-3 rounded-xl transition-colors">
+                  <button
+                    onClick={handleDownload}
+                    disabled={!item.has_pdf}
+                    className={`flex items-center gap-2 font-bold px-6 py-3 rounded-xl transition-colors ${
+                      item.has_pdf
+                        ? 'bg-accent-500 hover:bg-accent-600 text-white cursor-pointer'
+                        : 'bg-sand-200 text-sand-400 cursor-not-allowed'
+                    }`}
+                  >
                     <Download className="w-4 h-4" />
                     {t('downloadPdf')}
                   </button>
@@ -155,6 +194,17 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
             </div>
           </div>
         </div>
+
+        {/* PDF Viewer */}
+        {showPdfViewer && item.has_pdf && (
+          <div className="mt-8">
+            <PdfViewer
+              url={previewUrl}
+              title={item.title}
+              onClose={() => setShowPdfViewer(false)}
+            />
+          </div>
+        )}
 
         {/* Related section placeholder */}
         <div className="mt-12">

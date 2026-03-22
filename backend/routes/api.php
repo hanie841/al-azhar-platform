@@ -8,6 +8,15 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::prefix('v1/auth')->group(function () {
+    Route::post('register', [V1\AuthController::class, 'register']);
+    Route::post('login', [V1\AuthController::class, 'login']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('logout', [V1\AuthController::class, 'logout']);
+        Route::get('me', [V1\AuthController::class, 'me']);
+    });
+});
+
 Route::prefix('v1')->group(function () {
     // Public routes
     Route::get('pages', [V1\PageController::class, 'index']);
@@ -35,6 +44,9 @@ Route::prefix('v1')->group(function () {
     Route::get('library/collections', [V1\LibraryController::class, 'collections']);
     Route::get('library/collections/{slug}', [V1\LibraryController::class, 'collection']);
     Route::get('library/{slug}', [V1\LibraryController::class, 'show']);
+    Route::get('library/{slug}/download', [V1\LibraryController::class, 'download']);
+    Route::get('library/{slug}/preview', [V1\LibraryController::class, 'preview']);
+    Route::post('library/{slug}/upload', [V1\LibraryController::class, 'upload']);
 
     Route::get('timeline', [V1\TimelineController::class, 'index']);
     Route::get('timeline/{slug}', [V1\TimelineController::class, 'show']);

@@ -143,6 +143,26 @@
     "title": "الأرقام القياسية العالمية",
     "subtitle": "إنجازات تاريخية تجعل الأزهر فريداً بين جامعات العالم"
   },
+  "auth": {
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "name": "الاسم الكامل",
+    "namePlaceholder": "أدخل اسمك الكامل",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+    "loginButton": "تسجيل الدخول",
+    "loggingIn": "جاري تسجيل الدخول...",
+    "registerButton": "إنشاء حساب",
+    "registering": "جاري إنشاء الحساب...",
+    "noAccount": "ليس لديك حساب؟",
+    "registerLink": "إنشاء حساب",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "loginLink": "تسجيل الدخول",
+    "loginFailed": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "registerFailed": "فشل إنشاء الحساب. يرجى المحاولة مرة أخرى."
+  },
   "contact": {
     "title": "اتصل بنا",
     "subtitle": "نسعد بتواصلكم معنا ونرحب باستفساراتكم",

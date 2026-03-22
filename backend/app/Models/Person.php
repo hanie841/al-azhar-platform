@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Person extends Model
 {
-    use HasFactory, HasSlug, HasTranslations, SoftDeletes;
+    use HasFactory, HasSlug, HasTranslations, Searchable, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -49,6 +50,19 @@ class Person extends Model
                     ?? '';
             })
             ->saveSlugsTo('slug');
+    }
+
+    public function toSearchableArray(): array
+    {
+        $array = [];
+
+        foreach (['ar', 'en'] as $locale) {
+            $array["name_{$locale}"] = $this->getTranslation('name', $locale, false);
+            $array["title_{$locale}"] = $this->getTranslation('title', $locale, false);
+            $array["bio_{$locale}"] = $this->getTranslation('bio', $locale, false);
+        }
+
+        return $array;
     }
 
     public function scopeHistorical(Builder $query): Builder

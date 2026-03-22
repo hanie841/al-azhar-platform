@@ -12,10 +12,10 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [
-        'http://localhost:3000',
-        'https://*.azhar.edu.eg',
-    ],
+    'allowed_origins' => array_filter(array_merge(
+        ['http://localhost:3000', 'https://*.azhar.edu.eg'],
+        explode(',', env('CORS_ALLOWED_ORIGINS', '')),
+    )),
 
     'allowed_origins_patterns' => [],
 

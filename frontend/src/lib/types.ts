@@ -1,3 +1,24 @@
+// Auth types
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: string;
+}
+
+export interface AuthResponse {
+  user: User;
+  token: string;
+}
+
+export interface RegisterData {
+  name: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+}
+
 // API response types matching Laravel backend
 
 export interface LibraryItem {
@@ -24,6 +45,9 @@ export interface LibraryItem {
   access_level: string;
   file_path: string | null;
   cover_image: string | null;
+  cover_image_url?: string | null;
+  has_pdf?: boolean;
+  pdf_url?: string | null;
   manuscript_images: string[] | null;
   views_count: number;
   downloads_count: number;
@@ -125,6 +149,16 @@ export interface Event {
   starts_at: string;
   ends_at: string | null;
   created_at: string;
+}
+
+export interface SearchResultGroup {
+  type: 'library' | 'news' | 'faculties' | 'people' | 'events';
+  label: string;
+  items: (LibraryItem | NewsArticle | Faculty | Person | Event)[];
+}
+
+export interface SearchResults {
+  data: SearchResultGroup[];
 }
 
 export interface PaginatedResponse<T> {

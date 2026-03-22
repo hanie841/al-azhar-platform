@@ -18,6 +18,41 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+    private const LIMIT = 5;
+
+    private const TYPE_MAP = [
+        'library' => [
+            'model' => LibraryItem::class,
+            'resource' => LibraryItemResource::class,
+            'label' => 'Library',
+            'scope' => 'published',
+        ],
+        'news' => [
+            'model' => NewsArticle::class,
+            'resource' => NewsArticleResource::class,
+            'label' => 'News',
+            'scope' => 'published',
+        ],
+        'faculties' => [
+            'model' => Faculty::class,
+            'resource' => FacultyResource::class,
+            'label' => 'Faculties',
+            'scope' => 'active',
+        ],
+        'people' => [
+            'model' => Person::class,
+            'resource' => PersonResource::class,
+            'label' => 'People',
+            'scope' => null,
+        ],
+        'events' => [
+            'model' => Event::class,
+            'resource' => EventResource::class,
+            'label' => 'Events',
+            'scope' => 'published',
+        ],
+    ];
+
     public function search(Request $request): JsonResponse
     {
         $q = $request->query('q', '');
@@ -29,78 +64,38 @@ class SearchController extends Controller
             ], 422);
         }
 
+        $type = $request->query('type');
+        $searchTypes = $type && isset(self::TYPE_MAP[$type])
+            ? [$type => self::TYPE_MAP[$type]]
+            : self::TYPE_MAP;
+
         $results = [];
 
-        // News articles
-        $news = NewsArticle::where('is_published', true)
-            ->where('title', 'LIKE', "%{$q}%")
-            ->orderBy('published_at', 'desc')
-            ->limit(5)
-            ->get();
-        if ($news->isNotEmpty()) {
-            $results[] = [
-                'type' => 'news',
-                'label' => 'News',
-                'items' => NewsArticleResource::collection($news),
-            ];
-        }
+        foreach ($searchTypes as $key => $config) {
+            $query = $config['model']::search($q);
 
-        // Library items
-        $libraryItems = LibraryItem::where('is_published', true)
-            ->where(function ($query) use ($q) {
-                $query->where('title', 'LIKE', "%{$q}%")
-                    ->orWhere('authors', 'LIKE', "%{$q}%");
-            })
-            ->orderBy('created_at', 'desc')
-            ->limit(5)
-            ->get();
-        if ($libraryItems->isNotEmpty()) {
-            $results[] = [
-                'type' => 'library',
-                'label' => 'Library',
-                'items' => LibraryItemResource::collection($libraryItems),
-            ];
-        }
+            $items = $query->get();
 
-        // People
-        $people = Person::where('name', 'LIKE', "%{$q}%")
-            ->orderBy('order', 'asc')
-            ->limit(5)
-            ->get();
-        if ($people->isNotEmpty()) {
-            $results[] = [
-                'type' => 'people',
-                'label' => 'People',
-                'items' => PersonResource::collection($people),
-            ];
-        }
+            // Apply visibility filters after Scout retrieval (Scout database
+            // driver returns Eloquent models, so we can filter in-memory).
+            $items = $items->filter(function ($item) use ($config) {
+                if ($config['scope'] === 'published') {
+                    return $item->is_published ?? true;
+                }
+                if ($config['scope'] === 'active') {
+                    return $item->is_active ?? true;
+                }
 
-        // Faculties
-        $faculties = Faculty::where('is_published', true)
-            ->where('name', 'LIKE', "%{$q}%")
-            ->orderBy('order', 'asc')
-            ->limit(5)
-            ->get();
-        if ($faculties->isNotEmpty()) {
-            $results[] = [
-                'type' => 'faculties',
-                'label' => 'Faculties',
-                'items' => FacultyResource::collection($faculties),
-            ];
-        }
+                return true;
+            })->take(self::LIMIT);
 
-        // Events
-        $events = Event::where('is_published', true)
-            ->where('title', 'LIKE', "%{$q}%")
-            ->orderBy('starts_at', 'desc')
-            ->limit(5)
-            ->get();
-        if ($events->isNotEmpty()) {
-            $results[] = [
-                'type' => 'events',
-                'label' => 'Events',
-                'items' => EventResource::collection($events),
-            ];
+            if ($items->isNotEmpty()) {
+                $results[] = [
+                    'type' => $key,
+                    'label' => $config['label'],
+                    'items' => $config['resource']::collection($items),
+                ];
+            }
         }
 
         return response()->json(['data' => $results]);
