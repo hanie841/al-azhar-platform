@@ -72,5 +72,108 @@
     "loginLink": "Login",
     "loginFailed": "Invalid email or password",
     "registerFailed": "Registration failed. Please try again."
+  },
+  "quickLinks": {
+    "title": "Explore Al-Azhar",
+    "subtitle": "Your gateway to a world of knowledge and Islamic heritage",
+    "historyTitle": "Through the Ages",
+    "historyDesc": "A journey through a thousand years of history, knowledge, and civilization",
+    "libraryTitle": "Digital Library",
+    "libraryDesc": "A digital treasure trove of thousands of manuscripts, books, and research",
+    "facultiesTitle": "Faculties & Institutes",
+    "facultiesDesc": "Over 107 faculties and institutes across various disciplines",
+    "newsTitle": "Latest News",
+    "newsDesc": "Stay updated with the latest university news and activities",
+    "globalTitle": "Al-Azhar Globally",
+    "globalDesc": "Students from over 100 countries around the world",
+    "servicesTitle": "University Services",
+    "servicesDesc": "Connect with us and benefit from our diverse university services"
+  },
+  "timeline": {
+    "title": "Al-Azhar Through the Ages",
+    "subtitle": "A journey through more than a thousand years of knowledge, learning, and civilization",
+    "fatimid": "The Fatimid Era",
+    "mamluk": "The Mamluk Era",
+    "ottoman": "The Ottoman Era",
+    "modern": "The Modern Era",
+    "events": "Historical Events",
+    "viewFullTimeline": "Explore the Full Timeline"
+  },
+  "faculties": {
+    "title": "Faculties & Institutes",
+    "subtitle": "Over 107 faculties and institutes covering various fields of knowledge",
+    "searchPlaceholder": "Search for a faculty or institute...",
+    "filterAll": "All",
+    "filterFaculty": "Faculties",
+    "filterInstitute": "Institutes",
+    "filterCenter": "Centers",
+    "filterHospital": "Hospitals"
+  },
+  "news": {
+    "title": "Latest News",
+    "subtitle": "Stay updated with the latest news and activities of Al-Azhar University",
+    "allCategories": "All Categories",
+    "noNews": "No news available"
+  },
+  "events": {
+    "title": "Events & Activities",
+    "subtitle": "Discover upcoming and past events at Al-Azhar University",
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "noUpcoming": "No upcoming events at this time"
+  },
+  "leadership": {
+    "title": "Al-Azhar University Leadership",
+    "subtitle": "Meet the leaders guiding the world's oldest educational institution",
+    "currentLeadership": "Current Leadership",
+    "vicePresidents": "Vice Presidents",
+    "historicalScholars": "Historical Scholars of Al-Azhar",
+    "historicalScholarsDesc": "Elite scholars who enriched human civilization"
+  },
+  "structure": {
+    "title": "Organizational Structure",
+    "subtitle": "Explore the organizational structure and administrative divisions of Al-Azhar University"
+  },
+  "global": {
+    "title": "Al-Azhar Globally",
+    "subtitle": "For over a thousand years, Al-Azhar has welcomed students from around the world, serving as a civilizational bridge connecting peoples and cultures",
+    "countriesStat": "Countries",
+    "intlStudentsStat": "International Students",
+    "partnersStat": "Partner Universities",
+    "languagesStat": "Teaching Languages",
+    "reachTitle": "Al-Azhar Around the World",
+    "reachDescription": "Al-Azhar's influence extends to every continent, welcoming students from over 100 countries and providing scholarships and diverse educational programs that serve Muslim communities worldwide.",
+    "africa": "Africa",
+    "asia": "Asia",
+    "europe": "Europe",
+    "americas": "Americas",
+    "middleEast": "Middle East",
+    "studentsFrom": "students from",
+    "countries": "countries",
+    "partnersTitle": "Partner Universities",
+    "heritageTitle": "Preserving Islamic Heritage",
+    "heritageDescription": "Al-Azhar plays a pivotal role in preserving and disseminating Islamic heritage globally through digitizing manuscripts, establishing specialized research centers, and training imams and scholars from around the world."
+  },
+  "records": {
+    "title": "World Records",
+    "subtitle": "Historic achievements that make Al-Azhar unique among world universities"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We welcome your inquiries and look forward to hearing from you",
+    "infoTitle": "Contact Information",
+    "addressLabel": "Address",
+    "addressValue": "Al-Azhar University, Al-Darasa, Cairo, Egypt",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "hoursLabel": "Working Hours",
+    "hoursValue": "Sunday - Thursday: 8:00 AM - 4:00 PM",
+    "formTitle": "Send a Message",
+    "nameLabel": "Full Name",
+    "emailFormLabel": "Email Address",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "sendButton": "Send",
+    "successMessage": "Your message has been sent successfully. We will get back to you soon."
   }
 }
