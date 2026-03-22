@@ -1,104 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp, User } from 'lucide-react';
-
-interface OrgNode {
-  id: string;
-  name_ar: string;
-  name_en: string;
-  type: string;
-  head_ar?: string;
-  head_en?: string;
-  children?: OrgNode[];
-}
-
-const orgData: OrgNode = {
-  id: 'grand-imam',
-  name_ar: 'شيخ الأزهر الشريف',
-  name_en: 'Grand Imam of Al-Azhar',
-  type: 'head',
-  head_ar: 'أ.د. أحمد الطيب',
-  head_en: 'Prof. Ahmad Al-Tayyeb',
-  children: [
-    {
-      id: 'president',
-      name_ar: 'رئيس الجامعة',
-      name_en: 'University President',
-      type: 'president',
-      head_ar: 'أ.د. محمد المحرصاوي',
-      head_en: 'Prof. Muhammad Al-Mahrasawi',
-      children: [
-        {
-          id: 'vp-academic',
-          name_ar: 'نائب رئيس الجامعة للشؤون الأكاديمية',
-          name_en: 'VP for Academic Affairs',
-          type: 'vp',
-          head_ar: 'أ.د. عبدالحليم منصور',
-          head_en: 'Prof. Abdel Halim Mansour',
-          children: [
-            { id: 'theology', name_ar: 'كلية أصول الدين', name_en: 'Faculty of Theology', type: 'faculty' },
-            { id: 'sharia', name_ar: 'كلية الشريعة والقانون', name_en: 'Faculty of Sharia & Law', type: 'faculty' },
-            { id: 'arabic', name_ar: 'كلية اللغة العربية', name_en: 'Faculty of Arabic', type: 'faculty' },
-            { id: 'medicine', name_ar: 'كلية الطب', name_en: 'Faculty of Medicine', type: 'faculty' },
-            { id: 'engineering', name_ar: 'كلية الهندسة', name_en: 'Faculty of Engineering', type: 'faculty' },
-          ],
-        },
-        {
-          id: 'vp-research',
-          name_ar: 'نائب رئيس الجامعة للدراسات العليا',
-          name_en: 'VP for Graduate Studies',
-          type: 'vp',
-          head_ar: 'أ.د. أحمد حسني',
-          head_en: 'Prof. Ahmad Hosny',
-          children: [
-            { id: 'research-center', name_ar: 'مركز البحث العلمي', name_en: 'Scientific Research Center', type: 'center' },
-            { id: 'library', name_ar: 'المكتبة المركزية', name_en: 'Central Library', type: 'center' },
-          ],
-        },
-        {
-          id: 'vp-community',
-          name_ar: 'نائب رئيس الجامعة لخدمة المجتمع',
-          name_en: 'VP for Community Service',
-          type: 'vp',
-          head_ar: 'أ.د. يوسف عامر',
-          head_en: 'Prof. Youssef Amer',
-          children: [
-            { id: 'hospital', name_ar: 'المستشفى الجامعي', name_en: 'University Hospital', type: 'hospital' },
-            { id: 'community', name_ar: 'مركز خدمة المجتمع', name_en: 'Community Service Center', type: 'center' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'research-academy',
-      name_ar: 'مجمع البحوث الإسلامية',
-      name_en: 'Islamic Research Academy',
-      type: 'institute',
-      children: [
-        { id: 'fatwa', name_ar: 'دار الإفتاء', name_en: 'Dar Al-Ifta', type: 'center' },
-        { id: 'daawa', name_ar: 'قطاع الدعوة', name_en: 'Da\'wa Sector', type: 'center' },
-      ],
-    },
-  ],
-};
+import { fetchOrgStructure } from '@/lib/api-fetchers';
+import type { OrgUnit } from '@/lib/types';
 
 const typeColors: Record<string, string> = {
+  grand_imam: 'bg-accent-500 text-white border-accent-600',
   head: 'bg-accent-500 text-white border-accent-600',
+  presidency: 'bg-primary-700 text-white border-primary-800',
   president: 'bg-primary-700 text-white border-primary-800',
   vp: 'bg-primary-500 text-white border-primary-600',
+  vice_president: 'bg-primary-500 text-white border-primary-600',
   faculty: 'bg-primary-100 text-primary-800 border-primary-200',
   institute: 'bg-accent-100 text-accent-800 border-accent-200',
   center: 'bg-sand-100 text-sand-800 border-sand-200',
   hospital: 'bg-rose-100 text-rose-700 border-rose-200',
+  council: 'bg-amber-100 text-amber-800 border-amber-200',
+  sector: 'bg-indigo-100 text-indigo-800 border-indigo-200',
+  media: 'bg-sky-100 text-sky-800 border-sky-200',
 };
 
-function OrgNodeComponent({ node, depth = 0 }: { node: OrgNode; depth?: number }) {
+function OrgNodeComponent({ node, depth = 0 }: { node: OrgUnit; depth?: number }) {
   const [expanded, setExpanded] = useState(depth < 2);
-  const locale = useLocale();
-  const isAr = locale === 'ar';
   const hasChildren = node.children && node.children.length > 0;
   const colors = typeColors[node.type] || typeColors.center;
 
@@ -113,12 +39,12 @@ function OrgNodeComponent({ node, depth = 0 }: { node: OrgNode; depth?: number }
         onClick={() => hasChildren && setExpanded(!expanded)}
       >
         <div className="font-serif text-sm font-bold mb-1">
-          {isAr ? node.name_ar : node.name_en}
+          {node.name}
         </div>
-        {node.head_ar && (
+        {node.head && (
           <div className="flex items-center justify-center gap-1 text-xs opacity-80">
             <User className="w-3 h-3" />
-            {isAr ? node.head_ar : node.head_en}
+            {node.head.name}
           </div>
         )}
         {hasChildren && (
@@ -136,7 +62,6 @@ function OrgNodeComponent({ node, depth = 0 }: { node: OrgNode; depth?: number }
         <>
           <div className="w-0.5 h-6 bg-sand-300" />
           <div className="flex flex-wrap justify-center gap-4 relative">
-            {/* Horizontal connector */}
             {node.children!.length > 1 && (
               <div className="absolute top-0 h-0.5 bg-sand-300" style={{ width: '80%', left: '10%' }} />
             )}
@@ -155,6 +80,40 @@ function OrgNodeComponent({ node, depth = 0 }: { node: OrgNode; depth?: number }
 
 export function OrgChart() {
   const t = useTranslations('structure');
+  const locale = useLocale();
+  const [units, setUnits] = useState<OrgUnit[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchOrgStructure(locale)
+      .then((data) => {
+        if (!cancelled) {
+          setUnits(data);
+          setLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, [locale]);
+
+  // Find the Grand Imam node (top of hierarchy) or build a virtual root
+  const rootNode: OrgUnit | null = units.length === 1
+    ? units[0]
+    : units.length > 1
+      ? {
+          id: 0,
+          slug: 'al-azhar',
+          type: 'head',
+          name: locale === 'ar' ? 'الأزهر الشريف' : 'Al-Azhar',
+          description: null,
+          order: 0,
+          children: units,
+          created_at: '',
+        }
+      : null;
 
   return (
     <div className="min-h-screen bg-sand-50">
@@ -183,9 +142,21 @@ export function OrgChart() {
 
       {/* Org chart */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-x-auto">
-        <div className="min-w-[600px] flex justify-center">
-          <OrgNodeComponent node={orgData} />
-        </div>
+        {loading ? (
+          <div className="text-center py-20">
+            <p className="text-sand-500 text-lg">...</p>
+          </div>
+        ) : rootNode ? (
+          <div className="min-w-[600px] flex justify-center">
+            <OrgNodeComponent node={rootNode} />
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <p className="text-sand-500 text-lg">
+              {locale === 'ar' ? 'لا توجد بيانات' : 'No data available'}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
