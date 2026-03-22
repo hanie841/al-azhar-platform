@@ -491,6 +491,163 @@ class OrganizationalUnitSeeder extends Seeder
             'order' => 13,
         ]);
 
+        // University Hospitals
+        OrganizationalUnit::create([
+            'slug' => 'al-hussein-university-hospital',
+            'type' => 'hospital',
+            'name' => [
+                'ar' => 'مستشفى الحسين الجامعي',
+                'en' => 'Al-Hussein University Hospital',
+                'fr' => 'Hôpital Universitaire Al-Hussein',
+                'es' => 'Hospital Universitario Al-Hussein',
+                'zh' => '侯赛因大学医院',
+                'ru' => 'Университетская больница Аль-Хусейн',
+                'ur' => 'الحسین یونیورسٹی ہسپتال',
+            ],
+            'description' => [
+                'ar' => 'مستشفى الحسين الجامعي هو أكبر مستشفيات جامعة الأزهر، يقع في حي الدراسة بالقاهرة. تأسس عام 1964 ويضم 1,200 سرير ويستقبل نحو 5,000 مريض يومياً. يعد المستشفى التعليمي الرئيسي لكليات الطب والصيدلة وطب الأسنان للبنين.',
+                'en' => 'Al-Hussein University Hospital is the largest of Al-Azhar\'s university hospitals, located in Al-Darasa, Cairo. Established in 1964, it has 1,200 beds and receives approximately 5,000 patients daily. It serves as the main teaching hospital for the boys\' faculties of Medicine, Pharmacy, and Dentistry.',
+                'fr' => 'L\'Hôpital Al-Hussein est le plus grand hôpital universitaire d\'Al-Azhar, situé à Al-Darasa, Le Caire. Fondé en 1964, il dispose de 1 200 lits et reçoit environ 5 000 patients par jour.',
+                'es' => 'El Hospital Al-Hussein es el mayor hospital universitario de Al-Azhar, ubicado en Al-Darasa, El Cairo. Fundado en 1964, cuenta con 1.200 camas y recibe aproximadamente 5.000 pacientes diarios.',
+                'zh' => '侯赛因大学医院是艾资哈尔最大的大学医院，位于开罗达拉萨区。建于1964年，拥有1200张病床，每天接诊约5000名患者。',
+                'ru' => 'Больница Аль-Хусейн — крупнейшая университетская больница Аль-Азхара, расположена в районе Ад-Дараса, Каир. Основана в 1964 году, имеет 1200 коек и принимает около 5000 пациентов ежедневно.',
+                'ur' => 'الحسین یونیورسٹی ہسپتال الازہر یونیورسٹی کا سب سے بڑا ہسپتال ہے جو قاہرہ کے الدراسہ علاقے میں واقع ہے۔ 1964 میں قائم ہوا، 1,200 بستروں پر مشتمل ہے اور روزانہ تقریباً 5,000 مریضوں کا علاج کرتا ہے۔',
+            ],
+            'parent_id' => $presidency->id,
+            'is_published' => true,
+            'order' => 5,
+        ]);
+
+        OrganizationalUnit::create([
+            'slug' => 'al-zahraa-university-hospital',
+            'type' => 'hospital',
+            'name' => [
+                'ar' => 'مستشفى الزهراء الجامعي',
+                'en' => 'Al-Zahraa University Hospital',
+                'fr' => 'Hôpital Universitaire Al-Zahraa',
+                'es' => 'Hospital Universitario Al-Zahraa',
+                'zh' => '扎赫拉大学医院',
+                'ru' => 'Университетская больница Аз-Захра',
+                'ur' => 'الزہراء یونیورسٹی ہسپتال',
+            ],
+            'description' => [
+                'ar' => 'مستشفى الزهراء الجامعي يقع في حي العباسية بالقاهرة، تأسس عام 1983 ويضم 811 سريراً ويستقبل نحو 500 مريض يومياً. يعد المستشفى التعليمي الرئيسي لكليات الطب والصيدلة وطب الأسنان للبنات.',
+                'en' => 'Al-Zahraa University Hospital is located in Al-Abbasiya, Cairo. Established in 1983, it has 811 beds and receives approximately 500 patients daily. It serves as the main teaching hospital for the girls\' faculties of Medicine, Pharmacy, and Dentistry.',
+                'fr' => 'L\'Hôpital Al-Zahraa est situé à Al-Abbasiya, Le Caire. Fondé en 1983, il dispose de 811 lits et reçoit environ 500 patients par jour. C\'est l\'hôpital d\'enseignement principal pour les facultés féminines.',
+                'es' => 'El Hospital Al-Zahraa está ubicado en Al-Abbasiya, El Cairo. Fundado en 1983, cuenta con 811 camas y recibe aproximadamente 500 pacientes diarios. Es el hospital docente principal para las facultades femeninas.',
+                'zh' => '扎赫拉大学医院位于开罗阿巴西亚区，建于1983年，拥有811张病床，每天接诊约500名患者。是女子医学院的主要教学医院。',
+                'ru' => 'Больница Аз-Захра расположена в районе Аль-Аббасия, Каир. Основана в 1983 году, имеет 811 коек и принимает около 500 пациентов ежедневно. Служит основной учебной больницей для женских медицинских факультетов.',
+                'ur' => 'الزہراء یونیورسٹی ہسپتال قاہرہ کے العباسیہ علاقے میں واقع ہے۔ 1983 میں قائم ہوا، 811 بستروں پر مشتمل ہے اور روزانہ تقریباً 500 مریضوں کا علاج کرتا ہے۔ بنات کی طبی فیکلٹیوں کا بنیادی تعلیمی ہسپتال ہے۔',
+            ],
+            'parent_id' => $presidency->id,
+            'is_published' => true,
+            'order' => 6,
+        ]);
+
+        OrganizationalUnit::create([
+            'slug' => 'al-azhar-specialized-hospital',
+            'type' => 'hospital',
+            'name' => [
+                'ar' => 'مستشفى جامعة الأزهر التخصصي',
+                'en' => 'Al-Azhar Specialized Hospital',
+                'fr' => 'Hôpital Spécialisé d\'Al-Azhar',
+                'es' => 'Hospital Especializado de Al-Azhar',
+                'zh' => '艾资哈尔专科医院',
+                'ru' => 'Специализированная больница Аль-Азхара',
+                'ur' => 'الازہر تخصصی ہسپتال',
+            ],
+            'description' => [
+                'ar' => 'مستشفى جامعة الأزهر التخصصي يقدم خدمات طبية متخصصة ومتقدمة في القاهرة، ويضم أقساماً للجراحة التخصصية والأمراض الباطنية والقلب والأعصاب.',
+                'en' => 'Al-Azhar Specialized Hospital provides advanced specialized medical services in Cairo, with departments for specialized surgery, internal medicine, cardiology, and neurology.',
+                'fr' => 'L\'Hôpital Spécialisé offre des services médicaux spécialisés avancés au Caire, avec des départements de chirurgie, médecine interne, cardiologie et neurologie.',
+                'es' => 'El Hospital Especializado ofrece servicios médicos especializados avanzados en El Cairo, con departamentos de cirugía, medicina interna, cardiología y neurología.',
+                'zh' => '艾资哈尔专科医院在开罗提供先进的专科医疗服务，设有专科外科、内科、心脏科和神经科。',
+                'ru' => 'Специализированная больница предоставляет передовые медицинские услуги в Каире с отделениями хирургии, терапии, кардиологии и неврологии.',
+                'ur' => 'الازہر تخصصی ہسپتال قاہرہ میں جدید خصوصی طبی خدمات فراہم کرتا ہے، جس میں سرجری، داخلی امراض، قلب اور اعصاب کے شعبے شامل ہیں۔',
+            ],
+            'parent_id' => $presidency->id,
+            'is_published' => true,
+            'order' => 7,
+        ]);
+
+        OrganizationalUnit::create([
+            'slug' => 'azhar-university-hospital-assiut',
+            'type' => 'hospital',
+            'name' => [
+                'ar' => 'مستشفى جامعة الأزهر بأسيوط',
+                'en' => 'Al-Azhar University Hospital, Assiut',
+                'fr' => 'Hôpital Universitaire d\'Al-Azhar à Assiout',
+                'es' => 'Hospital Universitario de Al-Azhar en Asiut',
+                'zh' => '艾资哈尔大学阿西尤特医院',
+                'ru' => 'Университетская больница Аль-Азхара в Асьюте',
+                'ur' => 'الازہر یونیورسٹی ہسپتال اسیوط',
+            ],
+            'description' => [
+                'ar' => 'مستشفى جامعة الأزهر بأسيوط يخدم منطقة صعيد مصر ويوفر الرعاية الصحية والتعليم الطبي لطلاب كليات الطب والصيدلة وطب الأسنان في فرع أسيوط.',
+                'en' => 'Al-Azhar University Hospital in Assiut serves Upper Egypt, providing healthcare and medical education for students of the Assiut branch faculties of Medicine, Pharmacy, and Dentistry.',
+                'fr' => 'L\'Hôpital d\'Al-Azhar à Assiout dessert la Haute-Égypte, offrant des soins de santé et une formation médicale aux étudiants des facultés d\'Assiout.',
+                'es' => 'El Hospital de Al-Azhar en Asiut sirve al Alto Egipto, proporcionando atención sanitaria y educación médica a los estudiantes de las facultades de Asiut.',
+                'zh' => '艾资哈尔大学阿西尤特医院服务于上埃及地区，为阿西尤特分校的医学、药学和牙科学生提供医疗服务和医学教育。',
+                'ru' => 'Больница в Асьюте обслуживает Верхний Египет, обеспечивая медицинскую помощь и подготовку студентов медицинских факультетов Асьютского филиала.',
+                'ur' => 'الازہر یونیورسٹی ہسپتال اسیوط بالائی مصر کی خدمت کرتا ہے اور اسیوط شاخ کی طبی فیکلٹیوں کے طلباء کو صحت کی دیکھ بھال اور طبی تعلیم فراہم کرتا ہے۔',
+            ],
+            'parent_id' => $presidency->id,
+            'is_published' => true,
+            'order' => 8,
+        ]);
+
+        OrganizationalUnit::create([
+            'slug' => 'azhar-university-hospital-damietta',
+            'type' => 'hospital',
+            'name' => [
+                'ar' => 'مستشفى جامعة الأزهر بدمياط الجديدة',
+                'en' => 'Al-Azhar University Hospital, Damietta',
+                'fr' => 'Hôpital Universitaire d\'Al-Azhar à Damiette',
+                'es' => 'Hospital Universitario de Al-Azhar en Damieta',
+                'zh' => '艾资哈尔大学达米埃塔医院',
+                'ru' => 'Университетская больница Аль-Азхара в Думьяте',
+                'ur' => 'الازہر یونیورسٹی ہسپتال دمیاط',
+            ],
+            'description' => [
+                'ar' => 'مستشفى جامعة الأزهر بدمياط الجديدة يخدم منطقة الدلتا ويوفر الرعاية الصحية لسكان المنطقة والتعليم الطبي لطلاب كلية الطب بدمياط.',
+                'en' => 'Al-Azhar University Hospital in New Damietta serves the Delta region, providing healthcare to local residents and medical education for Damietta Faculty of Medicine students.',
+                'fr' => 'L\'Hôpital d\'Al-Azhar à Nouvelle Damiette dessert la région du Delta, offrant des soins de santé et une formation médicale aux étudiants de la Faculté de Médecine de Damiette.',
+                'es' => 'El Hospital de Al-Azhar en Nueva Damieta sirve a la región del Delta, proporcionando atención sanitaria y educación médica a los estudiantes de la Facultad de Medicina de Damieta.',
+                'zh' => '艾资哈尔大学达米埃塔医院服务于三角洲地区，为当地居民提供医疗服务，为达米埃塔医学院学生提供医学教育。',
+                'ru' => 'Больница в Новой Думьяте обслуживает регион Дельты, обеспечивая медицинскую помощь местным жителям и подготовку студентов медицинского факультета.',
+                'ur' => 'الازہر یونیورسٹی ہسپتال نئی دمیاط ڈیلٹا خطے کی خدمت کرتا ہے اور مقامی باشندوں کو صحت کی دیکھ بھال اور دمیاط طب کی فیکلٹی کے طلباء کو طبی تعلیم فراہم کرتا ہے۔',
+            ],
+            'parent_id' => $presidency->id,
+            'is_published' => true,
+            'order' => 9,
+        ]);
+
+        OrganizationalUnit::create([
+            'slug' => 'sayed-galal-university-hospital',
+            'type' => 'hospital',
+            'name' => [
+                'ar' => 'مستشفى سيد جلال الجامعي',
+                'en' => 'Sayed Galal University Hospital',
+                'fr' => 'Hôpital Universitaire Sayed Galal',
+                'es' => 'Hospital Universitario Sayed Galal',
+                'zh' => '赛义德·贾拉勒大学医院',
+                'ru' => 'Университетская больница Сайед Галаль',
+                'ur' => 'سید جلال یونیورسٹی ہسپتال',
+            ],
+            'description' => [
+                'ar' => 'مستشفى سيد جلال الجامعي هو مستشفى عام تابع لجامعة الأزهر في القاهرة، يقدم خدمات طبية شاملة ويعد من المستشفيات التعليمية المهمة.',
+                'en' => 'Sayed Galal University Hospital is a general hospital affiliated with Al-Azhar University in Cairo, providing comprehensive medical services and serving as an important teaching hospital.',
+                'fr' => 'L\'Hôpital Sayed Galal est un hôpital général affilié à l\'Université d\'Al-Azhar au Caire, offrant des services médicaux complets et servant d\'hôpital d\'enseignement important.',
+                'es' => 'El Hospital Sayed Galal es un hospital general afiliado a la Universidad de Al-Azhar en El Cairo, que ofrece servicios médicos integrales y sirve como importante hospital docente.',
+                'zh' => '赛义德·贾拉勒大学医院是开罗艾资哈尔大学附属综合医院，提供全面的医疗服务，是重要的教学医院。',
+                'ru' => 'Больница Сайед Галаль — многопрофильная больница при Аль-Азхаре в Каире, оказывающая комплексные медицинские услуги и являющаяся важной учебной базой.',
+                'ur' => 'سید جلال یونیورسٹی ہسپتال قاہرہ میں الازہر یونیورسٹی سے وابستہ ایک جنرل ہسپتال ہے جو جامع طبی خدمات فراہم کرتا ہے اور ایک اہم تعلیمی ہسپتال ہے۔',
+            ],
+            'parent_id' => $presidency->id,
+            'is_published' => true,
+            'order' => 10,
+        ]);
+
         // Al-Azhar Magazine
         OrganizationalUnit::create([
             'slug' => 'al-azhar-magazine',
