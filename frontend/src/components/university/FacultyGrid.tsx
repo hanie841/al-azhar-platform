@@ -39,7 +39,7 @@ export function FacultyGrid() {
             departments_count: 0,
             created_at: u.created_at,
             type: 'hospital',
-          } as Faculty & { type: string });
+          });
         }
         if (u.children) {
           hospitals.push(...collectHospitals(u.children));
