@@ -110,6 +110,14 @@ export async function fetchPeople(locale: string): Promise<Person[]> {
   return res.data;
 }
 
+export async function fetchPerson(locale: string, slug: string): Promise<Person> {
+  const res = await api<{ data: Person }>(`/people/${slug}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 300 },
+  } as any);
+  return res.data;
+}
+
 // --- Events ---
 
 export async function fetchEvents(locale: string): Promise<Event[]> {
@@ -125,6 +133,14 @@ export async function fetchEvents(locale: string): Promise<Event[]> {
 
 export async function fetchOrgStructure(locale: string): Promise<OrgUnit[]> {
   const res = await api<ListResponse<OrgUnit>>('/org-structure', {
+    headers: localeHeaders(locale),
+    next: { revalidate: 300 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchOrgUnit(locale: string, slug: string): Promise<OrgUnit> {
+  const res = await api<{ data: OrgUnit }>(`/org-structure/${slug}`, {
     headers: localeHeaders(locale),
     next: { revalidate: 300 },
   } as any);

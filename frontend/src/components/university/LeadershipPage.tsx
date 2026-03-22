@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
+import { Link } from '@/i18n/navigation';
 import { fetchPeople } from '@/lib/api-fetchers';
 import type { Person } from '@/lib/types';
 import { mockPeople } from '@/lib/mock-data';
@@ -143,20 +144,21 @@ export function LeadershipPage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {historicalPeople.length > 0 ? (
                 historicalPeople.map((person, i) => (
-                  <motion.div
-                    key={person.id}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-white rounded-xl p-4 text-center border border-sand-100"
-                  >
-                    <div className="w-14 h-14 rounded-full bg-sand-200 flex items-center justify-center mx-auto mb-3">
-                      <span className="font-serif text-lg text-sand-600">{person.name.charAt(0)}</span>
-                    </div>
-                    <h3 className="font-serif text-sm font-bold text-primary-900 mb-1">{person.name}</h3>
-                    <p className="text-xs text-sand-400">{person.era || ''}</p>
-                  </motion.div>
+                  <Link key={person.id} href={`/people/${person.slug}`} className="block">
+                    <motion.div
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.1 }}
+                      viewport={{ once: true }}
+                      className="bg-white rounded-xl p-4 text-center border border-sand-100 hover:shadow-md transition-shadow"
+                    >
+                      <div className="w-14 h-14 rounded-full bg-sand-200 flex items-center justify-center mx-auto mb-3">
+                        <span className="font-serif text-lg text-sand-600">{person.name.charAt(0)}</span>
+                      </div>
+                      <h3 className="font-serif text-sm font-bold text-primary-900 mb-1">{person.name}</h3>
+                      <p className="text-xs text-sand-400">{person.era || ''}</p>
+                    </motion.div>
+                  </Link>
                 ))
               ) : (
                 // Fallback hardcoded historical scholars when API returns none

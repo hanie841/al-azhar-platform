@@ -59,9 +59,12 @@ export function FacultyCard({ faculty }: { faculty: Faculty }) {
 
   if (isHospital) {
     return (
-      <div className="block bg-white rounded-2xl p-6 border border-sand-100 hover:shadow-lg hover:border-rose-200 transition-all duration-300">
+      <Link
+        href={`/hospitals/${faculty.slug}` as any}
+        className="group block bg-white rounded-2xl p-6 border border-sand-100 hover:shadow-lg hover:border-rose-200 transition-all duration-300 hover:-translate-y-1"
+      >
         {content}
-      </div>
+      </Link>
     );
   }
 
