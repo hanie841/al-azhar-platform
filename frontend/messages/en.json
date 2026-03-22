@@ -223,5 +223,13 @@
     "springDates": "February - June",
     "tuitionDesc": "Fees vary by program and nationality. Contact the admissions office for details.",
     "scholarshipsDesc": "Al-Azhar offers scholarships to outstanding students from around the world."
+  },
+  "chat": {
+    "title": "Ask Al-Azhar",
+    "placeholder": "Type your question...",
+    "send": "Send",
+    "thinking": "Thinking...",
+    "welcome": "Hello! I'm Al-Azhar University's assistant. How can I help you?",
+    "suggestedTitle": "Suggested questions:"
   }
 }

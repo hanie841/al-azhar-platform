@@ -56,6 +56,8 @@ Route::prefix('v1')->group(function () {
 
     Route::get('search', [V1\SearchController::class, 'search']);
 
+    Route::post('chat', [V1\ChatController::class, 'ask']);
+
     Route::post('contact', [V1\ContactController::class, 'store']);
 
     // Authenticated routes

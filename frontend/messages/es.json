@@ -218,5 +218,13 @@
     "springDates": "Febrero - Junio",
     "tuitionDesc": "Las tasas var\u00edan seg\u00fan el programa y la nacionalidad. Contacta con la oficina de admisiones para m\u00e1s detalles.",
     "scholarshipsDesc": "Al-Azhar ofrece becas a estudiantes destacados de todo el mundo."
+  },
+  "chat": {
+    "title": "Pregunte a Al-Azhar",
+    "placeholder": "Escriba su pregunta...",
+    "send": "Enviar",
+    "thinking": "Pensando...",
+    "welcome": "\u00a1Hola! Soy el asistente de la Universidad Al-Azhar. \u00bfC\u00f3mo puedo ayudarle?",
+    "suggestedTitle": "Preguntas sugeridas:"
   }
 }

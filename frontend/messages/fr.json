@@ -218,5 +218,13 @@
     "springDates": "F\u00e9vrier - Juin",
     "tuitionDesc": "Les frais varient selon le programme et la nationalit\u00e9. Contactez le bureau des admissions pour plus de d\u00e9tails.",
     "scholarshipsDesc": "Al-Azhar offre des bourses aux \u00e9tudiants exceptionnels du monde entier."
+  },
+  "chat": {
+    "title": "Demandez \u00e0 Al-Azhar",
+    "placeholder": "Tapez votre question...",
+    "send": "Envoyer",
+    "thinking": "R\u00e9flexion en cours...",
+    "welcome": "Bonjour ! Je suis l'assistant de l'Universit\u00e9 Al-Azhar. Comment puis-je vous aider ?",
+    "suggestedTitle": "Questions sugg\u00e9r\u00e9es :"
   }
 }
