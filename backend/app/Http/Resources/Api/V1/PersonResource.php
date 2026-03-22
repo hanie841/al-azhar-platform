@@ -9,7 +9,7 @@ class PersonResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
-        $locale = $request->query('lang', $request->header('Accept-Language', 'ar'));
+        $locale = app()->getLocale();
 
         return [
             'id' => $this->id,
