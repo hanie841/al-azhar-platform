@@ -3,8 +3,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import { fetchFaculties } from '@/lib/api-fetchers';
-import type { Faculty } from '@/lib/types';
+import { fetchFaculties, fetchOrgStructure } from '@/lib/api-fetchers';
+import type { Faculty, OrgUnit } from '@/lib/types';
 import { mockFaculties } from '@/lib/mock-data';
 import { FacultyCard } from './FacultyCard';
 import { SearchBar } from '@/components/library/SearchBar';
@@ -23,16 +23,44 @@ export function FacultyGrid() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetchFaculties(locale)
-      .then((data) => {
+
+    // Collect hospitals from org-structure tree
+    function collectHospitals(units: OrgUnit[]): Faculty[] {
+      const hospitals: Faculty[] = [];
+      for (const u of units) {
+        if (u.type === 'hospital') {
+          hospitals.push({
+            id: u.id + 10000, // offset to avoid ID collision
+            slug: u.slug,
+            name: u.name,
+            description: u.description,
+            dean_message: null,
+            featured_image: null,
+            departments_count: 0,
+            created_at: u.created_at,
+            type: 'hospital',
+          } as Faculty & { type: string });
+        }
+        if (u.children) {
+          hospitals.push(...collectHospitals(u.children));
+        }
+      }
+      return hospitals;
+    }
+
+    Promise.all([
+      fetchFaculties(locale),
+      fetchOrgStructure(locale).catch(() => []),
+    ])
+      .then(([facultyData, orgData]) => {
         if (!cancelled) {
-          setFaculties(data);
+          const hospitals = collectHospitals(orgData);
+          setFaculties([...facultyData, ...hospitals]);
           setLoading(false);
         }
       })
       .catch(() => {
         if (!cancelled) {
-          // Fallback to mock data mapped to API shape
           const mapped: Faculty[] = mockFaculties.map((m) => ({
             id: m.id,
             slug: m.slug,

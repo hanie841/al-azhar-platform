@@ -161,6 +161,18 @@ export interface SearchResults {
   data: SearchResultGroup[];
 }
 
+export interface OrgUnit {
+  id: number;
+  slug: string;
+  type: string;
+  name: string;
+  description: string | null;
+  order: number;
+  head?: Person | null;
+  children?: OrgUnit[];
+  created_at: string;
+}
+
 export interface PaginatedResponse<T> {
   data: T[];
   links?: {

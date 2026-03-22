@@ -10,6 +10,7 @@ import type {
   Person,
   Event,
   LibraryCollection,
+  OrgUnit,
   PaginatedResponse,
   ListResponse,
   SearchResults,
@@ -116,6 +117,16 @@ export async function fetchEvents(locale: string): Promise<Event[]> {
     headers: localeHeaders(locale),
     params: { per_page: 50 },
     next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+// --- Org Structure ---
+
+export async function fetchOrgStructure(locale: string): Promise<OrgUnit[]> {
+  const res = await api<ListResponse<OrgUnit>>('/org-structure', {
+    headers: localeHeaders(locale),
+    next: { revalidate: 300 },
   } as any);
   return res.data;
 }
