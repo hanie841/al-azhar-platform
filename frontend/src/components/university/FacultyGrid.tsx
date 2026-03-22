@@ -98,7 +98,7 @@ export function FacultyGrid() {
   }, [search, selectedType, faculties]);
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -140,7 +140,7 @@ export function FacultyGrid() {
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                 selectedType === type
                   ? 'bg-primary-700 text-white'
-                  : 'bg-white text-sand-600 border border-sand-200 hover:border-primary-300'
+                  : 'bg-white dark:bg-navy-800 text-sand-600 dark:text-sand-400 border border-sand-200 dark:border-navy-700 hover:border-primary-300'
               }`}
             >
               {typeLabels[type]}
@@ -151,7 +151,7 @@ export function FacultyGrid() {
         {/* Grid */}
         {loading ? (
           <div className="text-center py-20">
-            <p className="text-sand-500 text-lg">...</p>
+            <p className="text-sand-500 dark:text-sand-400 text-lg">...</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -170,7 +170,7 @@ export function FacultyGrid() {
 
         {!loading && filtered.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-sand-500 text-lg">{isAr ? 'لم يتم العثور على نتائج' : 'No results found'}</p>
+            <p className="text-sand-500 dark:text-sand-400 text-lg">{isAr ? 'لم يتم العثور على نتائج' : 'No results found'}</p>
           </div>
         )}
       </div>

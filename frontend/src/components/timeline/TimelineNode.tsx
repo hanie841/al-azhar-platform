@@ -24,16 +24,16 @@ export function TimelineNode({ event, index, color }: TimelineNodeProps) {
           className="w-5/12"
         >
           <div
-            className="bg-white rounded-2xl p-6 shadow-sm border border-sand-100 hover:shadow-md transition-shadow"
+            className="bg-white dark:bg-navy-800 rounded-2xl p-6 shadow-sm dark:shadow-navy-900/50 border border-sand-100 dark:border-navy-800 hover:shadow-md transition-shadow"
             style={{ borderTopColor: color, borderTopWidth: '3px' }}
           >
             <div className="text-sm font-bold mb-1" style={{ color }}>
               {event.year}
             </div>
-            <h3 className="font-serif text-lg font-bold text-primary-900 mb-2">
+            <h3 className="font-serif text-lg font-bold text-primary-900 dark:text-primary-200 mb-2">
               {event.title}
             </h3>
-            <p className="text-sm text-sand-600 leading-relaxed">
+            <p className="text-sm text-sand-600 dark:text-sand-400 leading-relaxed">
               {event.description}
             </p>
           </div>
@@ -63,19 +63,19 @@ export function TimelineNode({ event, index, color }: TimelineNodeProps) {
             className="w-4 h-4 rounded-full border-4 border-white shadow-md z-10"
             style={{ backgroundColor: color }}
           />
-          <div className="w-0.5 flex-1 bg-sand-200 mt-1" />
+          <div className="w-0.5 flex-1 bg-sand-200 dark:bg-navy-700 mt-1" />
         </div>
         <div
-          className="flex-1 bg-white rounded-2xl p-5 shadow-sm border border-sand-100"
+          className="flex-1 bg-white dark:bg-navy-800 rounded-2xl p-5 shadow-sm dark:shadow-navy-900/50 border border-sand-100 dark:border-navy-800"
           style={{ borderTopColor: color, borderTopWidth: '3px' }}
         >
           <div className="text-sm font-bold mb-1" style={{ color }}>
             {event.year}
           </div>
-          <h3 className="font-serif text-base font-bold text-primary-900 mb-2">
+          <h3 className="font-serif text-base font-bold text-primary-900 dark:text-primary-200 mb-2">
             {event.title}
           </h3>
-          <p className="text-sm text-sand-600 leading-relaxed">
+          <p className="text-sm text-sand-600 dark:text-sand-400 leading-relaxed">
             {event.description}
           </p>
         </div>

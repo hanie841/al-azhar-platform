@@ -66,7 +66,7 @@ export function NewsPage() {
   const rest = filtered.filter((n) => n.id !== featured?.id);
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -100,7 +100,7 @@ export function NewsPage() {
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                 selectedCategory === cat
                   ? 'bg-primary-700 text-white'
-                  : 'bg-white text-sand-600 border border-sand-200 hover:border-primary-300'
+                  : 'bg-white dark:bg-navy-800 text-sand-600 dark:text-sand-400 border border-sand-200 dark:border-navy-700 hover:border-primary-300'
               }`}
             >
               {cat === 'all' ? t('allCategories') : cat}
@@ -110,7 +110,7 @@ export function NewsPage() {
 
         {loading ? (
           <div className="text-center py-20">
-            <p className="text-sand-500 text-lg">...</p>
+            <p className="text-sand-500 dark:text-sand-400 text-lg">...</p>
           </div>
         ) : (
           <>
@@ -142,7 +142,7 @@ export function NewsPage() {
 
             {filtered.length === 0 && (
               <div className="text-center py-20">
-                <p className="text-sand-500 text-lg">{t('noNews')}</p>
+                <p className="text-sand-500 dark:text-sand-400 text-lg">{t('noNews')}</p>
               </div>
             )}
           </>

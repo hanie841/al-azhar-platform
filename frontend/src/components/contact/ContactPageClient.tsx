@@ -45,7 +45,7 @@ export function ContactPageClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -77,7 +77,7 @@ export function ContactPageClient() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="font-serif text-2xl font-bold text-primary-900 mb-8">
+            <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-8">
               {t('infoTitle')}
             </h2>
             <div className="space-y-6 mb-10">
@@ -85,12 +85,12 @@ export function ContactPageClient() {
                 const Icon = item.icon;
                 return (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-primary-700" />
+                    <div className="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-primary-700 dark:text-primary-300" />
                     </div>
                     <div>
-                      <div className="text-sm text-sand-500 mb-1">{item.label}</div>
-                      <div className="font-medium text-primary-900">{item.value}</div>
+                      <div className="text-sm text-sand-500 dark:text-sand-400 mb-1">{item.label}</div>
+                      <div className="font-medium text-primary-900 dark:text-primary-200">{item.value}</div>
                     </div>
                   </div>
                 );
@@ -98,8 +98,8 @@ export function ContactPageClient() {
             </div>
 
             {/* Map placeholder */}
-            <div className="bg-sand-200 rounded-2xl h-64 flex items-center justify-center">
-              <div className="text-center text-sand-500">
+            <div className="bg-sand-200 dark:bg-navy-800 rounded-2xl h-64 flex items-center justify-center">
+              <div className="text-center text-sand-500 dark:text-sand-400">
                 <MapPin className="w-10 h-10 mx-auto mb-2 opacity-50" />
                 <p className="text-sm">{isAr ? 'خريطة الموقع' : 'Map Location'}</p>
                 <p className="text-xs mt-1">{isAr ? 'القاهرة، مصر' : 'Cairo, Egypt'}</p>
@@ -113,48 +113,48 @@ export function ContactPageClient() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h2 className="font-serif text-2xl font-bold text-primary-900 mb-8">
+            <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-8">
               {t('formTitle')}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-sand-700 mb-1">{t('nameLabel')}</label>
+                <label className="block text-sm font-medium text-sand-700 dark:text-sand-200 mb-1">{t('nameLabel')}</label>
                 <input
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
-                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-sand-700 mb-1">{t('emailFormLabel')}</label>
+                <label className="block text-sm font-medium text-sand-700 dark:text-sand-200 mb-1">{t('emailFormLabel')}</label>
                 <input
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required
-                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-sand-700 mb-1">{t('subjectLabel')}</label>
+                <label className="block text-sm font-medium text-sand-700 dark:text-sand-200 mb-1">{t('subjectLabel')}</label>
                 <input
                   type="text"
                   value={form.subject}
                   onChange={(e) => setForm({ ...form, subject: e.target.value })}
                   required
-                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-sand-700 mb-1">{t('messageLabel')}</label>
+                <label className="block text-sm font-medium text-sand-700 dark:text-sand-200 mb-1">{t('messageLabel')}</label>
                 <textarea
                   rows={5}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   required
-                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white border-2 border-sand-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all resize-none dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
                 />
               </div>
 

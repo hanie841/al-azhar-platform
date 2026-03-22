@@ -4,8 +4,10 @@ interface LogoProps {
   variant?: 'light' | 'dark';
 }
 
-export function Logo({ className = '', size = 40, variant = 'light' }: LogoProps) {
-  const primary = variant === 'light' ? '#0d4f4f' : '#ffffff';
+export function Logo({ className = '', size = 40, variant }: LogoProps) {
+  // When no variant specified, use currentColor so it adapts to dark mode via CSS
+  const useCurrentColor = !variant;
+  const primary = useCurrentColor ? 'currentColor' : variant === 'light' ? '#0d4f4f' : '#ffffff';
   const accent = '#c9a84c';
 
   return (
@@ -15,7 +17,7 @@ export function Logo({ className = '', size = 40, variant = 'light' }: LogoProps
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`${useCurrentColor ? 'text-primary-700 dark:text-sand-100' : ''} ${className}`}
       aria-label="Al-Azhar University logo"
     >
       {/* Outer circle */}

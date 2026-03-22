@@ -51,7 +51,7 @@ export function RegisterForm() {
       )}
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-sand-200 mb-1">
           {t('name')}
         </label>
         <input
@@ -61,7 +61,7 @@ export function RegisterForm() {
           autoComplete="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm dark:shadow-navy-900/50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
           placeholder={t('namePlaceholder')}
         />
         {fieldErrors.name && (
@@ -70,7 +70,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-sand-200 mb-1">
           {t('email')}
         </label>
         <input
@@ -80,7 +80,7 @@ export function RegisterForm() {
           autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm dark:shadow-navy-900/50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
           placeholder={t('emailPlaceholder')}
         />
         {fieldErrors.email && (
@@ -89,7 +89,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-sand-200 mb-1">
           {t('password')}
         </label>
         <input
@@ -99,7 +99,7 @@ export function RegisterForm() {
           autoComplete="new-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm dark:shadow-navy-900/50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
           placeholder={t('passwordPlaceholder')}
         />
         {fieldErrors.password && (
@@ -108,7 +108,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="password_confirmation" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="password_confirmation" className="block text-sm font-medium text-gray-700 dark:text-sand-200 mb-1">
           {t('confirmPassword')}
         </label>
         <input
@@ -118,7 +118,7 @@ export function RegisterForm() {
           autoComplete="new-password"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
-          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm dark:shadow-navy-900/50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
           placeholder={t('confirmPasswordPlaceholder')}
         />
       </div>
@@ -131,9 +131,9 @@ export function RegisterForm() {
         {loading ? t('registering') : t('registerButton')}
       </button>
 
-      <p className="text-center text-sm text-gray-600">
+      <p className="text-center text-sm text-gray-600 dark:text-sand-300">
         {t('hasAccount')}{' '}
-        <Link href="/login" className="font-medium text-primary-700 hover:text-primary-800">
+        <Link href="/login" className="font-medium text-primary-700 dark:text-primary-300 hover:text-primary-800">
           {t('loginLink')}
         </Link>
       </p>

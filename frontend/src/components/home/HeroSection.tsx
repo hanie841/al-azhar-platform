@@ -54,7 +54,7 @@ export function HeroSection() {
         <svg viewBox="0 0 1440 120" className="w-full" preserveAspectRatio="none">
           <path
             d="M0,120 L0,60 Q720,0 1440,60 L1440,120 Z"
-            fill="var(--color-sand-50)"
+            className="fill-sand-50 dark:fill-navy-900"
           />
         </svg>
       </div>

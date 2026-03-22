@@ -12,10 +12,10 @@ export function NewsArticleDetail({ article }: { article: NewsArticle }) {
   const dateStr = article.published_at ?? article.created_at;
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero image */}
       <div className="bg-gradient-to-br from-primary-200 to-primary-300 h-64 lg:h-96 flex items-center justify-center">
-        <span className="text-8xl opacity-15 font-serif text-primary-700">
+        <span className="text-8xl opacity-15 font-serif text-primary-700 dark:text-primary-300">
           {article.title.charAt(0)}
         </span>
       </div>
@@ -25,11 +25,11 @@ export function NewsArticleDetail({ article }: { article: NewsArticle }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white rounded-2xl shadow-lg p-6 sm:p-10"
+          className="bg-white dark:bg-navy-800 rounded-2xl shadow-lg dark:shadow-navy-900/50 p-6 sm:p-10"
         >
           <Link
             href="/news"
-            className="inline-flex items-center gap-2 text-sand-500 hover:text-primary-700 transition-colors mb-6 text-sm"
+            className="inline-flex items-center gap-2 text-sand-500 dark:text-sand-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors mb-6 text-sm"
           >
             {isAr ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
             {isAr ? 'العودة للأخبار' : 'Back to News'}
@@ -39,7 +39,7 @@ export function NewsArticleDetail({ article }: { article: NewsArticle }) {
             <span className="text-xs font-bold px-3 py-1 rounded-full bg-accent-100 text-accent-700">
               {article.category?.name ?? ''}
             </span>
-            <span className="flex items-center gap-1 text-sm text-sand-500">
+            <span className="flex items-center gap-1 text-sm text-sand-500 dark:text-sand-400">
               <Calendar className="w-4 h-4" />
               {new Date(dateStr).toLocaleDateString(isAr ? 'ar-EG' : 'en-US', {
                 year: 'numeric',
@@ -49,11 +49,11 @@ export function NewsArticleDetail({ article }: { article: NewsArticle }) {
             </span>
           </div>
 
-          <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-900 mb-6 leading-tight">
+          <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-900 dark:text-primary-200 mb-6 leading-tight">
             {article.title}
           </h1>
 
-          <div className="prose prose-lg max-w-none text-sand-700 leading-relaxed mb-8">
+          <div className="prose prose-lg max-w-none text-sand-700 dark:text-sand-200 leading-relaxed mb-8">
             {article.excerpt && (
               <p className="text-lg font-medium text-sand-800 mb-4">
                 {article.excerpt}
@@ -74,9 +74,9 @@ export function NewsArticleDetail({ article }: { article: NewsArticle }) {
           </div>
 
           {/* Share buttons */}
-          <div className="border-t border-sand-200 pt-6">
+          <div className="border-t border-sand-200 dark:border-navy-700 pt-6">
             <div className="flex items-center gap-4">
-              <span className="text-sm text-sand-500 flex items-center gap-1">
+              <span className="text-sm text-sand-500 dark:text-sand-400 flex items-center gap-1">
                 <Share2 className="w-4 h-4" />
                 {isAr ? 'مشاركة' : 'Share'}
               </span>

@@ -8,6 +8,7 @@ import { amiri, notoKufiArabic, inter, playfairDisplay } from '@/lib/fonts';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { AuthProvider } from '@/lib/auth-context';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import '@/styles/globals.css';
 
 export async function generateMetadata({
@@ -79,17 +80,19 @@ export default async function LocaleLayout({
   const rtl = isRtl(locale as Locale);
 
   return (
-    <html lang={locale} dir={rtl ? 'rtl' : 'ltr'}>
+    <html lang={locale} dir={rtl ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfairDisplay.variable} ${amiri.variable} ${notoKufiArabic.variable} antialiased bg-sand-50 text-gray-900`}
+        className={`${inter.variable} ${playfairDisplay.variable} ${amiri.variable} ${notoKufiArabic.variable} antialiased bg-sand-50 text-gray-900 dark:bg-navy-900 dark:text-sand-100`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
-            <Header locale={locale as Locale} />
-            <main className="min-h-screen">{children}</main>
-            <Footer locale={locale as Locale} />
-          </AuthProvider>
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            <AuthProvider>
+              <Header locale={locale as Locale} />
+              <main className="min-h-screen">{children}</main>
+              <Footer locale={locale as Locale} />
+            </AuthProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

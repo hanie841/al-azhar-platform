@@ -25,17 +25,17 @@ export function EraSection({ era }: { era: EraWithColor }) {
         >
           {era.start_year} - {era.end_year}
         </div>
-        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-900 mb-4">
+        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-900 dark:text-primary-200 mb-4">
           {era.name}
         </h2>
-        <p className="text-sand-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sand-600 dark:text-sand-400 max-w-2xl mx-auto leading-relaxed">
           {era.description}
         </p>
       </motion.div>
 
       {/* Timeline line (desktop) */}
       <div className="relative">
-        <div className="hidden lg:block absolute start-1/2 top-0 bottom-0 w-0.5 bg-sand-200 -translate-x-1/2" />
+        <div className="hidden lg:block absolute start-1/2 top-0 bottom-0 w-0.5 bg-sand-200 dark:bg-navy-700 -translate-x-1/2" />
 
         {era.events.map((event, i) => (
           <TimelineNode key={event.id} event={event} index={i} color={color} />

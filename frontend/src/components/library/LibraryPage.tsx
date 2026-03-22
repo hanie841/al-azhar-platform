@@ -93,7 +93,7 @@ export function LibraryPage() {
   const paginated = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -110,7 +110,7 @@ export function LibraryPage() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto"
+            className="text-gray-400 dark:text-sand-500 text-lg mb-8 max-w-2xl mx-auto"
           >
             {t('subtitle')}
           </motion.p>
@@ -156,14 +156,14 @@ export function LibraryPage() {
           {/* Results */}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-6">
-              <p className="text-sm text-sand-600">
+              <p className="text-sm text-sand-600 dark:text-sand-400">
                 {filtered.length} {t('resultsCount')}
               </p>
             </div>
 
             {loading ? (
               <div className="text-center py-20">
-                <p className="text-sand-500 text-lg">...</p>
+                <p className="text-sand-500 dark:text-sand-400 text-lg">...</p>
               </div>
             ) : paginated.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -180,7 +180,7 @@ export function LibraryPage() {
               </div>
             ) : (
               <div className="text-center py-20">
-                <p className="text-sand-500 text-lg">{t('noResults')}</p>
+                <p className="text-sand-500 dark:text-sand-400 text-lg">{t('noResults')}</p>
               </div>
             )}
 
@@ -194,7 +194,7 @@ export function LibraryPage() {
                     className={`w-10 h-10 rounded-lg text-sm font-medium transition-all ${
                       p === page
                         ? 'bg-primary-700 text-white'
-                        : 'bg-white text-sand-600 border border-sand-200 hover:border-primary-300'
+                        : 'bg-white dark:bg-navy-800 text-sand-600 dark:text-sand-400 border border-sand-200 dark:border-navy-700 hover:border-primary-300'
                     }`}
                   >
                     {p}

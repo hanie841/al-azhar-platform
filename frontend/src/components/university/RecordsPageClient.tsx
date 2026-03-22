@@ -19,7 +19,7 @@ export function RecordsPageClient() {
   const isAr = locale === 'ar';
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -58,7 +58,7 @@ export function RecordsPageClient() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-sm border border-sand-100 overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-white dark:bg-navy-800 rounded-2xl shadow-sm dark:shadow-navy-900/50 border border-sand-100 dark:border-navy-800 overflow-hidden hover:shadow-lg dark:hover:shadow-navy-900/50 transition-shadow"
               >
                 <div className={`flex flex-col sm:flex-row ${!isEven ? 'sm:flex-row-reverse' : ''}`}>
                   {/* Stat side */}
@@ -80,10 +80,10 @@ export function RecordsPageClient() {
 
                   {/* Content side */}
                   <div className="sm:w-2/3 p-8">
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-primary-900 mb-3">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-primary-900 dark:text-primary-200 mb-3">
                       {isAr ? record.title_ar : record.title_en}
                     </h3>
-                    <p className="text-sand-600 leading-relaxed">
+                    <p className="text-sand-600 dark:text-sand-400 leading-relaxed">
                       {isAr ? record.description_ar : record.description_en}
                     </p>
                   </div>

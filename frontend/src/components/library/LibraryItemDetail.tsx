@@ -50,7 +50,7 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
   };
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Header */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -66,7 +66,7 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20 pb-20">
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-white dark:bg-navy-800 rounded-2xl shadow-lg dark:shadow-navy-900/50 overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             {/* Cover */}
             <div className="lg:w-96 flex-shrink-0">
@@ -121,37 +121,37 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
                   </span>
                 </div>
 
-                <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-900 mb-2">
+                <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-900 dark:text-primary-200 mb-2">
                   {item.title}
                 </h1>
 
-                <p className="text-lg text-sand-600 mb-6">
+                <p className="text-lg text-sand-600 dark:text-sand-400 mb-6">
                   {item.authors?.join(', ') ?? ''}
                 </p>
 
-                <p className="text-sand-700 leading-relaxed mb-8">
+                <p className="text-sand-700 dark:text-sand-300 leading-relaxed mb-8">
                   {item.description}
                 </p>
 
                 {/* Metadata grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                  <div className="bg-sand-50 rounded-xl p-4 text-center">
-                    <div className="text-sm text-sand-500 mb-1">{isAr ? 'السنة' : 'Year'}</div>
-                    <div className="font-bold text-primary-900">{item.publication_year ?? '-'}</div>
+                  <div className="bg-sand-50 dark:bg-navy-900 rounded-xl p-4 text-center">
+                    <div className="text-sm text-sand-500 dark:text-sand-400 mb-1">{isAr ? 'السنة' : 'Year'}</div>
+                    <div className="font-bold text-primary-900 dark:text-primary-200">{item.publication_year ?? '-'}</div>
                   </div>
-                  <div className="bg-sand-50 rounded-xl p-4 text-center">
-                    <div className="text-sm text-sand-500 mb-1">{isAr ? 'اللغة' : 'Language'}</div>
-                    <div className="font-bold text-primary-900">
+                  <div className="bg-sand-50 dark:bg-navy-900 rounded-xl p-4 text-center">
+                    <div className="text-sm text-sand-500 dark:text-sand-400 mb-1">{isAr ? 'اللغة' : 'Language'}</div>
+                    <div className="font-bold text-primary-900 dark:text-primary-200">
                       {langLabels[item.language]?.[isAr ? 'ar' : 'en'] || item.language}
                     </div>
                   </div>
-                  <div className="bg-sand-50 rounded-xl p-4 text-center">
-                    <div className="text-sm text-sand-500 mb-1">{t('pages')}</div>
-                    <div className="font-bold text-primary-900">{item.page_count ?? '-'}</div>
+                  <div className="bg-sand-50 dark:bg-navy-900 rounded-xl p-4 text-center">
+                    <div className="text-sm text-sand-500 dark:text-sand-400 mb-1">{t('pages')}</div>
+                    <div className="font-bold text-primary-900 dark:text-primary-200">{item.page_count ?? '-'}</div>
                   </div>
-                  <div className="bg-sand-50 rounded-xl p-4 text-center">
-                    <div className="text-sm text-sand-500 mb-1">{t('views')}</div>
-                    <div className="font-bold text-primary-900">{(item.views_count ?? 0).toLocaleString()}</div>
+                  <div className="bg-sand-50 dark:bg-navy-900 rounded-xl p-4 text-center">
+                    <div className="text-sm text-sand-500 dark:text-sand-400 mb-1">{t('views')}</div>
+                    <div className="font-bold text-primary-900 dark:text-primary-200">{(item.views_count ?? 0).toLocaleString()}</div>
                   </div>
                 </div>
 
@@ -163,7 +163,7 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
                     className={`flex items-center gap-2 font-bold px-6 py-3 rounded-xl transition-colors ${
                       item.has_pdf
                         ? 'bg-primary-700 hover:bg-primary-800 text-white cursor-pointer'
-                        : 'bg-sand-200 text-sand-400 cursor-not-allowed'
+                        : 'bg-sand-200 dark:bg-navy-700 text-sand-400 dark:text-sand-500 cursor-not-allowed'
                     }`}
                   >
                     <Eye className="w-4 h-4" />
@@ -175,17 +175,17 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
                     className={`flex items-center gap-2 font-bold px-6 py-3 rounded-xl transition-colors ${
                       item.has_pdf
                         ? 'bg-accent-500 hover:bg-accent-600 text-white cursor-pointer'
-                        : 'bg-sand-200 text-sand-400 cursor-not-allowed'
+                        : 'bg-sand-200 dark:bg-navy-700 text-sand-400 dark:text-sand-500 cursor-not-allowed'
                     }`}
                   >
                     <Download className="w-4 h-4" />
                     {t('downloadPdf')}
                   </button>
-                  <button className="flex items-center gap-2 border-2 border-sand-300 text-sand-700 hover:border-primary-300 hover:text-primary-700 font-bold px-6 py-3 rounded-xl transition-colors">
+                  <button className="flex items-center gap-2 border-2 border-sand-300 dark:border-navy-600 text-sand-700 dark:text-sand-300 hover:border-primary-300 hover:text-primary-700 dark:hover:text-primary-300 font-bold px-6 py-3 rounded-xl transition-colors">
                     <Quote className="w-4 h-4" />
                     {t('cite')}
                   </button>
-                  <button className="flex items-center gap-2 border-2 border-sand-300 text-sand-700 hover:border-primary-300 hover:text-primary-700 font-bold px-6 py-3 rounded-xl transition-colors">
+                  <button className="flex items-center gap-2 border-2 border-sand-300 dark:border-navy-600 text-sand-700 dark:text-sand-300 hover:border-primary-300 hover:text-primary-700 dark:hover:text-primary-300 font-bold px-6 py-3 rounded-xl transition-colors">
                     <Bookmark className="w-4 h-4" />
                     {t('bookmark')}
                   </button>
@@ -208,16 +208,16 @@ export function LibraryItemDetail({ item }: { item: LibraryItem }) {
 
         {/* Related section placeholder */}
         <div className="mt-12">
-          <h2 className="font-serif text-2xl font-bold text-primary-900 mb-6">
+          <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-6">
             {isAr ? 'عناصر ذات صلة' : 'Related Items'}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="bg-white rounded-xl p-6 border border-sand-100 flex items-center justify-center h-40"
+                className="bg-white dark:bg-navy-800 rounded-xl p-6 border border-sand-100 dark:border-navy-800 flex items-center justify-center h-40"
               >
-                <p className="text-sand-400 text-sm">{isAr ? 'قريباً' : 'Coming Soon'}</p>
+                <p className="text-sand-400 dark:text-sand-500 text-sm">{isAr ? 'قريباً' : 'Coming Soon'}</p>
               </div>
             ))}
           </div>

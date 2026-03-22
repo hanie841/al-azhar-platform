@@ -141,14 +141,14 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
     <div ref={containerRef} className="w-full max-w-2xl mx-auto">
       {/* Search Input */}
       <div className="relative">
-        <Search className="absolute start-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+        <Search className="absolute start-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-sand-500" />
         <input
           ref={inputRef}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t('search')}
-          className="w-full ps-12 pe-12 py-3 bg-white border border-sand-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base"
+          className="w-full ps-12 pe-12 py-3 bg-white border border-sand-300 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-base dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
           aria-label={t('search')}
         />
         {query && (
@@ -159,7 +159,7 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
               setSearched(false);
               inputRef.current?.focus();
             }}
-            className="absolute end-4 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute end-4 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-sand-500 hover:text-gray-600 dark:hover:text-sand-300 transition-colors"
             aria-label="Clear search"
           >
             <X className="w-4 h-4" />
@@ -169,7 +169,7 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
 
       {/* Results Dropdown */}
       {(loading || searched) && (
-        <div className="mt-2 bg-white rounded-xl shadow-xl border border-sand-200 max-h-[70vh] overflow-y-auto">
+        <div className="mt-2 bg-white dark:bg-navy-800 rounded-xl shadow-xl dark:shadow-navy-900/50 border border-sand-200 dark:border-navy-700 max-h-[70vh] overflow-y-auto">
           {loading && (
             <div className="flex items-center justify-center py-8">
               <Loader2 className="w-6 h-6 text-primary-600 animate-spin" />
@@ -177,7 +177,7 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
           )}
 
           {!loading && searched && results.length === 0 && (
-            <div className="py-8 text-center text-gray-500">
+            <div className="py-8 text-center text-gray-500 dark:text-sand-400">
               {locale === 'ar' ? 'لا توجد نتائج' : 'No results found'}
             </div>
           )}
@@ -186,10 +186,10 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
             results.map((group) => {
               const Icon = typeIcons[group.type] || Search;
               return (
-                <div key={group.type} className="border-b border-sand-100 last:border-b-0">
-                  <div className="px-4 py-2 bg-sand-50 flex items-center gap-2">
+                <div key={group.type} className="border-b border-sand-100 dark:border-navy-800 last:border-b-0">
+                  <div className="px-4 py-2 bg-sand-50 dark:bg-navy-900 flex items-center gap-2">
                     <Icon className="w-4 h-4 text-primary-600" />
-                    <span className="text-xs font-semibold text-primary-700 uppercase tracking-wide">
+                    <span className="text-xs font-semibold text-primary-700 dark:text-primary-300 uppercase tracking-wide">
                       {group.label}
                     </span>
                   </div>
@@ -206,13 +206,13 @@ export function GlobalSearch({ onClose }: GlobalSearchProps) {
                           <Link
                             href={href as '/'}
                             onClick={onClose}
-                            className="block px-4 py-3 hover:bg-primary-50 transition-colors"
+                            className="block px-4 py-3 hover:bg-primary-50 dark:hover:bg-primary-900/30 transition-colors"
                           >
-                            <div className="text-sm font-medium text-gray-900 line-clamp-1">
+                            <div className="text-sm font-medium text-gray-900 dark:text-sand-100 line-clamp-1">
                               {title}
                             </div>
                             {subtitle && (
-                              <div className="text-xs text-gray-500 mt-0.5 line-clamp-1">
+                              <div className="text-xs text-gray-500 dark:text-sand-400 mt-0.5 line-clamp-1">
                                 {subtitle}
                               </div>
                             )}

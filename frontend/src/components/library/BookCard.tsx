@@ -42,7 +42,7 @@ export function BookCard({ item }: BookCardProps) {
   return (
     <Link
       href={`/library/${item.slug}` as any}
-      className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-sand-100"
+      className="group block bg-white dark:bg-navy-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-navy-900/50 hover:shadow-lg dark:hover:shadow-navy-900/50 transition-all duration-300 hover:-translate-y-1 border border-sand-100 dark:border-navy-800"
     >
       <div
         className="h-44 flex items-center justify-center relative"
@@ -63,15 +63,15 @@ export function BookCard({ item }: BookCardProps) {
           >
             {typeLabels[item.type]?.[locale === 'ar' ? 'ar' : 'en'] || item.type}
           </span>
-          <span className="text-xs text-sand-500">{item.publication_year}</span>
+          <span className="text-xs text-sand-500 dark:text-sand-400">{item.publication_year}</span>
         </div>
-        <h3 className="font-serif text-sm font-bold text-primary-900 line-clamp-2 mb-1 group-hover:text-primary-700 transition-colors">
+        <h3 className="font-serif text-sm font-bold text-primary-900 dark:text-primary-200 line-clamp-2 mb-1 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
           {item.title}
         </h3>
-        <p className="text-xs text-sand-500 mb-3">
+        <p className="text-xs text-sand-500 dark:text-sand-400 mb-3">
           {item.authors?.[0] ?? ''}
         </p>
-        <div className="flex items-center gap-4 text-xs text-sand-400">
+        <div className="flex items-center gap-4 text-xs text-sand-400 dark:text-sand-500">
           <span className="flex items-center gap-1">
             <Eye className="w-3 h-3" /> {item.views_count.toLocaleString()}
           </span>

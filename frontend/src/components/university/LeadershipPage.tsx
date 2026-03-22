@@ -54,7 +54,7 @@ export function LeadershipPage() {
   const historicalPeople = people.filter((p) => p.is_historical);
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -81,7 +81,7 @@ export function LeadershipPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {loading ? (
           <div className="text-center py-20">
-            <p className="text-sand-500 text-lg">...</p>
+            <p className="text-sand-500 dark:text-sand-400 text-lg">...</p>
           </div>
         ) : (
           <>
@@ -91,7 +91,7 @@ export function LeadershipPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="font-serif text-2xl font-bold text-primary-900 mb-8 text-center"
+              className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-8 text-center"
             >
               {t('currentLeadership')}
             </motion.h2>
@@ -109,7 +109,7 @@ export function LeadershipPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="font-serif text-2xl font-bold text-primary-900 mb-8 text-center"
+                  className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-8 text-center"
                 >
                   {t('vicePresidents')}
                 </motion.h2>
@@ -128,7 +128,7 @@ export function LeadershipPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="font-serif text-2xl font-bold text-primary-900 mb-4 text-center"
+              className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-4 text-center"
             >
               {t('historicalScholars')}
             </motion.h2>
@@ -137,7 +137,7 @@ export function LeadershipPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-center text-sand-500 mb-8"
+              className="text-center text-sand-500 dark:text-sand-400 mb-8"
             >
               {t('historicalScholarsDesc')}
             </motion.p>
@@ -150,13 +150,13 @@ export function LeadershipPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: i * 0.1 }}
                       viewport={{ once: true }}
-                      className="bg-white rounded-xl p-4 text-center border border-sand-100 hover:shadow-md transition-shadow"
+                      className="bg-white dark:bg-navy-800 rounded-xl p-4 text-center border border-sand-100 dark:border-navy-800 hover:shadow-md transition-shadow"
                     >
                       <div className="w-14 h-14 rounded-full bg-sand-200 flex items-center justify-center mx-auto mb-3">
-                        <span className="font-serif text-lg text-sand-600">{person.name.charAt(0)}</span>
+                        <span className="font-serif text-lg text-sand-600 dark:text-sand-400">{person.name.charAt(0)}</span>
                       </div>
-                      <h3 className="font-serif text-sm font-bold text-primary-900 mb-1">{person.name}</h3>
-                      <p className="text-xs text-sand-400">{person.era || ''}</p>
+                      <h3 className="font-serif text-sm font-bold text-primary-900 dark:text-primary-200 mb-1">{person.name}</h3>
+                      <p className="text-xs text-sand-400 dark:text-sand-500">{person.era || ''}</p>
                     </motion.div>
                   </Link>
                 ))
@@ -174,13 +174,13 @@ export function LeadershipPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-xl p-4 text-center border border-sand-100"
+                    className="bg-white dark:bg-navy-800 rounded-xl p-4 text-center border border-sand-100 dark:border-navy-800"
                   >
                     <div className="w-14 h-14 rounded-full bg-sand-200 flex items-center justify-center mx-auto mb-3">
-                      <span className="font-serif text-lg text-sand-600">{scholar.name.charAt(0)}</span>
+                      <span className="font-serif text-lg text-sand-600 dark:text-sand-400">{scholar.name.charAt(0)}</span>
                     </div>
-                    <h3 className="font-serif text-sm font-bold text-primary-900 mb-1">{scholar.name}</h3>
-                    <p className="text-xs text-sand-400">{scholar.era}</p>
+                    <h3 className="font-serif text-sm font-bold text-primary-900 dark:text-primary-200 mb-1">{scholar.name}</h3>
+                    <p className="text-xs text-sand-400 dark:text-sand-500">{scholar.era}</p>
                   </motion.div>
                 ))
               )}

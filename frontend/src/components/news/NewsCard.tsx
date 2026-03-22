@@ -22,12 +22,12 @@ export function NewsCard({ article, large = false }: { article: Article; large?:
   return (
     <Link
       href={`/news/${article.slug}` as any}
-      className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-sand-100"
+      className="group block bg-white dark:bg-navy-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg dark:shadow-navy-900/50 transition-all duration-300 hover:-translate-y-1 border border-sand-100 dark:border-navy-800"
     >
       <div
-        className={`${large ? 'h-64' : 'h-48'} bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center`}
+        className={`${large ? 'h-64' : 'h-48'} bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/40 dark:to-primary-900/30 flex items-center justify-center`}
       >
-        <span className="text-6xl opacity-15 font-serif text-primary-700">
+        <span className="text-6xl opacity-15 font-serif text-primary-700 dark:text-primary-300">
           {article.title.charAt(0)}
         </span>
       </div>
@@ -36,7 +36,7 @@ export function NewsCard({ article, large = false }: { article: Article; large?:
           <span className="text-xs font-bold px-2 py-1 rounded-full bg-accent-100 text-accent-700">
             {article.category?.name ?? ''}
           </span>
-          <span className="flex items-center gap-1 text-xs text-sand-500">
+          <span className="flex items-center gap-1 text-xs text-sand-500 dark:text-sand-400">
             <Calendar className="w-3 h-3" />
             {new Date(dateStr).toLocaleDateString(isAr ? 'ar-EG' : 'en-US', {
               year: 'numeric',
@@ -46,13 +46,13 @@ export function NewsCard({ article, large = false }: { article: Article; large?:
           </span>
         </div>
         <h3
-          className={`font-serif font-bold text-primary-900 mb-2 group-hover:text-primary-700 transition-colors ${
+          className={`font-serif font-bold text-primary-900 dark:text-primary-200 mb-2 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors ${
             large ? 'text-xl sm:text-2xl' : 'text-lg'
           }`}
         >
           {article.title}
         </h3>
-        <p className={`text-sand-600 ${large ? 'text-base' : 'text-sm'} line-clamp-2`}>
+        <p className={`text-sand-600 dark:text-sand-400 ${large ? 'text-base' : 'text-sm'} line-clamp-2`}>
           {article.excerpt}
         </p>
       </div>

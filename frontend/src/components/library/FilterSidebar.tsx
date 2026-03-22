@@ -55,7 +55,7 @@ export function FilterSidebar({
       {/* Mobile toggle */}
       <button
         onClick={onToggle}
-        className="lg:hidden flex items-center gap-2 px-4 py-2 bg-white border border-sand-200 rounded-xl text-sm font-medium text-sand-700 hover:border-primary-300 transition-colors"
+        className="lg:hidden flex items-center gap-2 px-4 py-2 bg-white dark:bg-navy-800 border border-sand-200 dark:border-navy-700 rounded-xl text-sm font-medium text-sand-700 hover:border-primary-300 transition-colors"
       >
         <Filter className="w-4 h-4" />
         {t('filters')}
@@ -73,14 +73,14 @@ export function FilterSidebar({
         <div
           className={`${
             isOpen
-              ? 'fixed end-0 top-0 bottom-0 w-80 bg-white shadow-2xl p-6 overflow-y-auto z-50 lg:static lg:shadow-none lg:p-0'
+              ? 'fixed end-0 top-0 bottom-0 w-80 bg-white dark:bg-navy-800 shadow-2xl p-6 overflow-y-auto z-50 lg:static lg:shadow-none lg:p-0'
               : ''
           } lg:w-full`}
         >
           {isOpen && (
             <button
               onClick={onToggle}
-              className="lg:hidden absolute top-4 end-4 p-2 hover:bg-sand-100 rounded-lg"
+              className="lg:hidden absolute top-4 end-4 p-2 hover:bg-sand-100 dark:hover:bg-navy-700 rounded-lg"
             >
               <X className="w-5 h-5" />
             </button>
@@ -89,7 +89,7 @@ export function FilterSidebar({
           <div className="space-y-6">
             {/* Type filter */}
             <div>
-              <h3 className="font-serif text-lg font-bold text-primary-900 mb-3">
+              <h3 className="font-serif text-lg font-bold text-primary-900 dark:text-primary-200 mb-3">
                 {t('filterByType')}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -100,7 +100,7 @@ export function FilterSidebar({
                     className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-all ${
                       selectedType === type
                         ? typeColors[type] + ' ring-2 ring-offset-1 ring-primary-300'
-                        : 'bg-white text-sand-600 border-sand-200 hover:border-sand-400'
+                        : 'bg-white dark:bg-navy-800 text-sand-600 dark:text-sand-400 border-sand-200 dark:border-navy-700 hover:border-sand-400'
                     }`}
                   >
                     {typeLabels[type]}
@@ -111,7 +111,7 @@ export function FilterSidebar({
 
             {/* Language filter */}
             <div>
-              <h3 className="font-serif text-lg font-bold text-primary-900 mb-3">
+              <h3 className="font-serif text-lg font-bold text-primary-900 dark:text-primary-200 mb-3">
                 {t('filterByLanguage')}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -121,8 +121,8 @@ export function FilterSidebar({
                     onClick={() => onLanguageChange(lang)}
                     className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-all ${
                       selectedLanguage === lang
-                        ? 'bg-primary-100 text-primary-700 border-primary-300 ring-2 ring-offset-1 ring-primary-300'
-                        : 'bg-white text-sand-600 border-sand-200 hover:border-sand-400'
+                        ? 'bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 border-primary-300 ring-2 ring-offset-1 ring-primary-300'
+                        : 'bg-white dark:bg-navy-800 text-sand-600 dark:text-sand-400 border-sand-200 dark:border-navy-700 hover:border-sand-400'
                     }`}
                   >
                     {languageLabels[lang]?.en || lang}

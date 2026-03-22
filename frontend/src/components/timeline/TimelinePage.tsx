@@ -59,7 +59,7 @@ export function TimelinePage() {
   }, [locale, isAr]);
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -111,7 +111,7 @@ export function TimelinePage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {loading ? (
           <div className="text-center py-20">
-            <p className="text-sand-500 text-lg">...</p>
+            <p className="text-sand-500 dark:text-sand-400 text-lg">...</p>
           </div>
         ) : (
           eras.map((era) => (

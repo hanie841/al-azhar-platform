@@ -60,10 +60,10 @@ function StatItem({ value, suffix, label, delay }: StatItemProps) {
       viewport={{ once: true }}
       className="text-center"
     >
-      <div className="text-3xl sm:text-5xl lg:text-6xl font-bold text-primary-700 mb-2">
+      <div className="text-3xl sm:text-5xl lg:text-6xl font-bold text-primary-700 dark:text-primary-300 mb-2">
         {count.toLocaleString()}{suffix}
       </div>
-      <div className="text-sand-600 font-medium">{label}</div>
+      <div className="text-sand-600 dark:text-sand-400 font-medium">{label}</div>
     </motion.div>
   );
 }
@@ -83,14 +83,14 @@ export function StatsCounter() {
   ];
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-sand-50">
+    <section className="py-12 sm:py-20 lg:py-28 bg-sand-50 dark:bg-navy-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-primary-900 mb-8 sm:mb-16"
+          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-primary-900 dark:text-primary-200 mb-8 sm:mb-16"
         >
           {t('statsTitle')}
         </motion.h2>

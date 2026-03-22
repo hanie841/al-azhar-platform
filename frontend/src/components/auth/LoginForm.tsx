@@ -44,7 +44,7 @@ export function LoginForm() {
       )}
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-sand-200 mb-1">
           {t('email')}
         </label>
         <input
@@ -54,7 +54,7 @@ export function LoginForm() {
           autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm dark:shadow-navy-900/50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
           placeholder={t('emailPlaceholder')}
         />
         {fieldErrors.email && (
@@ -63,7 +63,7 @@ export function LoginForm() {
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-sand-200 mb-1">
           {t('password')}
         </label>
         <input
@@ -73,7 +73,7 @@ export function LoginForm() {
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors"
+          className="block w-full rounded-lg border border-sand-300 px-4 py-2.5 text-gray-900 shadow-sm dark:shadow-navy-900/50 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-colors dark:bg-navy-800 dark:border-navy-700 dark:text-sand-100 dark:placeholder-sand-500"
           placeholder={t('passwordPlaceholder')}
         />
         {fieldErrors.password && (
@@ -89,9 +89,9 @@ export function LoginForm() {
         {loading ? t('loggingIn') : t('loginButton')}
       </button>
 
-      <p className="text-center text-sm text-gray-600">
+      <p className="text-center text-sm text-gray-600 dark:text-sand-300">
         {t('noAccount')}{' '}
-        <Link href="/register" className="font-medium text-primary-700 hover:text-primary-800">
+        <Link href="/register" className="font-medium text-primary-700 dark:text-primary-300 hover:text-primary-800">
           {t('registerLink')}
         </Link>
       </p>

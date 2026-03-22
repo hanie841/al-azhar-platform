@@ -72,14 +72,14 @@ export function LibraryPreview() {
   }, [locale, isAr]);
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-sand-50">
+    <section className="py-12 sm:py-20 lg:py-28 bg-sand-50 dark:bg-navy-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-primary-900 mb-4"
+          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-primary-900 dark:text-primary-200 mb-4"
         >
           {t('title')}
         </motion.h2>
@@ -88,7 +88,7 @@ export function LibraryPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="text-center text-sand-600 text-base sm:text-lg mb-8 sm:mb-14 max-w-2xl mx-auto"
+          className="text-center text-sand-600 dark:text-sand-400 text-base sm:text-lg mb-8 sm:mb-14 max-w-2xl mx-auto"
         >
           {t('subtitle')}
         </motion.p>
@@ -106,7 +106,7 @@ export function LibraryPreview() {
               >
                 <Link
                   href={`/library/${item.slug}` as any}
-                  className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="group block bg-white dark:bg-navy-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-navy-900/50 hover:shadow-lg dark:hover:shadow-navy-900/50 transition-all duration-300 hover:-translate-y-1"
                 >
                   <div
                     className="h-48 flex items-center justify-center"
@@ -124,10 +124,10 @@ export function LibraryPreview() {
                     >
                       {typeLabels[item.type]?.[isAr ? 'ar' : 'en'] || item.type}
                     </span>
-                    <h3 className="font-serif text-base font-bold text-primary-900 line-clamp-2 mb-1 group-hover:text-primary-700 transition-colors">
+                    <h3 className="font-serif text-base font-bold text-primary-900 dark:text-primary-200 line-clamp-2 mb-1 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-sand-500">
+                    <p className="text-sm text-sand-500 dark:text-sand-400">
                       {item.authors?.[0] ?? ''}
                     </p>
                   </div>
@@ -146,7 +146,7 @@ export function LibraryPreview() {
         >
           <Link
             href="/library"
-            className="inline-flex items-center gap-2 border-2 border-primary-700 text-primary-700 hover:bg-primary-700 hover:text-white font-bold px-8 py-3 rounded-xl transition-all"
+            className="inline-flex items-center gap-2 border-2 border-primary-700 dark:border-primary-400 text-primary-700 dark:text-primary-300 hover:bg-primary-700 hover:text-white font-bold px-8 py-3 rounded-xl transition-all"
           >
             {t('browseLibrary')}
             {isAr ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}

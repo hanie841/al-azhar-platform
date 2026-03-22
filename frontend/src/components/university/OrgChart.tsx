@@ -60,14 +60,14 @@ function OrgNodeComponent({ node, depth = 0 }: { node: OrgUnit; depth?: number }
 
       {hasChildren && expanded && (
         <>
-          <div className="w-0.5 h-6 bg-sand-300" />
+          <div className="w-0.5 h-6 bg-sand-300 dark:bg-navy-700" />
           <div className="flex flex-wrap justify-center gap-4 relative">
             {node.children!.length > 1 && (
-              <div className="absolute top-0 h-0.5 bg-sand-300" style={{ width: '80%', left: '10%' }} />
+              <div className="absolute top-0 h-0.5 bg-sand-300 dark:bg-navy-700" style={{ width: '80%', left: '10%' }} />
             )}
             {node.children!.map((child) => (
               <div key={child.id} className="flex flex-col items-center">
-                <div className="w-0.5 h-4 bg-sand-300" />
+                <div className="w-0.5 h-4 bg-sand-300 dark:bg-navy-700" />
                 <OrgNodeComponent node={child} depth={depth + 1} />
               </div>
             ))}
@@ -116,7 +116,7 @@ export function OrgChart() {
       : null;
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -144,7 +144,7 @@ export function OrgChart() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-x-auto">
         {loading ? (
           <div className="text-center py-20">
-            <p className="text-sand-500 text-lg">...</p>
+            <p className="text-sand-500 dark:text-sand-400 text-lg">...</p>
           </div>
         ) : rootNode ? (
           <div className="min-w-[600px] flex justify-center">
@@ -152,7 +152,7 @@ export function OrgChart() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <p className="text-sand-500 text-lg">
+            <p className="text-sand-500 dark:text-sand-400 text-lg">
               {locale === 'ar' ? 'لا توجد بيانات' : 'No data available'}
             </p>
           </div>

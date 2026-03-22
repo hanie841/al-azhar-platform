@@ -43,14 +43,14 @@ export function FeaturedNews() {
   }, [locale, isAr]);
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-white">
+    <section className="py-12 sm:py-20 lg:py-28 bg-white dark:bg-navy-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-primary-900 mb-4"
+          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-primary-900 dark:text-primary-200 mb-4"
         >
           {t('title')}
         </motion.h2>
@@ -59,7 +59,7 @@ export function FeaturedNews() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="text-center text-sand-600 text-base sm:text-lg mb-8 sm:mb-14 max-w-2xl mx-auto"
+          className="text-center text-sand-600 dark:text-sand-400 text-base sm:text-lg mb-8 sm:mb-14 max-w-2xl mx-auto"
         >
           {t('subtitle')}
         </motion.p>
@@ -75,7 +75,7 @@ export function FeaturedNews() {
             >
               <Link
                 href={`/news/${article.slug}` as any}
-                className="group block bg-sand-50 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group block bg-sand-50 dark:bg-navy-900 rounded-2xl overflow-hidden hover:shadow-lg dark:shadow-navy-900/50 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="h-48 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
                   <span className="text-6xl opacity-20 font-serif text-primary-700">
@@ -87,7 +87,7 @@ export function FeaturedNews() {
                     <span className="text-xs font-bold px-2 py-1 rounded-full bg-accent-100 text-accent-700">
                       {article.category?.name ?? ''}
                     </span>
-                    <span className="flex items-center gap-1 text-xs text-sand-500">
+                    <span className="flex items-center gap-1 text-xs text-sand-500 dark:text-sand-400">
                       <Calendar className="w-3 h-3" />
                       {article.published_at
                         ? new Date(article.published_at).toLocaleDateString(isAr ? 'ar-EG' : 'en-US', {
@@ -98,10 +98,10 @@ export function FeaturedNews() {
                         : ''}
                     </span>
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-primary-900 mb-2 line-clamp-2 group-hover:text-primary-700 transition-colors">
+                  <h3 className="font-serif text-lg font-bold text-primary-900 dark:text-primary-200 mb-2 line-clamp-2 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
                     {article.title}
                   </h3>
-                  <p className="text-sm text-sand-600 line-clamp-2">
+                  <p className="text-sm text-sand-600 dark:text-sand-400 line-clamp-2">
                     {article.excerpt}
                   </p>
                 </div>
@@ -119,7 +119,7 @@ export function FeaturedNews() {
         >
           <Link
             href="/news"
-            className="inline-flex items-center gap-2 text-primary-700 hover:text-primary-900 font-bold transition-colors"
+            className="inline-flex items-center gap-2 text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-200 font-bold transition-colors"
           >
             {tCommon('viewAll')}
             {isAr ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}

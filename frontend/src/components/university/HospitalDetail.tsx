@@ -11,7 +11,7 @@ export function HospitalDetail({ hospital }: { hospital: OrgUnit }) {
   const isAr = locale === 'ar';
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -56,9 +56,9 @@ export function HospitalDetail({ hospital }: { hospital: OrgUnit }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-2xl p-8 shadow-sm"
+                className="bg-white dark:bg-navy-800 rounded-2xl p-8 shadow-sm dark:shadow-navy-900/50"
               >
-                <h2 className="font-serif text-2xl font-bold text-primary-900 mb-4">
+                <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-4">
                   {isAr ? 'نبذة عن المستشفى' : 'About the Hospital'}
                 </h2>
                 <p className="text-sand-700 leading-relaxed">
@@ -73,9 +73,9 @@ export function HospitalDetail({ hospital }: { hospital: OrgUnit }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm"
+                className="bg-white dark:bg-navy-800 rounded-2xl p-8 shadow-sm dark:shadow-navy-900/50"
               >
-                <h2 className="font-serif text-2xl font-bold text-primary-900 mb-4">
+                <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-4">
                   {isAr ? 'مدير المستشفى' : 'Hospital Director'}
                 </h2>
                 <div className="flex items-center gap-4">
@@ -91,11 +91,11 @@ export function HospitalDetail({ hospital }: { hospital: OrgUnit }) {
                     </div>
                   )}
                   <div>
-                    <p className="font-serif text-lg font-bold text-primary-900">
+                    <p className="font-serif text-lg font-bold text-primary-900 dark:text-primary-200">
                       {hospital.head.name}
                     </p>
                     {hospital.head.title && (
-                      <p className="text-sand-500 text-sm">{hospital.head.title}</p>
+                      <p className="text-sand-500 dark:text-sand-400 text-sm">{hospital.head.title}</p>
                     )}
                   </div>
                 </div>
@@ -108,16 +108,16 @@ export function HospitalDetail({ hospital }: { hospital: OrgUnit }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-white rounded-2xl p-8 shadow-sm"
+                className="bg-white dark:bg-navy-800 rounded-2xl p-8 shadow-sm dark:shadow-navy-900/50"
               >
-                <h2 className="font-serif text-2xl font-bold text-primary-900 mb-4">
+                <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-4">
                   {isAr ? 'الأقسام' : 'Departments'}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {hospital.children.map((child) => (
                     <div
                       key={child.id}
-                      className="flex items-center gap-3 p-4 bg-sand-50 rounded-xl"
+                      className="flex items-center gap-3 p-4 bg-sand-50 dark:bg-navy-900 rounded-xl"
                     >
                       <HeartPulse className="w-5 h-5 text-rose-500" />
                       <span className="text-sand-700 font-medium">{child.name}</span>
@@ -134,17 +134,17 @@ export function HospitalDetail({ hospital }: { hospital: OrgUnit }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="bg-white rounded-2xl p-6 shadow-sm"
+              className="bg-white dark:bg-navy-800 rounded-2xl p-6 shadow-sm dark:shadow-navy-900/50"
             >
-              <h3 className="font-serif text-lg font-bold text-primary-900 mb-4">
+              <h3 className="font-serif text-lg font-bold text-primary-900 dark:text-primary-200 mb-4">
                 {isAr ? 'معلومات الاتصال' : 'Contact Information'}
               </h3>
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-sm text-sand-600">
+                <div className="flex items-center gap-3 text-sm text-sand-600 dark:text-sand-400">
                   <Mail className="w-4 h-4 text-rose-500" />
                   <span>{hospital.slug}@azhar.edu.eg</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-sand-600">
+                <div className="flex items-center gap-3 text-sm text-sand-600 dark:text-sand-400">
                   <Phone className="w-4 h-4 text-rose-500" />
                   <span>+20 2 2345 6789</span>
                 </div>

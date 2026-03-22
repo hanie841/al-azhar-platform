@@ -23,7 +23,7 @@ export function PdfViewer({ url, title, onClose }: PdfViewerProps) {
       className={
         isFullscreen
           ? 'fixed inset-0 z-50 bg-black/90 flex flex-col'
-          : 'relative w-full rounded-2xl overflow-hidden border border-sand-200 bg-white'
+          : 'relative w-full rounded-2xl overflow-hidden border border-sand-200 dark:border-navy-700 bg-white dark:bg-navy-800'
       }
     >
       {/* Toolbar */}
@@ -58,10 +58,10 @@ export function PdfViewer({ url, title, onClose }: PdfViewerProps) {
       {/* PDF iframe */}
       <div className={isFullscreen ? 'flex-1 relative' : 'relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]'}>
         {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-sand-50">
+          <div className="absolute inset-0 flex items-center justify-center bg-sand-50 dark:bg-navy-900">
             <div className="flex flex-col items-center gap-3">
               <Loader2 className="w-8 h-8 animate-spin text-primary-600" />
-              <p className="text-sm text-sand-500">
+              <p className="text-sm text-sand-500 dark:text-sand-400">
                 {isAr ? 'جاري تحميل المستند...' : 'Loading document...'}
               </p>
             </div>

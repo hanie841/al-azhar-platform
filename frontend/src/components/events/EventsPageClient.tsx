@@ -53,7 +53,7 @@ export function EventsPageClient() {
 
   if (!displayEvents) {
     return (
-      <div className="min-h-screen bg-sand-50">
+      <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
         <div className="bg-navy-900 relative overflow-hidden">
           <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
@@ -62,7 +62,7 @@ export function EventsPageClient() {
             </h1>
           </div>
         </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center text-sand-500">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center text-sand-500 dark:text-sand-400">
           {isAr ? 'جاري التحميل...' : 'Loading...'}
         </div>
       </div>
@@ -74,7 +74,7 @@ export function EventsPageClient() {
   const past = displayEvents.filter((e) => new Date(e.starts_at) <= now);
 
   return (
-    <div className="min-h-screen bg-sand-50">
+    <div className="min-h-screen bg-sand-50 dark:bg-navy-900">
       {/* Hero */}
       <div className="bg-navy-900 relative overflow-hidden">
         <div className="absolute inset-0 islamic-pattern-bg opacity-5" />
@@ -105,7 +105,7 @@ export function EventsPageClient() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="font-serif text-2xl font-bold text-primary-900 mb-6"
+          className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-6"
         >
           {t('upcoming')}
         </motion.h2>
@@ -126,7 +126,7 @@ export function EventsPageClient() {
             </motion.div>
           ))}
           {upcoming.length === 0 && (
-            <p className="text-center text-sand-500 py-10">{t('noUpcoming')}</p>
+            <p className="text-center text-sand-500 dark:text-sand-400 py-10">{t('noUpcoming')}</p>
           )}
         </div>
 
@@ -138,7 +138,7 @@ export function EventsPageClient() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="font-serif text-2xl font-bold text-primary-900 mb-6"
+          className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-6"
         >
           {t('past')}
         </motion.h2>
