@@ -14,6 +14,7 @@ class OrganizationalUnitResource extends JsonResource
         return [
             'id' => $this->id,
             'slug' => $this->slug,
+            'type' => $this->type,
             'name' => $this->getTranslation('name', $locale, false),
             'description' => $this->getTranslation('description', $locale, false),
             'order' => $this->order,
