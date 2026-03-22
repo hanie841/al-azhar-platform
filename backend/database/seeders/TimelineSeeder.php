@@ -161,6 +161,56 @@ class TimelineSeeder extends Seeder
             'order' => 5,
         ]);
 
+        TimelineEvent::create([
+            'slug' => 'al-hakim-expansion',
+            'title' => [
+                'ar' => 'الخليفة الحاكم بأمر الله يوسع المبنى',
+                'en' => 'Caliph al-Hakim bi-Amr Allah Expands the Premises',
+                'fr' => 'Le calife al-Hakim bi-Amr Allah agrandit les locaux',
+                'es' => 'El califa al-Hakim bi-Amr Allah amplia las instalaciones',
+                'zh' => '哈基姆哈里发扩建艾资哈尔',
+                'ru' => 'Халиф аль-Хаким расширяет здание',
+                'ur' => 'خلیفہ الحاکم بامر اللہ نے عمارت کی توسیع کی',
+            ],
+            'description' => [
+                'ar' => 'أمر الخليفة الحاكم بأمر الله الفاطمي بتوسعة مباني الجامع الأزهر وإضافة أبنية جديدة، مما زاد من مساحته وقدرته على استيعاب الطلاب والعلماء.',
+                'en' => 'Fatimid Caliph al-Hakim bi-Amr Allah ordered the expansion of Al-Azhar Mosque premises, adding new buildings to increase its capacity for students and scholars.',
+                'fr' => 'Le calife fatimide al-Hakim bi-Amr Allah a ordonne l\'agrandissement de la mosquee Al-Azhar avec de nouveaux batiments.',
+                'es' => 'El califa fatimi al-Hakim bi-Amr Allah ordeno la ampliacion de la mezquita de Al-Azhar con nuevos edificios.',
+                'zh' => '法蒂玛哈里发哈基姆下令扩建艾资哈尔清真寺，增加新建筑以容纳更多学者和学生。',
+                'ru' => 'Фатимидский халиф аль-Хаким приказал расширить мечеть Аль-Азхар, добавив новые здания.',
+                'ur' => 'فاطمی خلیفہ الحاکم بامر اللہ نے جامع الازہر کی عمارات کی توسیع کا حکم دیا اور نئی عمارتیں شامل کیں۔',
+            ],
+            'era_id' => $fatimid->id,
+            'year' => 1009,
+            'order' => 6,
+        ]);
+
+        TimelineEvent::create([
+            'slug' => 'al-hafiz-refurbishment',
+            'title' => [
+                'ar' => 'الخليفة الحافظ يجري ترميماً كبيراً',
+                'en' => 'Caliph al-Hafiz Undertakes Major Refurbishment',
+                'fr' => 'Le calife al-Hafiz entreprend une renovation majeure',
+                'es' => 'El califa al-Hafiz emprende una renovacion mayor',
+                'zh' => '哈菲兹哈里发进行大规模翻修',
+                'ru' => 'Халиф аль-Хафиз проводит крупную реставрацию',
+                'ur' => 'خلیفہ الحافظ نے بڑے پیمانے پر تزئین نو کی',
+            ],
+            'description' => [
+                'ar' => 'قام الخليفة الحافظ لدين الله بترميم كبير للجامع الأزهر شمل إضافة أقواس على شكل حافة السفينة وزخارف جصية منحوتة، مما أضاف طابعاً معمارياً فريداً.',
+                'en' => 'Caliph al-Hafiz undertook a major refurbishment of Al-Azhar, adding distinctive keel-shaped arches and carved stucco decorations, giving the mosque a unique architectural character.',
+                'fr' => 'Le calife al-Hafiz a entrepris une renovation majeure d\'Al-Azhar avec des arcs en forme de carene et du stuc sculpte.',
+                'es' => 'El califa al-Hafiz emprendi una renovacion mayor de Al-Azhar con arcos en forma de quilla y estuco tallado.',
+                'zh' => '哈菲兹哈里发对艾资哈尔进行大规模翻修，增添了独特的龙骨形拱门和雕刻灰泥装饰。',
+                'ru' => 'Халиф аль-Хафиз провёл крупную реставрацию Аль-Азхара с килевидными арками и резной штукатуркой.',
+                'ur' => 'خلیفہ الحافظ نے جامع الازہر کی بڑی تزئین نو کی جس میں کشتی نما محرابیں اور منقش گچ کاری شامل تھی۔',
+            ],
+            'era_id' => $fatimid->id,
+            'year' => 1138,
+            'order' => 7,
+        ]);
+
         // Era 2: Ayyubid Era (1171-1250)
         $ayyubid = TimelineEra::create([
             'slug' => 'the-ayyubid-era',
@@ -264,6 +314,31 @@ class TimelineSeeder extends Seeder
         ]);
 
         TimelineEvent::create([
+            'slug' => 'madrasa-al-taybarsiyya',
+            'title' => [
+                'ar' => 'بناء المدرسة الطيبرسية بجوار المسجد',
+                'en' => 'Madrasa al-Taybarsiyya Built Adjacent to the Mosque',
+                'fr' => 'Construction de la madrasa al-Taybarsiyya adjacente a la mosquee',
+                'es' => 'Construccion de la madrasa al-Taybarsiyya junto a la mezquita',
+                'zh' => '泰巴尔西耶学院建于清真寺旁',
+                'ru' => 'Медресе ат-Тайбарсийя построено рядом с мечетью',
+                'ur' => 'مدرسہ الطیبرسیہ مسجد کے ساتھ تعمیر ہوا',
+            ],
+            'description' => [
+                'ar' => 'بُنيت المدرسة الطيبرسية بجوار الجامع الأزهر على يد الأمير علاء الدين طيبرس، وأصبحت من أهم المدارس الملحقة بالأزهر لتعليم العلوم الشرعية.',
+                'en' => 'Madrasa al-Taybarsiyya was built adjacent to Al-Azhar Mosque by Amir Ala al-Din Taybars, becoming one of the most important schools attached to Al-Azhar for teaching Islamic sciences.',
+                'fr' => 'La madrasa al-Taybarsiyya a ete construite a cote de la mosquee Al-Azhar par l\'emir Ala al-Din Taybars.',
+                'es' => 'La madrasa al-Taybarsiyya fue construida junto a la mezquita de Al-Azhar por el emir Ala al-Din Taybars.',
+                'zh' => '泰巴尔西耶学院由埃米尔阿拉丁·泰巴尔斯建于艾资哈尔清真寺旁，成为教授伊斯兰科学的重要附属学校之一。',
+                'ru' => 'Медресе ат-Тайбарсийя было построено эмиром Ала ад-Дином Тайбарсом рядом с мечетью Аль-Азхар.',
+                'ur' => 'امیر علاء الدین طیبرس نے جامع الازہر کے ساتھ مدرسہ الطیبرسیہ تعمیر کرایا جو علوم شرعیہ کی تعلیم کا اہم مرکز بنا۔',
+            ],
+            'era_id' => $mamluk->id,
+            'year' => 1309,
+            'order' => 2,
+        ]);
+
+        TimelineEvent::create([
             'slug' => 'premier-center-sunni-scholarship',
             'title' => [
                 'ar' => 'الأزهر يصبح أهم مركز للعلوم السنية',
@@ -336,6 +411,31 @@ class TimelineSeeder extends Seeder
             'era_id' => $mamluk->id,
             'year' => 1469,
             'order' => 4,
+        ]);
+
+        TimelineEvent::create([
+            'slug' => 'al-ghuri-minaret',
+            'title' => [
+                'ar' => 'السلطان الغوري يضيف مئذنة',
+                'en' => 'Sultan al-Ghuri Adds the Final Historic Minaret',
+                'fr' => 'Le sultan al-Ghuri ajoute le dernier minaret historique',
+                'es' => 'El sultan al-Ghuri anade el ultimo minarete historico',
+                'zh' => '古里苏丹增建最后一座历史宣礼塔',
+                'ru' => 'Султан аль-Гури добавляет последний исторический минарет',
+                'ur' => 'سلطان الغوری نے آخری تاریخی مینار شامل کی',
+            ],
+            'description' => [
+                'ar' => 'أضاف السلطان قنصوه الغوري مئذنة جديدة للجامع الأزهر، وهي آخر المآذن التاريخية التي بُنيت في العصر المملوكي، وتتميز بطرازها المعماري الفريد ذي الرأس المزدوج.',
+                'en' => 'Sultan Qansuh al-Ghuri added a new minaret to Al-Azhar Mosque, the last of the historic minarets built during the Mamluk era, distinguished by its unique double-headed architectural style.',
+                'fr' => 'Le sultan al-Ghuri a ajoute un nouveau minaret a Al-Azhar, le dernier des minarets historiques de l\'ere mamelouke, au style architectural unique a double tete.',
+                'es' => 'El sultan al-Ghuri anadio un nuevo minarete a Al-Azhar, el ultimo de los minaretes historicos de la era mameluca, con un estilo arquitectonico unico de doble cabeza.',
+                'zh' => '古里苏丹为艾资哈尔清真寺增建了一座新宣礼塔，这是马穆鲁克时代最后一座历史宣礼塔，以其独特的双头建筑风格著称。',
+                'ru' => 'Султан аль-Гури добавил новый минарет к Аль-Азхару — последний из исторических минаретов мамлюкской эпохи с уникальным двуглавым стилем.',
+                'ur' => 'سلطان قنصوہ الغوری نے جامع الازہر میں نئی مینار شامل کی جو مملوک دور کی آخری تاریخی مینار ہے اور اپنے دوہرے سر والے منفرد طرز تعمیر سے ممتاز ہے۔',
+            ],
+            'era_id' => $mamluk->id,
+            'year' => 1510,
+            'order' => 5,
         ]);
 
         // Era 4: Ottoman Era (1517-1798)
@@ -462,6 +562,31 @@ class TimelineSeeder extends Seeder
             'era_id' => $ottoman->id,
             'year' => 1798,
             'order' => 4,
+        ]);
+
+        TimelineEvent::create([
+            'slug' => 'suleiman-al-halabi-assassinates-kleber',
+            'title' => [
+                'ar' => 'سليمان الحلبي طالب الأزهر يغتال الجنرال كليبر',
+                'en' => 'Al-Azhar Student Suleiman al-Halabi Assassinates General Kleber',
+                'fr' => 'L\'etudiant d\'Al-Azhar Suleiman al-Halabi assassine le general Kleber',
+                'es' => 'El estudiante de Al-Azhar Suleiman al-Halabi asesina al general Kleber',
+                'zh' => '艾资哈尔学生苏莱曼·哈拉比刺杀克莱贝尔将军',
+                'ru' => 'Студент Аль-Азхара Сулейман аль-Халаби убивает генерала Клебера',
+                'ur' => 'الازہر کے طالب علم سلیمان الحلبی نے جنرل کلیبر کو قتل کیا',
+            ],
+            'description' => [
+                'ar' => 'اغتال سليمان الحلبي، وهو طالب سوري في الأزهر، القائد الفرنسي الجنرال كليبر في القاهرة عام 1800م، في عمل مقاومة ضد الاحتلال الفرنسي لمصر.',
+                'en' => 'Suleiman al-Halabi, a Syrian student at Al-Azhar, assassinated French commander General Kleber in Cairo in 1800, in an act of resistance against the French occupation of Egypt.',
+                'fr' => 'Suleiman al-Halabi, etudiant syrien a Al-Azhar, a assassine le general Kleber au Caire en 1800, un acte de resistance contre l\'occupation francaise.',
+                'es' => 'Suleiman al-Halabi, estudiante sirio de Al-Azhar, asesino al general Kleber en El Cairo en 1800, en un acto de resistencia contra la ocupacion francesa.',
+                'zh' => '叙利亚籍艾资哈尔学生苏莱曼·哈拉比于1800年在开罗刺杀了法国指挥官克莱贝尔将军，以抵抗法国对埃及的占领。',
+                'ru' => 'Сулейман аль-Халаби, сирийский студент Аль-Азхара, убил французского генерала Клебера в Каире в 1800 году в знак сопротивления французской оккупации.',
+                'ur' => 'سلیمان الحلبی، الازہر کے شامی طالب علم، نے 1800 میں قاہرہ میں فرانسیسی کمانڈر جنرل کلیبر کو قتل کیا، جو فرانسیسی قبضے کے خلاف مزاحمت کا عمل تھا۔',
+            ],
+            'era_id' => $ottoman->id,
+            'year' => 1800,
+            'order' => 5,
         ]);
 
         // Era 5: Modern Era (1798-1952)
@@ -689,6 +814,106 @@ class TimelineSeeder extends Seeder
             'era_id' => $contemporary->id,
             'year' => 2019,
             'order' => 4,
+        ]);
+
+        TimelineEvent::create([
+            'slug' => 'manuscript-digitization-project',
+            'title' => [
+                'ar' => 'إطلاق مشروع رقمنة مخطوطات الأزهر',
+                'en' => 'Launch of Al-Azhar Manuscript Digitization Project',
+                'fr' => 'Lancement du projet de numerisation des manuscrits d\'Al-Azhar',
+                'es' => 'Lanzamiento del proyecto de digitalizacion de manuscritos de Al-Azhar',
+                'zh' => '启动艾资哈尔手稿数字化项目',
+                'ru' => 'Запуск проекта оцифровки рукописей Аль-Азхара',
+                'ur' => 'الازہر مخطوطات کی ڈیجیٹائزیشن منصوبے کا آغاز',
+            ],
+            'description' => [
+                'ar' => 'أُطلق مشروع محمد بن راشد آل مكتوم لرقمنة مخطوطات الأزهر الشريف، بهدف حفظ وإتاحة آلاف المخطوطات النادرة رقمياً للباحثين حول العالم.',
+                'en' => 'The Mohammed bin Rashid Al Maktoum project was launched to digitize Al-Azhar manuscripts, aiming to preserve and make available thousands of rare manuscripts digitally for researchers worldwide.',
+                'fr' => 'Le projet Mohammed bin Rashid Al Maktoum a ete lance pour numeriser les manuscrits d\'Al-Azhar, afin de preserver et rendre accessibles des milliers de manuscrits rares.',
+                'es' => 'Se lanzo el proyecto Mohammed bin Rashid Al Maktoum para digitalizar los manuscritos de Al-Azhar, con el objetivo de preservar y poner a disposicion miles de manuscritos raros.',
+                'zh' => '穆罕默德·本·拉希德·阿勒·马克图姆项目启动，旨在将艾资哈尔手稿数字化，为全球研究人员保存和提供数千份珍贵手稿。',
+                'ru' => 'Запущен проект Мохаммеда бин Рашида Аль Мактума по оцифровке рукописей Аль-Азхара для сохранения и обеспечения доступа к тысячам редких рукописей.',
+                'ur' => 'محمد بن راشد آل مکتوم منصوبہ شروع کیا گیا تاکہ الازہر کے ہزاروں نادر مخطوطات کو ڈیجیٹل طور پر محفوظ اور دنیا بھر کے محققین کے لیے دستیاب کیا جا سکے۔',
+            ],
+            'era_id' => $contemporary->id,
+            'year' => 2005,
+            'order' => 5,
+        ]);
+
+        TimelineEvent::create([
+            'slug' => 'muslim-council-of-elders',
+            'title' => [
+                'ar' => 'تأسيس مجلس حكماء المسلمين',
+                'en' => 'Muslim Council of Elders Established',
+                'fr' => 'Creation du Conseil des sages musulmans',
+                'es' => 'Establecimiento del Consejo de Sabios Musulmanes',
+                'zh' => '穆斯林长老委员会成立',
+                'ru' => 'Учреждён Мусульманский совет старейшин',
+                'ur' => 'مجلس حکماء المسلمین کا قیام',
+            ],
+            'description' => [
+                'ar' => 'أُسس مجلس حكماء المسلمين برئاسة الإمام الأكبر أحمد الطيب في أبوظبي، وهو هيئة دولية مستقلة تهدف إلى تعزيز السلام والحوار بين المسلمين وبين أتباع الأديان.',
+                'en' => 'The Muslim Council of Elders was established in Abu Dhabi, chaired by Grand Imam Ahmed el-Tayeb. It is an independent international body aimed at promoting peace and dialogue among Muslims and between followers of different faiths.',
+                'fr' => 'Le Conseil des sages musulmans a ete cree a Abu Dhabi, preside par le Grand Imam Ahmed el-Tayeb, pour promouvoir la paix et le dialogue.',
+                'es' => 'El Consejo de Sabios Musulmanes se establecio en Abu Dabi, presidido por el Gran Imam Ahmed el-Tayeb, para promover la paz y el dialogo.',
+                'zh' => '穆斯林长老委员会在阿布扎比成立，由大伊玛目艾哈迈德·泰耶布担任主席，旨在促进穆斯林之间及不同信仰间的和平与对话。',
+                'ru' => 'В Абу-Даби учреждён Мусульманский совет старейшин под председательством Великого имама Ахмеда ат-Тайиба для содействия миру и диалогу.',
+                'ur' => 'ابوظبی میں شیخ الازہر احمد الطیب کی صدارت میں مجلس حکماء المسلمین قائم کیا گیا جو مسلمانوں اور بین المذاہب امن و مکالمے کو فروغ دیتا ہے۔',
+            ],
+            'era_id' => $contemporary->id,
+            'year' => 2014,
+            'order' => 6,
+        ]);
+
+        TimelineEvent::create([
+            'slug' => 'international-day-human-fraternity',
+            'title' => [
+                'ar' => 'إعلان يوم الأخوة الإنسانية العالمي',
+                'en' => 'UN Declares International Day of Human Fraternity',
+                'fr' => 'L\'ONU declare la Journee internationale de la fraternite humaine',
+                'es' => 'La ONU declara el Dia Internacional de la Fraternidad Humana',
+                'zh' => '联合国宣布国际人类博爱日',
+                'ru' => 'ООН объявляет Международный день человеческого братства',
+                'ur' => 'اقوام متحدہ نے انسانی اخوت کا عالمی دن قرار دیا',
+            ],
+            'description' => [
+                'ar' => 'أعلنت الجمعية العامة للأمم المتحدة يوم 4 فبراير يوماً دولياً للأخوة الإنسانية، تقديراً لوثيقة الأخوة الإنسانية التي وقعها الإمام الأكبر والبابا فرنسيس.',
+                'en' => 'The United Nations General Assembly declared February 4 as International Day of Human Fraternity, in recognition of the Document on Human Fraternity signed by the Grand Imam and Pope Francis.',
+                'fr' => 'L\'Assemblee generale des Nations Unies a declare le 4 fevrier Journee internationale de la fraternite humaine, en reconnaissance du Document signe par le Grand Imam et le pape Francois.',
+                'es' => 'La Asamblea General de la ONU declaro el 4 de febrero como Dia Internacional de la Fraternidad Humana, en reconocimiento al Documento firmado por el Gran Imam y el papa Francisco.',
+                'zh' => '联合国大会宣布2月4日为国际人类博爱日，以表彰大伊玛目与教皇方济各签署的《人类博爱文件》。',
+                'ru' => 'Генеральная Ассамблея ООН объявила 4 февраля Международным днём человеческого братства в знак признания Документа, подписанного Великим имамом и Папой Франциском.',
+                'ur' => 'اقوام متحدہ کی جنرل اسمبلی نے 4 فروری کو انسانی اخوت کا عالمی دن قرار دیا، شیخ الازہر اور پوپ فرانسس کی دستاویز کے اعتراف میں۔',
+            ],
+            'era_id' => $contemporary->id,
+            'year' => 2020,
+            'order' => 7,
+        ]);
+
+        TimelineEvent::create([
+            'slug' => 'new-faculties-expansion-2025',
+            'title' => [
+                'ar' => 'إنشاء 10 كليات جديدة ليصل العدد إلى 92 كلية',
+                'en' => '10 New Faculties Established, University Reaches 92 Faculties',
+                'fr' => '10 nouvelles facultes creees, l\'universite atteint 92 facultes',
+                'es' => '10 nuevas facultades establecidas, la universidad alcanza 92 facultades',
+                'zh' => '新设10个学院，大学共达92个学院',
+                'ru' => 'Создано 10 новых факультетов, университет насчитывает 92 факультета',
+                'ur' => '10 نئی فیکلٹیاں قائم، یونیورسٹی میں کل 92 فیکلٹیاں',
+            ],
+            'description' => [
+                'ar' => 'أنشأت جامعة الأزهر 10 كليات جديدة ليصل إجمالي عدد كلياتها إلى 92 كلية تغطي مختلف التخصصات الشرعية والعلمية والإنسانية، مما يؤكد استمرار توسع الجامعة وتطورها.',
+                'en' => 'Al-Azhar University established 10 new faculties, bringing the total to 92 faculties covering diverse Islamic, scientific, and humanities disciplines, reflecting the university\'s continued expansion and development.',
+                'fr' => 'L\'Universite d\'Al-Azhar a cree 10 nouvelles facultes, portant le total a 92 couvrant diverses disciplines islamiques, scientifiques et humaines.',
+                'es' => 'La Universidad de Al-Azhar establecio 10 nuevas facultades, alcanzando un total de 92 que cubren diversas disciplinas islamicas, cientificas y humanisticas.',
+                'zh' => '艾资哈尔大学新设10个学院，使学院总数达到92个，涵盖伊斯兰、科学和人文等多种学科。',
+                'ru' => 'Университет Аль-Азхар создал 10 новых факультетов, доведя их общее число до 92, охватывающих исламские, научные и гуманитарные дисциплины.',
+                'ur' => 'جامعہ الازہر نے 10 نئی فیکلٹیاں قائم کیں اور کل تعداد 92 ہو گئی جو مختلف شرعی، سائنسی اور انسانی علوم کا احاطہ کرتی ہیں۔',
+            ],
+            'era_id' => $contemporary->id,
+            'year' => 2025,
+            'order' => 8,
         ]);
     }
 }

@@ -64,7 +64,7 @@ class OrganizationalUnitSeeder extends Seeder
         ]);
 
         // Islamic Research Academy
-        OrganizationalUnit::create([
+        $islamicResearchAcademy = OrganizationalUnit::create([
             'slug' => 'islamic-research-academy',
             'type' => 'council',
             'name' => [
@@ -273,6 +273,249 @@ class OrganizationalUnitSeeder extends Seeder
             'parent_id' => $grandImam->id,
             'is_published' => true,
             'order' => 6,
+        ]);
+
+        // Al-Azhar Translation Center
+        OrganizationalUnit::create([
+            'slug' => 'translation-center',
+            'type' => 'center',
+            'name' => [
+                'ar' => 'مركز الأزهر للترجمة',
+                'en' => 'Al-Azhar Translation Center',
+                'fr' => 'Centre de Traduction d\'Al-Azhar',
+                'es' => 'Centro de Traduccion de Al-Azhar',
+                'zh' => '艾资哈尔翻译中心',
+                'ru' => 'Центр перевода Аль-Азхара',
+                'ur' => 'الازہر ترجمہ مرکز',
+            ],
+            'description' => [
+                'ar' => 'مركز الأزهر للترجمة يتولى ترجمة إصدارات الأزهر ومنشوراته إلى 11 لغة عالمية لنشر رسالة الوسطية والاعتدال حول العالم.',
+                'en' => 'The Al-Azhar Translation Center translates Al-Azhar publications into 11 languages to spread the message of moderation and tolerance worldwide.',
+                'fr' => 'Le Centre de Traduction traduit les publications d\'Al-Azhar en 11 langues pour diffuser le message de moderation dans le monde.',
+                'es' => 'El Centro de Traduccion traduce las publicaciones de Al-Azhar a 11 idiomas para difundir el mensaje de moderacion en todo el mundo.',
+                'zh' => '艾资哈尔翻译中心将艾资哈尔出版物翻译成11种语言，向全球传播中正温和的理念。',
+                'ru' => 'Центр перевода переводит публикации Аль-Азхара на 11 языков для распространения послания умеренности во всём мире.',
+                'ur' => 'الازہر ترجمہ مرکز الازہر کی اشاعتوں کا 11 زبانوں میں ترجمہ کرتا ہے تاکہ اعتدال کا پیغام دنیا بھر میں پھیلایا جا سکے۔',
+            ],
+            'parent_id' => $grandImam->id,
+            'is_published' => true,
+            'order' => 7,
+        ]);
+
+        // Al-Azhar Academy for Imam Training
+        OrganizationalUnit::create([
+            'slug' => 'imam-training-academy',
+            'type' => 'center',
+            'name' => [
+                'ar' => 'أكاديمية الأزهر لتدريب الأئمة والوعاظ',
+                'en' => 'Al-Azhar Academy for Imam Training',
+                'fr' => 'Academie d\'Al-Azhar pour la Formation des Imams',
+                'es' => 'Academia de Al-Azhar para la Formacion de Imanes',
+                'zh' => '艾资哈尔伊玛目培训学院',
+                'ru' => 'Академия Аль-Азхара по подготовке имамов',
+                'ur' => 'الازہر اکیڈمی برائے تربیت ائمہ و واعظین',
+            ],
+            'description' => [
+                'ar' => 'أكاديمية الأزهر لتدريب الأئمة والوعاظ تقوم بتأهيل وتدريب الأئمة والوعاظ من مصر ومختلف دول العالم على فنون الدعوة والخطابة والإفتاء.',
+                'en' => 'The Al-Azhar Academy for Imam Training trains imams and preachers from Egypt and worldwide in the arts of Islamic preaching, oratory, and issuing religious guidance.',
+                'fr' => 'L\'Academie forme des imams et des predicateurs d\'Egypte et du monde entier aux arts de la predication islamique et de l\'orientation religieuse.',
+                'es' => 'La Academia forma a imanes y predicadores de Egipto y de todo el mundo en las artes de la predicacion islamica y la orientacion religiosa.',
+                'zh' => '艾资哈尔伊玛目培训学院培训来自埃及和世界各地的伊玛目和传教士，教授伊斯兰宣教和演讲艺术。',
+                'ru' => 'Академия обучает имамов и проповедников из Египта и всего мира искусству исламской проповеди и религиозного наставничества.',
+                'ur' => 'اکیڈمی مصر اور دنیا بھر سے ائمہ اور واعظین کو اسلامی دعوت، خطابت اور افتاء کے فنون کی تربیت دیتی ہے۔',
+            ],
+            'parent_id' => $grandImam->id,
+            'is_published' => true,
+            'order' => 8,
+        ]);
+
+        // Bayt al-Zakat wa al-Sadaqat
+        OrganizationalUnit::create([
+            'slug' => 'bayt-al-zakat',
+            'type' => 'center',
+            'name' => [
+                'ar' => 'بيت الزكاة والصدقات المصري',
+                'en' => 'Bayt al-Zakat wa al-Sadaqat',
+                'fr' => 'Maison de la Zakat et des Aumones',
+                'es' => 'Casa del Zakat y las Limosnas',
+                'zh' => '埃及天课与施舍之家',
+                'ru' => 'Дом закята и милостыни',
+                'ur' => 'بیت الزکاۃ والصدقات مصری',
+            ],
+            'description' => [
+                'ar' => 'بيت الزكاة والصدقات المصري هو مؤسسة خيرية تابعة للأزهر الشريف تتولى إدارة وتوزيع أموال الزكاة والصدقات على المستحقين في مصر.',
+                'en' => 'Bayt al-Zakat wa al-Sadaqat is an Egyptian charity institution under Al-Azhar managing the collection and distribution of zakat funds to those in need across Egypt.',
+                'fr' => 'Bayt al-Zakat est une institution caritative sous Al-Azhar qui gere la collecte et la distribution des fonds de zakat en Egypte.',
+                'es' => 'Bayt al-Zakat es una institucion benefica bajo Al-Azhar que gestiona la recaudacion y distribucion de fondos de zakat en Egipto.',
+                'zh' => '埃及天课与施舍之家是艾资哈尔旗下的慈善机构，负责管理和分配天课资金给埃及各地有需要的人。',
+                'ru' => 'Байт аз-Закят — благотворительное учреждение при Аль-Азхаре, управляющее сбором и распределением закята в Египте.',
+                'ur' => 'بیت الزکاۃ والصدقات الازہر الشریف کے تحت ایک خیراتی ادارہ ہے جو مصر بھر میں مستحقین کو زکاۃ کی رقوم تقسیم کرتا ہے۔',
+            ],
+            'parent_id' => $grandImam->id,
+            'is_published' => true,
+            'order' => 9,
+        ]);
+
+        // Center for Interreligious Dialogue
+        OrganizationalUnit::create([
+            'slug' => 'interreligious-dialogue-center',
+            'type' => 'center',
+            'name' => [
+                'ar' => 'مركز الأزهر للحوار بين الأديان',
+                'en' => 'Center for Interreligious Dialogue',
+                'fr' => 'Centre pour le Dialogue Interreligieux',
+                'es' => 'Centro para el Dialogo Interreligioso',
+                'zh' => '艾资哈尔宗教间对话中心',
+                'ru' => 'Центр межрелигиозного диалога Аль-Азхара',
+                'ur' => 'الازہر بین المذاہب مکالمہ مرکز',
+            ],
+            'description' => [
+                'ar' => 'مركز الأزهر للحوار بين الأديان يعمل على تعزيز التفاهم والحوار بين أتباع الأديان المختلفة ونشر ثقافة التسامح والتعايش السلمي.',
+                'en' => 'The Center for Interreligious Dialogue promotes interfaith understanding and dialogue among followers of different religions, fostering a culture of tolerance and peaceful coexistence.',
+                'fr' => 'Le Centre promeut la comprehension et le dialogue interreligieux entre les adeptes de differentes religions, favorisant la tolerance et la coexistence pacifique.',
+                'es' => 'El Centro promueve la comprension y el dialogo interreligioso entre los seguidores de diferentes religiones, fomentando la tolerancia y la coexistencia pacifica.',
+                'zh' => '宗教间对话中心促进不同宗教信众之间的理解与对话，培育包容与和平共处的文化。',
+                'ru' => 'Центр содействует межрелигиозному взаимопониманию и диалогу между последователями разных религий, развивая культуру терпимости и мирного сосуществования.',
+                'ur' => 'مرکز مختلف مذاہب کے پیروکاروں کے درمیان بین المذاہب تفاہم اور مکالمے کو فروغ دیتا ہے اور رواداری اور پرامن بقائے باہمی کی ثقافت کو پھیلاتا ہے۔',
+            ],
+            'parent_id' => $grandImam->id,
+            'is_published' => true,
+            'order' => 10,
+        ]);
+
+        // Center for International Students
+        OrganizationalUnit::create([
+            'slug' => 'international-students-center',
+            'type' => 'center',
+            'name' => [
+                'ar' => 'مركز تطوير تعليم الطلاب الوافدين',
+                'en' => 'Center for International Students',
+                'fr' => 'Centre pour les Etudiants Internationaux',
+                'es' => 'Centro para Estudiantes Internacionales',
+                'zh' => '国际学生教育发展中心',
+                'ru' => 'Центр развития образования иностранных студентов',
+                'ur' => 'بین الاقوامی طلباء کی تعلیم کی ترقی کا مرکز',
+            ],
+            'description' => [
+                'ar' => 'مركز تطوير تعليم الطلاب الوافدين يخدم أكثر من 40,000 طالب من أكثر من 110 دولة، ويوفر لهم الدعم الأكاديمي والإداري واللغوي.',
+                'en' => 'The Center for International Students serves over 40,000 students from more than 110 countries, providing academic, administrative, and language support.',
+                'fr' => 'Le Centre sert plus de 40 000 etudiants de plus de 110 pays, offrant un soutien academique, administratif et linguistique.',
+                'es' => 'El Centro atiende a mas de 40.000 estudiantes de mas de 110 paises, ofreciendo apoyo academico, administrativo y linguistico.',
+                'zh' => '国际学生教育发展中心服务来自110多个国家的4万多名学生，提供学术、行政和语言支持。',
+                'ru' => 'Центр обслуживает более 40 000 студентов из более чем 110 стран, оказывая академическую, административную и языковую поддержку.',
+                'ur' => 'مرکز 110 سے زائد ممالک کے 40,000 سے زائد طلباء کی خدمت کرتا ہے اور انہیں اکیڈمک، انتظامی اور لسانی مدد فراہم کرتا ہے۔',
+            ],
+            'parent_id' => $presidency->id,
+            'is_published' => true,
+            'order' => 4,
+        ]);
+
+        // Al-Azhar Institutes Sector
+        OrganizationalUnit::create([
+            'slug' => 'azhar-institutes-sector',
+            'type' => 'sector',
+            'name' => [
+                'ar' => 'قطاع المعاهد الأزهرية',
+                'en' => 'Al-Azhar Institutes Sector',
+                'fr' => 'Secteur des Instituts d\'Al-Azhar',
+                'es' => 'Sector de Institutos de Al-Azhar',
+                'zh' => '艾资哈尔学院部门',
+                'ru' => 'Сектор институтов Аль-Азхара',
+                'ur' => 'الازہر معاہد کا شعبہ',
+            ],
+            'description' => [
+                'ar' => 'قطاع المعاهد الأزهرية يشرف على التعليم الأزهري قبل الجامعي (المرحلة الابتدائية والإعدادية والثانوية) في المعاهد الأزهرية المنتشرة في جميع أنحاء مصر.',
+                'en' => 'The Al-Azhar Institutes Sector oversees pre-university Islamic education (primary, preparatory, and secondary institutes) across Egypt.',
+                'fr' => 'Le Secteur supervise l\'enseignement islamique pre-universitaire (primaire, preparatoire et secondaire) dans les instituts d\'Al-Azhar a travers l\'Egypte.',
+                'es' => 'El Sector supervisa la educacion islamica preuniversitaria (institutos primarios, preparatorios y secundarios) en todo Egipto.',
+                'zh' => '艾资哈尔学院部门监管遍布埃及的大学前伊斯兰教育（小学、预备和中学阶段的艾资哈尔学院）。',
+                'ru' => 'Сектор курирует доуниверситетское исламское образование (начальные, подготовительные и средние институты) по всему Египту.',
+                'ur' => 'شعبہ پورے مصر میں الازہر معاہد میں یونیورسٹی سے قبل کی اسلامی تعلیم (ابتدائی، اعدادی اور ثانوی) کی نگرانی کرتا ہے۔',
+            ],
+            'parent_id' => $grandImam->id,
+            'is_published' => true,
+            'order' => 11,
+        ]);
+
+        // Council of Senior Scholars
+        OrganizationalUnit::create([
+            'slug' => 'council-senior-scholars',
+            'type' => 'council',
+            'name' => [
+                'ar' => 'هيئة كبار العلماء',
+                'en' => 'Council of Senior Scholars',
+                'fr' => 'Conseil des Grands Savants',
+                'es' => 'Consejo de Grandes Eruditos',
+                'zh' => '资深学者委员会',
+                'ru' => 'Совет старших учёных',
+                'ur' => 'ہیئت کبار العلماء',
+            ],
+            'description' => [
+                'ar' => 'هيئة كبار العلماء تضم ما يصل إلى 40 عضواً من كبار علماء الأزهر، أُعيد تأسيسها في 17 يوليو 2012م، وتختص بتقديم المشورة في الشؤون الدينية والفقهية.',
+                'en' => 'The Council of Senior Scholars comprises up to 40 members of Al-Azhar\'s most distinguished scholars. Re-established on July 17, 2012, it advises on religious and jurisprudential matters.',
+                'fr' => 'Le Conseil comprend jusqu\'a 40 membres des plus eminents erudits d\'Al-Azhar, retabli le 17 juillet 2012, il conseille sur les affaires religieuses et juridiques.',
+                'es' => 'El Consejo comprende hasta 40 miembros de los eruditos mas distinguidos de Al-Azhar, restablecido el 17 de julio de 2012, asesora en asuntos religiosos y jurisprudenciales.',
+                'zh' => '资深学者委员会由多达40名艾资哈尔最杰出的学者组成，于2012年7月17日重新建立，就宗教和法学事务提供咨询。',
+                'ru' => 'Совет насчитывает до 40 членов из числа самых выдающихся учёных Аль-Азхара. Воссоздан 17 июля 2012 года, консультирует по религиозным и правовым вопросам.',
+                'ur' => 'ہیئت کبار العلماء الازہر کے 40 تک ممتاز ترین علماء پر مشتمل ہے، 17 جولائی 2012 کو دوبارہ قائم ہوئی، دینی اور فقہی معاملات پر مشاورت دیتی ہے۔',
+            ],
+            'parent_id' => $grandImam->id,
+            'is_published' => true,
+            'order' => 12,
+        ]);
+
+        // Sawt Al-Azhar Newspaper
+        OrganizationalUnit::create([
+            'slug' => 'sawt-al-azhar-newspaper',
+            'type' => 'media',
+            'name' => [
+                'ar' => 'جريدة صوت الأزهر',
+                'en' => 'Sawt Al-Azhar Newspaper',
+                'fr' => 'Journal Sawt Al-Azhar',
+                'es' => 'Periodico Sawt Al-Azhar',
+                'zh' => '艾资哈尔之声报',
+                'ru' => 'Газета «Саут Аль-Азхар»',
+                'ur' => 'جریدہ صوت الازہر',
+            ],
+            'description' => [
+                'ar' => 'جريدة صوت الأزهر هي الجريدة الرسمية للأزهر الشريف، تنقل أخبار الأزهر وأنشطته وبياناته إلى الجمهور.',
+                'en' => 'Sawt Al-Azhar is the official Al-Azhar newspaper, conveying Al-Azhar\'s news, activities, and statements to the public.',
+                'fr' => 'Sawt Al-Azhar est le journal officiel d\'Al-Azhar, transmettant les nouvelles, activites et declarations d\'Al-Azhar au public.',
+                'es' => 'Sawt Al-Azhar es el periodico oficial de Al-Azhar, transmitiendo las noticias, actividades y declaraciones de Al-Azhar al publico.',
+                'zh' => '艾资哈尔之声是艾资哈尔的官方报纸，向公众传递艾资哈尔的新闻、活动和声明。',
+                'ru' => '«Саут Аль-Азхар» — официальная газета Аль-Азхара, доносящая новости, мероприятия и заявления до общественности.',
+                'ur' => 'صوت الازہر الازہر الشریف کا سرکاری اخبار ہے جو الازہر کی خبریں، سرگرمیاں اور بیانات عوام تک پہنچاتا ہے۔',
+            ],
+            'parent_id' => $grandImam->id,
+            'is_published' => true,
+            'order' => 13,
+        ]);
+
+        // Al-Azhar Magazine
+        OrganizationalUnit::create([
+            'slug' => 'al-azhar-magazine',
+            'type' => 'media',
+            'name' => [
+                'ar' => 'مجلة الأزهر',
+                'en' => 'Al-Azhar Magazine',
+                'fr' => 'Magazine d\'Al-Azhar',
+                'es' => 'Revista de Al-Azhar',
+                'zh' => '艾资哈尔杂志',
+                'ru' => 'Журнал «Аль-Азхар»',
+                'ur' => 'مجلہ الازہر',
+            ],
+            'description' => [
+                'ar' => 'مجلة الأزهر هي مجلة علمية شهرية تصدر عن مجمع البحوث الإسلامية منذ عام 1930م، وتنشر أبحاثاً ومقالات في العلوم الإسلامية والعربية.',
+                'en' => 'Al-Azhar Magazine is a monthly scholarly journal published by the Islamic Research Academy since 1930, featuring research and articles on Islamic and Arabic sciences.',
+                'fr' => 'Le Magazine d\'Al-Azhar est une revue savante mensuelle publiee par l\'Academie de Recherches Islamiques depuis 1930.',
+                'es' => 'La Revista de Al-Azhar es una publicacion academica mensual publicada por la Academia de Investigacion Islamica desde 1930.',
+                'zh' => '艾资哈尔杂志是伊斯兰研究院自1930年以来出版的月刊学术期刊，刊载伊斯兰和阿拉伯科学的研究与文章。',
+                'ru' => 'Журнал «Аль-Азхар» — ежемесячное научное издание Академии исламских исследований, выходящее с 1930 года.',
+                'ur' => 'مجلہ الازہر مجمع البحوث الاسلامیہ کا 1930 سے شائع ہونے والا ماہانہ علمی جریدہ ہے جو اسلامی اور عربی علوم پر تحقیق اور مقالات شائع کرتا ہے۔',
+            ],
+            'parent_id' => $islamicResearchAcademy->id,
+            'is_published' => true,
+            'order' => 1,
         ]);
     }
 }
