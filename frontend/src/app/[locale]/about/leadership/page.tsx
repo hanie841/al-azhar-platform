@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { LeadershipPage } from '@/components/university/LeadershipPage';
+import { JsonLd, buildBreadcrumbJsonLd } from '@/lib/json-ld';
+import { SITE_URL } from '@/lib/constants';
 
 export async function generateMetadata({
   params,
@@ -25,5 +27,17 @@ export default async function LeadershipRoute({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <LeadershipPage />;
+  const isAr = locale === 'ar';
+
+  return (
+    <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: isAr ? 'الرئيسية' : 'Home', url: `${SITE_URL}/${locale}` },
+          { name: isAr ? 'القيادات' : 'Leadership', url: `${SITE_URL}/${locale}/about/leadership` },
+        ])}
+      />
+      <LeadershipPage />
+    </>
+  );
 }

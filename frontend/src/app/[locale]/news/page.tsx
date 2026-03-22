@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { NewsPage } from '@/components/news/NewsPage';
+import { JsonLd, buildBreadcrumbJsonLd } from '@/lib/json-ld';
+import { SITE_URL } from '@/lib/constants';
 
 export async function generateMetadata({
   params,
@@ -25,5 +27,17 @@ export default async function NewsRoute({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <NewsPage />;
+  const isAr = locale === 'ar';
+
+  return (
+    <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: isAr ? 'الرئيسية' : 'Home', url: `${SITE_URL}/${locale}` },
+          { name: isAr ? 'الأخبار' : 'News', url: `${SITE_URL}/${locale}/news` },
+        ])}
+      />
+      <NewsPage />
+    </>
+  );
 }

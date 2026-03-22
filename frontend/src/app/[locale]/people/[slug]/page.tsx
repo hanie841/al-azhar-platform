@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { PersonDetail } from '@/components/university/PersonDetail';
 import { fetchPerson } from '@/lib/api-fetchers';
+import { JsonLd, buildPersonJsonLd, buildBreadcrumbJsonLd } from '@/lib/json-ld';
+import { SITE_URL } from '@/lib/constants';
 
 export async function generateMetadata({
   params,
@@ -22,6 +24,7 @@ export async function generateMetadata({
       openGraph: {
         title: person.name,
         description: person.bio?.slice(0, 160) ?? undefined,
+        url: `${SITE_URL}/${locale}/people/${slug}`,
         ...(person.photo ? { images: [{ url: person.photo }] } : {}),
       },
     };
@@ -49,5 +52,19 @@ export default async function PersonDetailPage({
 
   if (!person) notFound();
 
-  return <PersonDetail person={person} />;
+  const isAr = locale === 'ar';
+
+  return (
+    <>
+      <JsonLd data={buildPersonJsonLd(person, locale)} />
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: isAr ? 'الرئيسية' : 'Home', url: `${SITE_URL}/${locale}` },
+          { name: isAr ? 'القيادات' : 'Leadership', url: `${SITE_URL}/${locale}/about/leadership` },
+          { name: person.name, url: `${SITE_URL}/${locale}/people/${slug}` },
+        ])}
+      />
+      <PersonDetail person={person} />
+    </>
+  );
 }

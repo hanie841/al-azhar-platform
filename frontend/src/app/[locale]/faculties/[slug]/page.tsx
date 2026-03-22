@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { FacultyDetail } from '@/components/university/FacultyDetail';
 import { fetchFaculty } from '@/lib/api-fetchers';
+import { JsonLd, buildBreadcrumbJsonLd } from '@/lib/json-ld';
+import { SITE_URL } from '@/lib/constants';
 
 export async function generateMetadata({
   params,
@@ -22,6 +24,7 @@ export async function generateMetadata({
       openGraph: {
         title: faculty.name,
         description: faculty.description?.slice(0, 160) ?? undefined,
+        url: `${SITE_URL}/${locale}/faculties/${slug}`,
         ...(faculty.featured_image ? { images: [{ url: faculty.featured_image }] } : {}),
       },
     };
@@ -49,5 +52,18 @@ export default async function FacultyDetailPage({
 
   if (!faculty) notFound();
 
-  return <FacultyDetail faculty={faculty} />;
+  const isAr = locale === 'ar';
+
+  return (
+    <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: isAr ? 'الرئيسية' : 'Home', url: `${SITE_URL}/${locale}` },
+          { name: isAr ? 'الكليات والمعاهد' : 'Faculties & Institutes', url: `${SITE_URL}/${locale}/faculties` },
+          { name: faculty.name, url: `${SITE_URL}/${locale}/faculties/${slug}` },
+        ])}
+      />
+      <FacultyDetail faculty={faculty} />
+    </>
+  );
 }

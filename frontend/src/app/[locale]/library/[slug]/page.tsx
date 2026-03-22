@@ -3,6 +3,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { LibraryItemDetail } from '@/components/library/LibraryItemDetail';
 import { fetchLibraryItem } from '@/lib/api-fetchers';
+import { JsonLd, buildBookJsonLd, buildBreadcrumbJsonLd } from '@/lib/json-ld';
+import { SITE_URL } from '@/lib/constants';
 
 export async function generateMetadata({
   params,
@@ -21,6 +23,15 @@ export async function generateMetadata({
           : locale === 'ar'
             ? `${item.title} - المكتبة الرقمية لجامعة الأزهر`
             : `${item.title} - Al-Azhar University Digital Library`,
+      openGraph: {
+        title: item.title,
+        description: (item.abstract || item.description)?.slice(0, 160) ?? undefined,
+        type: 'website',
+        url: `${SITE_URL}/${locale}/library/${slug}`,
+        ...((item.cover_image_url || item.cover_image)
+          ? { images: [{ url: (item.cover_image_url || item.cover_image) as string }] }
+          : {}),
+      },
     };
   } catch {
     return {
@@ -46,5 +57,19 @@ export default async function LibraryItemPage({
 
   if (!item) notFound();
 
-  return <LibraryItemDetail item={item} />;
+  const isAr = locale === 'ar';
+
+  return (
+    <>
+      <JsonLd data={buildBookJsonLd(item, locale)} />
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: isAr ? 'الرئيسية' : 'Home', url: `${SITE_URL}/${locale}` },
+          { name: isAr ? 'المكتبة الرقمية' : 'Library', url: `${SITE_URL}/${locale}/library` },
+          { name: item.title, url: `${SITE_URL}/${locale}/library/${slug}` },
+        ])}
+      />
+      <LibraryItemDetail item={item} />
+    </>
+  );
 }

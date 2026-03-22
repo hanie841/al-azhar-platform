@@ -9,6 +9,8 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { AuthProvider } from '@/lib/auth-context';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { JsonLd, buildOrganizationJsonLd, buildWebSiteJsonLd } from '@/lib/json-ld';
+import { SITE_URL } from '@/lib/constants';
 import '@/styles/globals.css';
 
 export async function generateMetadata({
@@ -20,6 +22,7 @@ export async function generateMetadata({
   const isAr = locale === 'ar';
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: {
       template: isAr ? '%s | جامعة الأزهر' : '%s | Al-Azhar University',
       default: isAr
@@ -84,6 +87,8 @@ export default async function LocaleLayout({
       <body
         className={`${inter.variable} ${playfairDisplay.variable} ${amiri.variable} ${notoKufiArabic.variable} antialiased bg-sand-50 text-gray-900 dark:bg-navy-900 dark:text-sand-100`}
       >
+        <JsonLd data={buildOrganizationJsonLd(locale)} />
+        <JsonLd data={buildWebSiteJsonLd(locale)} />
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <AuthProvider>

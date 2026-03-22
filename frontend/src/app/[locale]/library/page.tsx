@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { LibraryPage } from '@/components/library/LibraryPage';
+import { JsonLd, buildBreadcrumbJsonLd } from '@/lib/json-ld';
+import { SITE_URL } from '@/lib/constants';
 
 export async function generateMetadata({
   params,
@@ -25,5 +27,17 @@ export default async function LibraryRoute({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <LibraryPage />;
+  const isAr = locale === 'ar';
+
+  return (
+    <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: isAr ? 'الرئيسية' : 'Home', url: `${SITE_URL}/${locale}` },
+          { name: isAr ? 'المكتبة الرقمية' : 'Library', url: `${SITE_URL}/${locale}/library` },
+        ])}
+      />
+      <LibraryPage />
+    </>
+  );
 }
