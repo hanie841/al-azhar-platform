@@ -20,25 +20,25 @@ const PUBLICATION_TYPES = [
 ] as const;
 
 const RESEARCH_AREAS = [
-  'Islamic Studies',
-  'Science',
-  'Medicine',
-  'Engineering',
-  'Humanities',
-  'Law',
-  'Education',
-  'Agriculture',
+  'islamic_studies',
+  'science',
+  'medicine',
+  'engineering',
+  'humanities',
+  'law',
+  'education',
+  'agriculture',
 ] as const;
 
 const AREA_TRANSLATION_KEYS: Record<string, string> = {
-  'Islamic Studies': 'islamicStudies',
-  Science: 'science',
-  Medicine: 'medicine',
-  Engineering: 'engineering',
-  Humanities: 'humanities',
-  Law: 'law',
-  Education: 'education',
-  Agriculture: 'agriculture',
+  islamic_studies: 'islamicStudies',
+  science: 'science',
+  medicine: 'medicine',
+  engineering: 'engineering',
+  humanities: 'humanities',
+  law: 'law',
+  education: 'education',
+  agriculture: 'agriculture',
 };
 
 // Mock data for development fallback

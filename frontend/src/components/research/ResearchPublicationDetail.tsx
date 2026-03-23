@@ -21,14 +21,14 @@ import { fetchResearchPublications } from '@/lib/api-fetchers';
 import { ResearchCard } from './ResearchCard';
 
 const areaColors: Record<string, string> = {
-  'Islamic Studies': '#c9a84c',
-  Science: '#0d4f4f',
-  Medicine: '#c44569',
-  Engineering: '#155a5a',
-  Humanities: '#8b6914',
-  Law: '#6c3483',
-  Education: '#1a6b6b',
-  Agriculture: '#2e7d32',
+  islamic_studies: '#c9a84c',
+  science: '#0d4f4f',
+  medicine: '#c44569',
+  engineering: '#155a5a',
+  humanities: '#8b6914',
+  law: '#6c3483',
+  education: '#1a6b6b',
+  agriculture: '#2e7d32',
 };
 
 export function ResearchPublicationDetail({ publication }: { publication: ResearchPublication }) {
@@ -106,7 +106,7 @@ export function ResearchPublicationDetail({ publication }: { publication: Resear
                       className="text-xs font-bold px-3 py-1 rounded-full text-white"
                       style={{ backgroundColor: areaColor }}
                     >
-                      {publication.research_area}
+                      {t(publication.research_area === 'islamic_studies' ? 'islamicStudies' : publication.research_area ?? '')}
                     </span>
                   )}
                   {publication.is_featured && (
@@ -250,7 +250,7 @@ export function ResearchPublicationDetail({ publication }: { publication: Resear
                       className="inline-block text-xs font-bold px-3 py-1 rounded-full text-white"
                       style={{ backgroundColor: areaColor }}
                     >
-                      {publication.research_area}
+                      {t(publication.research_area === 'islamic_studies' ? 'islamicStudies' : publication.research_area ?? '')}
                     </span>
                   </div>
                 )}
