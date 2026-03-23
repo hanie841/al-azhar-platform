@@ -485,5 +485,32 @@
     "testimonial3Quote": "The balance between modern science and Islamic values at Al-Azhar is unique. I am proud to be part of this thousand-year legacy.",
     "ctaTitle": "الازہر کمیونٹی میں شامل ہوں",
     "ctaDescription": "ایک ہزار سال سے ذہنوں کو تشکیل دینے والی کمیونٹی کا حصہ بنیں۔"
+  },
+  "accessibility": {
+    "title": "رسائی",
+    "fontSize": "فونٹ سائز",
+    "increase": "بڑا کریں",
+    "decrease": "چھوٹا کریں",
+    "reset": "دوبارہ ترتیب دیں",
+    "highContrast": "اعلیٰ تضاد",
+    "reducedMotion": "حرکت کم کریں",
+    "readingGuide": "پڑھنے کی رہنمائی",
+    "focusHighlight": "فوکس نمایاں کریں",
+    "skipToContent": "مرکزی مواد پر جائیں",
+    "accessibilityOptions": "رسائی کے اختیارات"
+  },
+  "social": {
+    "title": "الازہر سوشل میڈیا پر",
+    "subtitle": "سوشل پلیٹ فارمز پر الازہر یونیورسٹی کو فالو کریں",
+    "all": "سب",
+    "followers": "فالورز",
+    "subscribers": "سبسکرائبرز",
+    "likes": "لائکس",
+    "shares": "شیئرز",
+    "comments": "تبصرے",
+    "viewPost": "پوسٹ دیکھیں",
+    "followUs": "ہمیں فالو کریں",
+    "latestPosts": "تازہ ترین پوسٹس",
+    "noResults": "کوئی پوسٹ نہیں ملی"
   }
 }

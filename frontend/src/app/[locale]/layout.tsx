@@ -8,6 +8,8 @@ import { amiri, notoKufiArabic, inter, playfairDisplay } from '@/lib/fonts';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ChatWidget } from '@/components/chat/ChatWidget';
+import { AccessibilityWidget } from '@/components/widgets/AccessibilityWidget';
+import { SkipToContent } from '@/components/accessibility/SkipToContent';
 import { AuthProvider } from '@/lib/auth-context';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { JsonLd, buildOrganizationJsonLd, buildWebSiteJsonLd } from '@/lib/json-ld';
@@ -93,10 +95,12 @@ export default async function LocaleLayout({
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <AuthProvider>
+              <SkipToContent />
               <Header locale={locale as Locale} />
-              <main className="min-h-screen">{children}</main>
+              <main id="main-content" className="min-h-screen">{children}</main>
               <Footer locale={locale as Locale} />
               <ChatWidget />
+              <AccessibilityWidget />
             </AuthProvider>
           </NextIntlClientProvider>
         </ThemeProvider>

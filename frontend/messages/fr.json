@@ -485,5 +485,32 @@
     "testimonial3Quote": "L'\u00e9quilibre entre la science moderne et les valeurs islamiques \u00e0 Al-Azhar est unique. Je suis fier de cet h\u00e9ritage mill\u00e9naire.",
     "ctaTitle": "Rejoignez la Communaut\u00e9 Al-Azhar",
     "ctaDescription": "Faites partie d'une communaut\u00e9 universitaire dynamique qui fa\u00e7onne les esprits et les destins depuis plus de mille ans."
+  },
+  "accessibility": {
+    "title": "Accessibilit\u00e9",
+    "fontSize": "Taille de police",
+    "increase": "Augmenter",
+    "decrease": "Diminuer",
+    "reset": "R\u00e9initialiser",
+    "highContrast": "Contraste \u00e9lev\u00e9",
+    "reducedMotion": "R\u00e9duire les animations",
+    "readingGuide": "Guide de lecture",
+    "focusHighlight": "Mise en \u00e9vidence du focus",
+    "skipToContent": "Aller au contenu principal",
+    "accessibilityOptions": "Options d'accessibilit\u00e9"
+  },
+  "social": {
+    "title": "Al-Azhar sur les r\u00e9seaux sociaux",
+    "subtitle": "Suivez l'Universit\u00e9 Al-Azhar sur les plateformes sociales",
+    "all": "Tout",
+    "followers": "Abonn\u00e9s",
+    "subscribers": "Abonn\u00e9s",
+    "likes": "J'aime",
+    "shares": "Partages",
+    "comments": "Commentaires",
+    "viewPost": "Voir la publication",
+    "followUs": "Suivez-nous",
+    "latestPosts": "Derni\u00e8res publications",
+    "noResults": "Aucune publication trouv\u00e9e"
   }
 }

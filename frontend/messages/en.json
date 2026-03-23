@@ -490,5 +490,32 @@
     "testimonial3Quote": "The balance between modern science and Islamic values at Al-Azhar is unique. I am proud to be part of this thousand-year legacy.",
     "ctaTitle": "Join the Al-Azhar Community",
     "ctaDescription": "Be part of a vibrant campus community that has been shaping minds and futures for over a thousand years."
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "fontSize": "Font Size",
+    "increase": "Increase",
+    "decrease": "Decrease",
+    "reset": "Reset",
+    "highContrast": "High Contrast",
+    "reducedMotion": "Reduced Motion",
+    "readingGuide": "Reading Guide",
+    "focusHighlight": "Focus Highlight",
+    "skipToContent": "Skip to main content",
+    "accessibilityOptions": "Accessibility Options"
+  },
+  "social": {
+    "title": "Al-Azhar on Social Media",
+    "subtitle": "Follow Al-Azhar University across social platforms",
+    "all": "All",
+    "followers": "Followers",
+    "subscribers": "Subscribers",
+    "likes": "Likes",
+    "shares": "Shares",
+    "comments": "Comments",
+    "viewPost": "View Post",
+    "followUs": "Follow Us",
+    "latestPosts": "Latest Posts",
+    "noResults": "No posts found"
   }
 }

@@ -116,3 +116,42 @@ html {
     transparent
   );
 }
+
+/* ── Accessibility: High Contrast ── */
+.high-contrast {
+  --color-sand-50: #ffffff;
+  --color-sand-100: #f5f5f5;
+  --color-primary-700: #003333;
+  --color-primary-600: #004444;
+}
+.high-contrast body {
+  color: #000000;
+}
+.high-contrast.dark body {
+  color: #ffffff;
+  background-color: #000000;
+}
+.high-contrast.dark {
+  --color-navy-900: #000000;
+  --color-navy-800: #0a0a0a;
+  --color-navy-700: #1a1a1a;
+}
+
+/* ── Accessibility: Reduced Motion ── */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ── Accessibility: Focus Highlight ── */
+.focus-highlight *:focus {
+  outline: 3px solid var(--color-primary-500) !important;
+  outline-offset: 2px !important;
+}
+.focus-highlight.dark *:focus {
+  outline-color: var(--color-accent-400) !important;
+}
