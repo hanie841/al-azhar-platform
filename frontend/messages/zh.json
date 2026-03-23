@@ -57,7 +57,11 @@
     "bookmark": "Bookmark",
     "pages": "Pages",
     "views": "Views",
-    "downloads": "Downloads"
+    "downloads": "Downloads",
+    "browseLibrary": "浏览图书馆",
+    "resultsCount": "条结果",
+    "filterByType": "按类型筛选",
+    "filterByLanguage": "按语言筛选"
   },
   "auth": {
     "email": "Email Address",

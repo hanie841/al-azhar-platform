@@ -57,7 +57,11 @@
     "bookmark": "Bookmark",
     "pages": "Pages",
     "views": "Views",
-    "downloads": "Downloads"
+    "downloads": "Downloads",
+    "browseLibrary": "Explorar biblioteca",
+    "resultsCount": "resultados",
+    "filterByType": "Filtrar por tipo",
+    "filterByLanguage": "Filtrar por idioma"
   },
   "auth": {
     "email": "Email Address",

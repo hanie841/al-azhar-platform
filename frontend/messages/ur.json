@@ -57,7 +57,11 @@
     "bookmark": "Bookmark",
     "pages": "Pages",
     "views": "Views",
-    "downloads": "Downloads"
+    "downloads": "Downloads",
+    "browseLibrary": "لائبریری براؤز کریں",
+    "resultsCount": "نتائج",
+    "filterByType": "قسم کے مطابق فلٹر",
+    "filterByLanguage": "زبان کے مطابق فلٹر"
   },
   "auth": {
     "email": "Email Address",

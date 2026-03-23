@@ -57,7 +57,11 @@
     "bookmark": "Bookmark",
     "pages": "Pages",
     "views": "Views",
-    "downloads": "Downloads"
+    "downloads": "Downloads",
+    "browseLibrary": "Обзор библиотеки",
+    "resultsCount": "результатов",
+    "filterByType": "Фильтр по типу",
+    "filterByLanguage": "Фильтр по языку"
   },
   "auth": {
     "email": "Email Address",
