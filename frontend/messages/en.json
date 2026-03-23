@@ -140,7 +140,25 @@
   },
   "structure": {
     "title": "Organizational Structure",
-    "subtitle": "Explore the organizational structure and administrative divisions of Al-Azhar University"
+    "subtitle": "Explore the organizational structure and administrative divisions of Al-Azhar University",
+    "universityCouncil": "University Council",
+    "universityPresident": "University President",
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All",
+    "departments": "departments",
+    "collegeStructure": "College-Level Structure",
+    "collegeStructureDesc": "Generic internal structure model for each college/faculty",
+    "vpEducation": "Vice President for Education and Students",
+    "vpResearch": "Vice President for Postgraduate Studies and Research",
+    "vpGirls": "Vice President for Girls' Branch (Cairo)",
+    "vpAssiut": "Vice President for Upper Egypt Branch (Assiut)",
+    "secretaryGeneral": "University Secretary General",
+    "auditGovernance": "Internal Audit and Governance",
+    "additionalUnits": "Additional Administrative Units",
+    "hrCenter": "Human Resources Development Center",
+    "publicRelations": "Public Relations and Media",
+    "occupationalSafety": "Occupational Safety and Health",
+    "specialUnits": "Special Administrative Units"
   },
   "global": {
     "title": "Al-Azhar Globally",

@@ -154,8 +154,26 @@
     "historicalScholarsDesc": "Elite scholars who enriched human civilization"
   },
   "structure": {
-    "title": "Organizational Structure",
-    "subtitle": "Explore the organizational structure and administrative divisions of Al-Azhar University"
+    "title": "Организационная структура",
+    "subtitle": "Исследуйте организационную структуру и административные подразделения Университета Аль-Азхар",
+    "universityCouncil": "Университетский совет",
+    "universityPresident": "Президент университета",
+    "expandAll": "Развернуть все",
+    "collapseAll": "Свернуть все",
+    "departments": "отделов",
+    "collegeStructure": "Структура факультета",
+    "collegeStructureDesc": "Типовая модель внутренней структуры каждого факультета",
+    "vpEducation": "Вице-президент по образованию и студентам",
+    "vpResearch": "Вице-президент по аспирантуре и исследованиям",
+    "vpGirls": "Вице-президент женского отделения (Каир)",
+    "vpAssiut": "Вице-президент отделения Верхнего Египта (Асьют)",
+    "secretaryGeneral": "Генеральный секретарь университета",
+    "auditGovernance": "Внутренний аудит и управление",
+    "additionalUnits": "Дополнительные административные единицы",
+    "hrCenter": "Центр развития человеческих ресурсов",
+    "publicRelations": "Связи с общественностью и СМИ",
+    "occupationalSafety": "Охрана труда и здоровья",
+    "specialUnits": "Специальные административные единицы"
   },
   "global": {
     "title": "Al-Azhar Globally",

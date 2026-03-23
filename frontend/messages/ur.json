@@ -154,8 +154,26 @@
     "historicalScholarsDesc": "Elite scholars who enriched human civilization"
   },
   "structure": {
-    "title": "Organizational Structure",
-    "subtitle": "Explore the organizational structure and administrative divisions of Al-Azhar University"
+    "title": "تنظیمی ڈھانچہ",
+    "subtitle": "الازہر یونیورسٹی کی تنظیمی ساخت اور انتظامی تقسیم کا جائزہ لیں",
+    "universityCouncil": "یونیورسٹی کونسل",
+    "universityPresident": "صدر یونیورسٹی",
+    "expandAll": "سب پھیلائیں",
+    "collapseAll": "سب سمیٹیں",
+    "departments": "شعبے",
+    "collegeStructure": "کلیہ کا داخلی ڈھانچہ",
+    "collegeStructureDesc": "ہر کلیے کا عمومی داخلی ڈھانچہ",
+    "vpEducation": "نائب صدر برائے تعلیم و طلبہ",
+    "vpResearch": "نائب صدر برائے اعلیٰ تعلیم و تحقیق",
+    "vpGirls": "نائب صدر برائے خواتین شاخ (قاہرہ)",
+    "vpAssiut": "نائب صدر برائے بالائی مصر شاخ (اسیوط)",
+    "secretaryGeneral": "سیکرٹری جنرل یونیورسٹی",
+    "auditGovernance": "داخلی آڈٹ و حکمرانی",
+    "additionalUnits": "اضافی انتظامی اکائیاں",
+    "hrCenter": "انسانی وسائل کی ترقی کا مرکز",
+    "publicRelations": "تعلقات عامہ اور میڈیا",
+    "occupationalSafety": "پیشہ ورانہ حفاظت و صحت",
+    "specialUnits": "خصوصی انتظامی اکائیاں"
   },
   "global": {
     "title": "Al-Azhar Globally",

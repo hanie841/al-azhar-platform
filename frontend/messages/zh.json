@@ -154,8 +154,26 @@
     "historicalScholarsDesc": "Elite scholars who enriched human civilization"
   },
   "structure": {
-    "title": "Organizational Structure",
-    "subtitle": "Explore the organizational structure and administrative divisions of Al-Azhar University"
+    "title": "组织结构",
+    "subtitle": "探索艾资哈尔大学的组织结构和行政部门",
+    "universityCouncil": "大学委员会",
+    "universityPresident": "大学校长",
+    "expandAll": "展开全部",
+    "collapseAll": "收起全部",
+    "departments": "部门",
+    "collegeStructure": "学院内部结构",
+    "collegeStructureDesc": "每个学院的通用内部结构模型",
+    "vpEducation": "教学与学生事务副校长",
+    "vpResearch": "研究生教育与科研副校长",
+    "vpGirls": "开罗女子分校副校长",
+    "vpAssiut": "上埃及分校副校长（阿西尤特）",
+    "secretaryGeneral": "大学秘书长",
+    "auditGovernance": "内部审计与治理",
+    "additionalUnits": "附加行政单位",
+    "hrCenter": "人力资源发展中心",
+    "publicRelations": "公共关系与媒体",
+    "occupationalSafety": "职业安全与健康",
+    "specialUnits": "特别行政单位"
   },
   "global": {
     "title": "Al-Azhar Globally",
