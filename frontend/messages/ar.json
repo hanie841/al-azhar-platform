@@ -21,7 +21,9 @@
     "programs": "البرامج الأكاديمية",
     "admissions": "القبول والتسجيل",
     "media": "المركز الإعلامي",
-    "elearning": "التعلم الإلكتروني"
+    "elearning": "التعلم الإلكتروني",
+    "alumni": "الخريجون",
+    "research": "أبحاث"
   },
   "home": {
     "heroTitle": "جامعة الأزهر: ألف عام من الريادة تُلخص في ألف يوم من الإبداع",
@@ -291,6 +293,23 @@
     "totalPublications": "منشورات",
     "researchAreas": "مجالات بحثية",
     "totalCitations": "إجمالي الاقتباسات"
+  },
+  "alumni": {
+    "title": "خريجون بارزون",
+    "subtitle": "خريجون غيّروا مسار العالم على مدى أكثر من ألف عام",
+    "searchPlaceholder": "ابحث عن خريج...",
+    "all": "الكل",
+    "scholars": "علماء",
+    "politicians": "سياسيون",
+    "writers": "أدباء",
+    "religiousLeaders": "قادة دينيون",
+    "scientists": "علماء طبيعة",
+    "registerTitle": "هل أنت خريج من الأزهر؟",
+    "registerSubtitle": "انضم إلى شبكة خريجينا وابقَ على تواصل",
+    "registerButton": "سجّل كخريج",
+    "notableAlumni": "خريجون بارزون",
+    "countriesRepresented": "دولة ممثلة",
+    "centuriesOfGraduates": "قرون من الخريجين"
   },
   "elearning": {
     "title": "التعلم الإلكتروني",

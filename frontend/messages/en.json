@@ -21,7 +21,9 @@
     "programs": "Programs",
     "admissions": "Admissions",
     "media": "Media Center",
-    "elearning": "E-Learning"
+    "elearning": "E-Learning",
+    "alumni": "Alumni",
+    "research": "Research"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -291,6 +293,23 @@
     "totalPublications": "Publications",
     "researchAreas": "Research Areas",
     "totalCitations": "Total Citations"
+  },
+  "alumni": {
+    "title": "Notable Alumni",
+    "subtitle": "Graduates who shaped the world for over a millennium",
+    "searchPlaceholder": "Search alumni...",
+    "all": "All",
+    "scholars": "Scholars",
+    "politicians": "Politicians",
+    "writers": "Writers",
+    "religiousLeaders": "Religious Leaders",
+    "scientists": "Scientists",
+    "registerTitle": "Are you an Al-Azhar graduate?",
+    "registerSubtitle": "Join our alumni network and stay connected",
+    "registerButton": "Register as Alumni",
+    "notableAlumni": "Notable Alumni",
+    "countriesRepresented": "Countries Represented",
+    "centuriesOfGraduates": "Centuries of Graduates"
   },
   "elearning": {
     "title": "E-Learning Portal",

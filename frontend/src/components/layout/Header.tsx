@@ -34,6 +34,7 @@ export function Header({ locale }: HeaderProps) {
     { href: '/research' as const, label: t('research') },
     { href: '/news' as const, label: t('news') },
     { href: '/media' as const, label: t('media') },
+    { href: '/alumni' as const, label: t('alumni') },
     { href: '/elearning' as const, label: t('elearning') },
     { href: '/about/leadership' as const, label: t('leadership') },
     { href: '/contact' as const, label: t('contact') },

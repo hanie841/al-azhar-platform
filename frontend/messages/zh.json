@@ -22,7 +22,8 @@
     "admissions": "\u62db\u751f",
     "media": "\u5a92\u4f53\u4e2d\u5fc3",
     "elearning": "在线学习",
-    "research": "科研"
+    "research": "科研",
+    "alumni": "校友"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -287,6 +288,23 @@
     "totalPublications": "\u51fa\u7248\u7269",
     "researchAreas": "\u7814\u7a76\u9886\u57df",
     "totalCitations": "\u603b\u5f15\u7528\u6570"
+  },
+  "alumni": {
+    "title": "\u8457\u540d\u6821\u53cb",
+    "subtitle": "\u5343\u5e74\u4ee5\u6765\u5851\u9020\u4e16\u754c\u7684\u6bd5\u4e1a\u751f",
+    "searchPlaceholder": "\u641c\u7d22\u6821\u53cb...",
+    "all": "\u5168\u90e8",
+    "scholars": "\u5b66\u8005",
+    "politicians": "\u653f\u6cbb\u5bb6",
+    "writers": "\u4f5c\u5bb6",
+    "religiousLeaders": "\u5b97\u6559\u9886\u8896",
+    "scientists": "\u79d1\u5b66\u5bb6",
+    "registerTitle": "\u60a8\u662f\u7231\u8d44\u54c8\u5c14\u7684\u6bd5\u4e1a\u751f\u5417\uff1f",
+    "registerSubtitle": "\u52a0\u5165\u6211\u4eec\u7684\u6821\u53cb\u7f51\u7edc\uff0c\u4fdd\u6301\u8054\u7cfb",
+    "registerButton": "\u6ce8\u518c\u4e3a\u6821\u53cb",
+    "notableAlumni": "\u8457\u540d\u6821\u53cb",
+    "countriesRepresented": "\u4ee3\u8868\u56fd\u5bb6",
+    "centuriesOfGraduates": "\u6bd5\u4e1a\u751f\u4e16\u7eaa"
   },
   "elearning": {
     "title": "\u5728\u7ebf\u5b66\u4e60\u5e73\u53f0",

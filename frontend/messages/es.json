@@ -22,7 +22,8 @@
     "admissions": "Admisiones",
     "media": "Centro de Medios",
     "elearning": "E-Learning",
-    "research": "Investigación"
+    "research": "Investigación",
+    "alumni": "Antiguos alumnos"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -287,6 +288,23 @@
     "totalPublications": "Publicaciones",
     "researchAreas": "\u00c1reas de investigaci\u00f3n",
     "totalCitations": "Total de citas"
+  },
+  "alumni": {
+    "title": "Antiguos alumnos ilustres",
+    "subtitle": "Graduados que moldearon el mundo durante m\u00e1s de un milenio",
+    "searchPlaceholder": "Buscar antiguos alumnos...",
+    "all": "Todos",
+    "scholars": "Eruditos",
+    "politicians": "Pol\u00edticos",
+    "writers": "Escritores",
+    "religiousLeaders": "L\u00edderes religiosos",
+    "scientists": "Cient\u00edficos",
+    "registerTitle": "\u00bfEres graduado de Al-Azhar?",
+    "registerSubtitle": "\u00danete a nuestra red de antiguos alumnos y mant\u00e9n el contacto",
+    "registerButton": "Registrarse como antiguo alumno",
+    "notableAlumni": "Antiguos alumnos ilustres",
+    "countriesRepresented": "Pa\u00edses representados",
+    "centuriesOfGraduates": "Siglos de graduados"
   },
   "elearning": {
     "title": "Portal de E-Learning",

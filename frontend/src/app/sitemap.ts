@@ -37,6 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/elearning',
     '/programs',
     '/admissions',
+    '/alumni',
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({

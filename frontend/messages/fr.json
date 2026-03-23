@@ -22,7 +22,8 @@
     "admissions": "Admissions",
     "media": "Centre M\u00e9diatique",
     "elearning": "E-Learning",
-    "research": "Recherche"
+    "research": "Recherche",
+    "alumni": "Anciens élèves"
   },
   "home": {
     "heroTitle": "Al-Azhar University: A Thousand Years of Leadership Summarized in a Thousand Days of Creativity",
@@ -287,6 +288,23 @@
     "totalPublications": "Publications",
     "researchAreas": "Domaines de recherche",
     "totalCitations": "Total des citations"
+  },
+  "alumni": {
+    "title": "Anciens \u00e9l\u00e8ves illustres",
+    "subtitle": "Des dipl\u00f4m\u00e9s qui ont fa\u00e7onn\u00e9 le monde depuis plus d'un mill\u00e9naire",
+    "searchPlaceholder": "Rechercher un ancien \u00e9l\u00e8ve...",
+    "all": "Tout",
+    "scholars": "Savants",
+    "politicians": "Politiciens",
+    "writers": "\u00c9crivains",
+    "religiousLeaders": "Leaders religieux",
+    "scientists": "Scientifiques",
+    "registerTitle": "\u00cates-vous dipl\u00f4m\u00e9 d'Al-Azhar ?",
+    "registerSubtitle": "Rejoignez notre r\u00e9seau d'anciens \u00e9l\u00e8ves et restez connect\u00e9",
+    "registerButton": "S'inscrire comme ancien \u00e9l\u00e8ve",
+    "notableAlumni": "Anciens \u00e9l\u00e8ves illustres",
+    "countriesRepresented": "Pays repr\u00e9sent\u00e9s",
+    "centuriesOfGraduates": "Si\u00e8cles de dipl\u00f4m\u00e9s"
   },
   "elearning": {
     "title": "Portail E-Learning",
