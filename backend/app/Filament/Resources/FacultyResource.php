@@ -75,9 +75,27 @@ class FacultyResource extends Resource
                                                 'institute' => 'Institute',
                                                 'center' => 'Center',
                                                 'hospital' => 'Hospital',
+                                                'research_center' => 'Research Center',
                                             ])
                                             ->default('faculty')
                                             ->required(),
+                                        Select::make('category')
+                                            ->options([
+                                                'sharia' => 'Sharia & Islamic Studies',
+                                                'language' => 'Language & Media',
+                                                'humanities' => 'Humanities',
+                                                'science' => 'Scientific & Applied',
+                                                'women' => "Women's Colleges",
+                                                'medical_center' => 'Medical',
+                                                'engineering_center' => 'Engineering & Technology',
+                                                'environmental_center' => 'Environmental',
+                                                'research_center' => 'Research',
+                                                'educational_center' => 'Educational',
+                                                'service_center' => 'Service',
+                                                'international' => 'International',
+                                                'ibsar' => 'Ibsar (Visually Impaired)',
+                                            ])
+                                            ->searchable(),
                                         TextInput::make('established_year')
                                             ->numeric()
                                             ->minValue(900)
@@ -149,8 +167,12 @@ class FacultyResource extends Resource
                         'institute' => 'info',
                         'center' => 'warning',
                         'hospital' => 'danger',
+                        'research_center' => 'primary',
                         default => 'gray',
                     }),
+                TextColumn::make('category')
+                    ->badge()
+                    ->toggleable(),
                 TextColumn::make('established_year')
                     ->sortable()
                     ->toggleable(),
@@ -169,6 +191,22 @@ class FacultyResource extends Resource
                         'institute' => 'Institute',
                         'center' => 'Center',
                         'hospital' => 'Hospital',
+                    ]),
+                Tables\Filters\SelectFilter::make('category')
+                    ->options([
+                        'sharia' => 'Sharia',
+                        'language' => 'Language',
+                        'humanities' => 'Humanities',
+                        'science' => 'Science',
+                        'women' => 'Women',
+                        'medical_center' => 'Medical',
+                        'engineering_center' => 'Engineering',
+                        'environmental_center' => 'Environmental',
+                        'research_center' => 'Research',
+                        'educational_center' => 'Educational',
+                        'service_center' => 'Service',
+                        'international' => 'International',
+                        'ibsar' => 'Ibsar',
                     ]),
                 Tables\Filters\TernaryFilter::make('is_published'),
             ])

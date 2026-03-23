@@ -15,6 +15,7 @@ class FacultyResource extends JsonResource
             'id' => $this->id,
             'slug' => $this->slug,
             'type' => $this->type,
+            'category' => $this->category,
             'name' => $this->getTranslation('name', $locale, false),
             'description' => $this->getTranslation('description', $locale, false),
             'dean_message' => $this->getTranslation('dean_message', $locale, false),

@@ -17,10 +17,15 @@ class Faculty extends Model
     protected $fillable = [
         'name',
         'slug',
+        'type',
+        'category',
         'description',
         'dean_message',
         'featured_image',
         'is_active',
+        'is_published',
+        'established_year',
+        'order',
     ];
 
     public array $translatable = [

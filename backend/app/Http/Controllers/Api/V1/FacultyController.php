@@ -19,6 +19,10 @@ class FacultyController extends Controller
             $query->where('type', $request->query('type'));
         }
 
+        if ($request->filled('category')) {
+            $query->where('category', $request->query('category'));
+        }
+
         if ($request->filled('q')) {
             $search = $request->query('q');
             $query->where('name', 'LIKE', "%{$search}%");
