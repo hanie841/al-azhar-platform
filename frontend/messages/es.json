@@ -306,6 +306,25 @@
     "countriesRepresented": "Pa\u00edses representados",
     "centuriesOfGraduates": "Siglos de graduados"
   },
+  "campus": {
+    "title": "Mapa del campus",
+    "subtitle": "Explore el campus hist\u00f3rico de la Universidad Al-Azhar",
+    "searchPlaceholder": "Buscar edificios...",
+    "all": "Todos",
+    "academic": "Acad\u00e9mico",
+    "religious": "Religioso",
+    "administrative": "Administrativo",
+    "medical": "M\u00e9dico",
+    "cultural": "Cultural",
+    "services": "Servicios",
+    "facilities": "Instalaciones",
+    "hours": "Horario de atenci\u00f3n",
+    "location": "Ubicaci\u00f3n",
+    "gridView": "Vista de cuadr\u00edcula",
+    "listView": "Vista de lista",
+    "selectBuilding": "Seleccione un edificio para ver los detalles",
+    "buildings": "Edificios"
+  },
   "elearning": {
     "title": "Portal de E-Learning",
     "subtitle": "Aprende de los eruditos de Al-Azhar en cualquier parte del mundo - Cursos gratuitos en ciencias isl\u00e1micas y lengua \u00e1rabe",
