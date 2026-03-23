@@ -509,7 +509,7 @@ function SubAdminAccordion({
             className="overflow-hidden"
           >
             <div
-              className={`${isAr ? 'border-r-2 mr-5' : 'border-l-2 ml-5'} border-gray-200 dark:border-gray-700 py-1`}
+              className={`${isAr ? 'border-r-2 mr-5' : 'border-l-2 ml-5'} border-gray-200 dark:border-navy-700 py-1`}
             >
               {node.children!.map((child) => (
                 <SubAdminAccordion key={child.id} node={child} isAr={isAr} />
@@ -555,8 +555,8 @@ function BranchCard({
         onClick={handleClick}
         className={`
           relative group w-full rounded-xl p-5 text-start transition-all duration-200
-          bg-white dark:bg-gray-900 shadow-sm hover:shadow-md
-          border-2 ${isExpanded ? branch.borderColor : 'border-gray-200 dark:border-gray-700'}
+          bg-white dark:bg-navy-800 shadow-sm hover:shadow-md
+          border-2 ${isExpanded ? branch.borderColor : 'border-sand-200 dark:border-navy-700'}
           ${isAr ? `border-r-4 ${isExpanded ? branch.borderColor : ''}` : `border-l-4 ${isExpanded ? branch.borderColor : ''}`}
         `}
       >
@@ -800,8 +800,8 @@ export function OrgChart() {
               onClick={() => setShowCollege(!showCollege)}
               className={`
                 w-full rounded-2xl p-6 text-start transition-all duration-200
-                bg-white dark:bg-gray-900 shadow-sm hover:shadow-md
-                border-2 ${showCollege ? 'border-purple-500' : 'border-gray-200 dark:border-gray-700'}
+                bg-white dark:bg-navy-800 shadow-sm hover:shadow-md
+                border-2 ${showCollege ? 'border-purple-500' : 'border-gray-200 dark:border-navy-700'}
               `}
             >
               <div className="flex items-center gap-4">
