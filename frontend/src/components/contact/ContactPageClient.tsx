@@ -3,10 +3,74 @@
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, Loader2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Loader2, Building2, User, GraduationCap, FlaskConical, Users, Landmark, Globe, Shield, Megaphone } from 'lucide-react';
 import { api } from '@/lib/api';
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
+
+interface PhoneEntry {
+  icon: any;
+  labelAr: string;
+  labelEn: string;
+  phones: string[];
+}
+
+const phoneDirectory: PhoneEntry[] = [
+  {
+    icon: Building2,
+    labelAr: 'جامعة الأزهر',
+    labelEn: 'Al-Azhar University',
+    phones: ['02-22623278', '02-22623279', '02-22633070', '02-22628346', '02-22628392'],
+  },
+  {
+    icon: User,
+    labelAr: 'رئيس الجامعة',
+    labelEn: 'University President',
+    phones: ['02-22617176', '02-22611404'],
+  },
+  {
+    icon: GraduationCap,
+    labelAr: 'نائب رئيس الجامعة لشؤون الطلاب والتعليم',
+    labelEn: 'VP for Students & Education Affairs',
+    phones: ['02-22611339', '02-22623282'],
+  },
+  {
+    icon: FlaskConical,
+    labelAr: 'نائب رئيس الجامعة للدراسات العليا والبحوث',
+    labelEn: 'VP for Graduate Studies & Research',
+    phones: ['02-22623287', '02-22611418'],
+  },
+  {
+    icon: Users,
+    labelAr: 'نائب رئيس الجامعة لفرع البنات',
+    labelEn: "VP for Women's Branch",
+    phones: ['02-24015483', '02-22636192'],
+  },
+  {
+    icon: Landmark,
+    labelAr: 'نائب رئيس الجامعة للوجه البحري بطنطا',
+    labelEn: 'VP for Lower Egypt (Tanta)',
+    phones: ['02-22627518', '040-3455704', '040-3455702', '040-3453001'],
+  },
+  {
+    icon: Globe,
+    labelAr: 'نائب رئيس الجامعة للوجه القبلي بأسيوط',
+    labelEn: 'VP for Upper Egypt (Assiut)',
+    phones: ['02-22623283', '088-281006', '088-281003'],
+  },
+  {
+    icon: Shield,
+    labelAr: 'أمين عام الجامعة',
+    labelEn: 'Secretary General',
+    phones: ['02-22611417', '02-22623285'],
+  },
+  {
+    icon: Megaphone,
+    labelAr: 'المركز الإعلامي للجامعة',
+    labelEn: 'University Media Center',
+    phones: ['02-24040079'],
+  },
+];
 
 export function ContactPageClient() {
   const t = useTranslations('contact');
@@ -39,7 +103,6 @@ export function ContactPageClient() {
 
   const contactInfo = [
     { icon: MapPin, label: t('addressLabel'), value: t('addressValue') },
-    { icon: Phone, label: t('phoneLabel'), value: '+20 2 2345 6789' },
     { icon: Mail, label: t('emailLabel'), value: 'info@azhar.edu.eg' },
     { icon: Clock, label: t('hoursLabel'), value: t('hoursValue') },
   ];
@@ -70,7 +133,8 @@ export function ContactPageClient() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Contact info + Form row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -187,6 +251,59 @@ export function ContactPageClient() {
             </form>
           </motion.div>
         </div>
+
+        {/* Phone Directory Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-primary-900 dark:text-primary-200 mb-3">
+              {t('directoryTitle')}
+            </h2>
+            <p className="text-sand-600 dark:text-sand-400 max-w-2xl mx-auto">
+              {t('directorySubtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {phoneDirectory.map((entry, i) => {
+              const Icon = entry.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05 * i }}
+                  className="bg-white dark:bg-navy-800 rounded-2xl p-5 border border-sand-100 dark:border-navy-700 hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-primary-700 dark:text-primary-300" />
+                    </div>
+                    <h3 className="font-bold text-sm text-primary-900 dark:text-primary-200 leading-tight">
+                      {isAr ? entry.labelAr : entry.labelEn}
+                    </h3>
+                  </div>
+                  <div className="space-y-1.5">
+                    {entry.phones.map((phone, j) => (
+                      <a
+                        key={j}
+                        href={`tel:${phone.replace(/-/g, '')}`}
+                        className="flex items-center gap-2 text-sm text-sand-600 dark:text-sand-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                        dir="ltr"
+                      >
+                        <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                        <span>{phone}</span>
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </div>
   );

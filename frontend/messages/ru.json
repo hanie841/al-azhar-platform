@@ -215,7 +215,9 @@
     "subjectLabel": "Subject",
     "messageLabel": "Message",
     "sendButton": "Send",
-    "successMessage": "Your message has been sent successfully. We will get back to you soon."
+    "successMessage": "Your message has been sent successfully. We will get back to you soon.",
+    "directoryTitle": "Телефонный справочник",
+    "directorySubtitle": "Номера телефонов основных департаментов и офисов Университета Аль-Азхар"
   },
   "programs": {
     "title": "Академические программы",

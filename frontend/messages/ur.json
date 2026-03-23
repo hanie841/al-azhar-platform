@@ -215,7 +215,9 @@
     "subjectLabel": "Subject",
     "messageLabel": "Message",
     "sendButton": "Send",
-    "successMessage": "Your message has been sent successfully. We will get back to you soon."
+    "successMessage": "Your message has been sent successfully. We will get back to you soon.",
+    "directoryTitle": "فون ڈائریکٹری",
+    "directorySubtitle": "الازہر یونیورسٹی کے اہم شعبوں اور دفاتر کے فون نمبرز"
   },
   "programs": {
     "title": "اکیڈمک پروگرامز",

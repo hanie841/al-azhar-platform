@@ -215,7 +215,9 @@
     "subjectLabel": "Subject",
     "messageLabel": "Message",
     "sendButton": "Send",
-    "successMessage": "Your message has been sent successfully. We will get back to you soon."
+    "successMessage": "Your message has been sent successfully. We will get back to you soon.",
+    "directoryTitle": "Annuaire téléphonique",
+    "directorySubtitle": "Numéros de téléphone des principaux départements et bureaux de l'Université Al-Azhar"
   },
   "programs": {
     "title": "Programmes Acad\u00e9miques",
