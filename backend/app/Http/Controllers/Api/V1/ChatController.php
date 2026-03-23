@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Faculty;
 use App\Models\LibraryItem;
 use App\Models\NewsArticle;
+use App\Models\ResearchPublication;
 use App\Models\Person;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -120,6 +121,24 @@ class ChatController extends Controller
             ])->toArray();
         }
 
+        // Search research publications
+        $research = ResearchPublication::where('is_published', true)
+            ->where(function ($q) use ($query, $locale) {
+                $q->whereRaw("JSON_EXTRACT(title, '$.{$locale}') LIKE ?", ["%{$query}%"])
+                    ->orWhereRaw("JSON_EXTRACT(abstract, '$.{$locale}') LIKE ?", ["%{$query}%"]);
+            })
+            ->limit(3)->get();
+
+        if ($research->isNotEmpty()) {
+            $context['research'] = $research->map(fn ($r) => [
+                'title' => $r->getTranslation('title', $locale, false),
+                'abstract' => $r->getTranslation('abstract', $locale, false),
+                'authors' => $r->authors,
+                'research_area' => $r->research_area,
+                'slug' => $r->slug,
+            ])->toArray();
+        }
+
         // Search library
         $library = LibraryItem::where('is_published', true)
             ->where(function ($q) use ($query, $locale) {
@@ -224,6 +243,12 @@ class ChatController extends Controller
         if (! empty($context['events'])) {
             $header = $isAr ? 'فعاليات:' : 'Events:';
             $items = array_map(fn ($e) => '• ' . $e['title'] . ($e['starts_at'] ? " ({$e['starts_at']})" : ''), $context['events']);
+            $parts[] = $header . "\n" . implode("\n", $items);
+        }
+
+        if (! empty($context['research'])) {
+            $header = $isAr ? 'أبحاث ومنشورات:' : 'Research & Publications:';
+            $items = array_map(fn ($r) => '• ' . $r['title'] . ($r['research_area'] ? " ({$r['research_area']})" : ''), $context['research']);
             $parts[] = $header . "\n" . implode("\n", $items);
         }
 

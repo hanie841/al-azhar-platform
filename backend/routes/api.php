@@ -43,6 +43,9 @@ Route::prefix('v1')->group(function () {
     Route::get('org-structure', [V1\OrganizationalUnitController::class, 'tree']);
     Route::get('org-structure/{slug}', [V1\OrganizationalUnitController::class, 'show']);
 
+    Route::get('research', [V1\ResearchPublicationController::class, 'index']);
+    Route::get('research/{slug}', [V1\ResearchPublicationController::class, 'show']);
+
     Route::get('library', [V1\LibraryController::class, 'index']);
     Route::get('library/collections', [V1\LibraryController::class, 'collections']);
     Route::get('library/collections/{slug}', [V1\LibraryController::class, 'collection']);

@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             LibrarySeeder::class,
             LibraryCollectionSeeder::class,
             PageSeeder::class,
+            ResearchPublicationSeeder::class,
         ]);
     }
 }

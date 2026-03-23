@@ -5,6 +5,7 @@ import {
   fetchLibraryItems,
   fetchFaculties,
   fetchPeople,
+  fetchResearchPublications,
 } from '@/lib/api-fetchers';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://azhar.swlt.ae';
@@ -31,6 +32,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/timeline',
     '/contact',
     '/global',
+    '/research',
+    '/media',
+    '/elearning',
+    '/programs',
+    '/admissions',
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
@@ -42,11 +48,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Fetch dynamic content slugs
-  const [newsRes, libraryRes, faculties, people] = await Promise.all([
+  const [newsRes, libraryRes, faculties, people, researchRes] = await Promise.all([
     fetchNews('ar', { per_page: 1000 }).catch(() => ({ data: [] })),
     fetchLibraryItems('ar', { per_page: 1000 }).catch(() => ({ data: [] })),
     fetchFaculties('ar').catch(() => []),
     fetchPeople('ar').catch(() => []),
+    fetchResearchPublications('ar', { per_page: 1000 }).catch(() => ({ data: [] })),
   ]);
 
   const newsEntries: MetadataRoute.Sitemap = newsRes.data.map((a) => ({
@@ -81,11 +88,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     alternates: buildAlternates(`/people/${p.slug}`),
   }));
 
+  const researchEntries: MetadataRoute.Sitemap = researchRes.data.map((r) => ({
+    url: `${SITE_URL}/ar/research/${r.slug}`,
+    lastModified: r.publication_date ? new Date(r.publication_date) : new Date(r.created_at),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+    alternates: buildAlternates(`/research/${r.slug}`),
+  }));
+
   return [
     ...staticEntries,
     ...newsEntries,
     ...libraryEntries,
     ...facultyEntries,
     ...peopleEntries,
+    ...researchEntries,
   ];
 }

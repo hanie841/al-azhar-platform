@@ -190,6 +190,26 @@ export interface OrgUnit {
   created_at: string;
 }
 
+export interface ResearchPublication {
+  id: number;
+  slug: string;
+  title: string;
+  abstract: string | null;
+  authors: string[] | null;
+  journal_name: string | null;
+  publication_date: string | null;
+  doi: string | null;
+  citation_count: number;
+  research_area: string | null;
+  publication_type: string | null;
+  pdf_url: string | null;
+  external_url: string | null;
+  faculty_id: number | null;
+  faculty?: { id: number; slug: string; name: string };
+  is_featured: boolean;
+  created_at: string;
+}
+
 export interface PaginatedResponse<T> {
   data: T[];
   links?: {

@@ -12,6 +12,7 @@ import type {
   Event,
   LibraryCollection,
   OrgUnit,
+  ResearchPublication,
   PaginatedResponse,
   ListResponse,
   SearchResults,
@@ -165,6 +166,27 @@ export async function fetchOrgUnit(locale: string, slug: string): Promise<OrgUni
   const res = await api<{ data: OrgUnit }>(`/org-structure/${slug}`, {
     headers: localeHeaders(locale),
     next: { revalidate: 300 },
+  } as any);
+  return res.data;
+}
+
+// --- Research Publications ---
+
+export async function fetchResearchPublications(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<ResearchPublication>> {
+  return api<PaginatedResponse<ResearchPublication>>('/research', {
+    headers: localeHeaders(locale),
+    params: { per_page: 20, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchResearchPublication(locale: string, slug: string): Promise<ResearchPublication> {
+  const res = await api<{ data: ResearchPublication }>(`/research/${slug}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
   } as any);
   return res.data;
 }
