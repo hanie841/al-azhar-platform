@@ -8,6 +8,27 @@ import { fetchPeople } from '@/lib/api-fetchers';
 import type { Person } from '@/lib/types';
 import { mockPeople } from '@/lib/mock-data';
 import { PersonCard } from './PersonCard';
+import { Crown } from 'lucide-react';
+
+const formerPresidents = [
+  { nameAr: 'أ.د/ محمد البهي', nameEn: 'Prof. Muhammad Al-Bahi', era: '1961 – 1964', order: 1 },
+  { nameAr: 'أ.د/ أحمد حسن الباقوري', nameEn: 'Prof. Ahmad Hassan Al-Baqouri', era: '1964 – 1969', order: 2 },
+  { nameAr: 'أ.د/ بدوي عبد اللطيف عوض', nameEn: 'Prof. Badawi Abdel Latif Awad', era: '1969 – 1974', order: 3 },
+  { nameAr: 'أ.د/ محمد حسن فايد', nameEn: 'Prof. Muhammad Hassan Fayed', era: '1974 – 1979', order: 4 },
+  { nameAr: 'أ.د/ عوض الله جاد حجازي', nameEn: 'Prof. Awadallah Gad Hegazy', era: '1979 – 1980', order: 5 },
+  { nameAr: 'أ.د/ محمد الطيب النجار', nameEn: 'Prof. Muhammad Al-Tayyeb Al-Naggar', era: '1980 – 1983', order: 6 },
+  { nameAr: 'أ.د/ محمد السعدي فرهود', nameEn: 'Prof. Muhammad Al-Saadi Farhoud', era: '1983 – 1987', order: 7 },
+  { nameAr: 'أ.د/ عبد الفتاح حسيني الشيخ', nameEn: 'Prof. Abdel Fattah Husseini Al-Sheikh', era: '1987 – 1995', order: 8 },
+  { nameAr: 'أ.د/ أحمد عمر هاشم', nameEn: 'Prof. Ahmad Omar Hashem', era: '1995 – 2003', order: 9 },
+  { nameAr: 'أ.د/ أحمد الطيب', nameEn: 'Prof. Ahmad Al-Tayyeb', era: '2003 – 2010', order: 10 },
+  { nameAr: 'أ.د/ عبد الله الحسيني', nameEn: 'Prof. Abdullah Al-Husseini', era: '2010 – 2011', order: 11 },
+  { nameAr: 'أ.د/ أسامة العبد', nameEn: 'Prof. Osama Al-Abd', era: '2011 – 2014', order: 12 },
+  { nameAr: 'أ.د/ محمد عبد الشافي', nameEn: 'Prof. Muhammad Abdel Shafi', era: '2014', note_ar: 'قائم بالأعمال', note_en: 'Acting', order: 13 },
+  { nameAr: 'أ.د/ عبد الحي عزب', nameEn: 'Prof. Abdel Hai Azab', era: '2014 – 2015', order: 14 },
+  { nameAr: 'أ.د/ إبراهيم الهدهد', nameEn: 'Prof. Ibrahim Al-Hudhud', era: '2015 – 2017', note_ar: 'قائم بالأعمال', note_en: 'Acting', order: 15 },
+  { nameAr: 'أ.د/ أحمد حسني', nameEn: 'Prof. Ahmad Hosny', era: '2017', note_ar: 'قائم بالأعمال', note_en: 'Acting', order: 16 },
+  { nameAr: 'أ.د/ محمد المحرصاوي', nameEn: 'Prof. Muhammad Al-Mahrasawi', era: '2017 – 2025', order: 17 },
+];
 
 export function LeadershipPage() {
   const t = useTranslations('leadership');
@@ -120,6 +141,108 @@ export function LeadershipPage() {
                 </div>
               </>
             )}
+
+            {/* Former University Presidents */}
+            <div className="section-divider max-w-md mx-auto mb-16" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="mb-16"
+            >
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <Crown className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 text-center">
+                  {isAr ? 'رؤساء الجامعة السابقون' : 'Former University Presidents'}
+                </h2>
+              </div>
+              <p className="text-center text-sand-500 dark:text-sand-400 mb-10 text-sm">
+                {isAr ? 'منذ إعادة تنظيم الجامعة بالقانون 103 لسنة 1961' : 'Since the university reorganization under Law 103 of 1961'}
+              </p>
+
+              <div className="max-w-3xl mx-auto">
+                <div className="relative">
+                  {/* Timeline line */}
+                  <div className={`absolute top-0 bottom-0 ${isAr ? 'right-6 sm:right-8' : 'left-6 sm:left-8'} w-0.5 bg-amber-200 dark:bg-amber-800`} />
+
+                  <div className="space-y-4">
+                    {formerPresidents.map((p, i) => {
+                      const name = isAr ? p.nameAr : p.nameEn;
+                      const note = isAr ? (p as any).note_ar : (p as any).note_en;
+                      const initials = isAr
+                        ? p.nameAr.replace('أ.د/ ', '').charAt(0)
+                        : p.nameEn.replace('Prof. ', '').charAt(0);
+
+                      return (
+                        <motion.div
+                          key={p.order}
+                          initial={{ opacity: 0, x: isAr ? 20 : -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: i * 0.04 }}
+                          viewport={{ once: true }}
+                          className={`relative flex items-center gap-4 ${isAr ? 'pr-0' : 'pl-0'}`}
+                        >
+                          {/* Timeline dot */}
+                          <div className={`relative z-10 flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-amber-100 dark:bg-amber-900/40 border-2 border-amber-400 dark:border-amber-600 flex items-center justify-center`}>
+                            <span className="font-serif text-sm sm:text-base font-bold text-amber-700 dark:text-amber-300">{initials}</span>
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 bg-white dark:bg-navy-800 rounded-xl p-4 border border-sand-100 dark:border-navy-700 shadow-sm">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 px-2 py-0.5 rounded-full">
+                                #{p.order}
+                              </span>
+                              <span className="text-xs text-sand-500 dark:text-sand-400">{p.era}</span>
+                              {note && (
+                                <span className="text-xs text-rose-500 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30 px-2 py-0.5 rounded-full">
+                                  {note}
+                                </span>
+                              )}
+                            </div>
+                            <h3 className="font-serif text-sm sm:text-base font-bold text-primary-900 dark:text-primary-200 mt-1">
+                              {name}
+                            </h3>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+
+                    {/* Current president at end of timeline */}
+                    <motion.div
+                      initial={{ opacity: 0, x: isAr ? 20 : -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: formerPresidents.length * 0.04 }}
+                      viewport={{ once: true }}
+                      className="relative flex items-center gap-4"
+                    >
+                      <div className="relative z-10 flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-amber-500 dark:bg-amber-600 border-2 border-amber-600 dark:border-amber-500 flex items-center justify-center shadow-lg shadow-amber-200/50 dark:shadow-amber-900/30">
+                        <span className="font-serif text-sm sm:text-base font-bold text-white">
+                          {isAr ? 'س' : 'S'}
+                        </span>
+                      </div>
+                      <div className="flex-1 bg-gradient-to-r from-amber-50 to-white dark:from-amber-900/20 dark:to-navy-800 rounded-xl p-4 border-2 border-amber-400 dark:border-amber-600 shadow-sm">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-xs font-bold text-white bg-amber-500 px-2 py-0.5 rounded-full">
+                            #18
+                          </span>
+                          <span className="text-xs text-sand-500 dark:text-sand-400">
+                            {isAr ? '2025 – حتى تاريخه' : '2025 – Present'}
+                          </span>
+                          <span className="text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full font-bold">
+                            {isAr ? 'الحالي' : 'Current'}
+                          </span>
+                        </div>
+                        <h3 className="font-serif text-sm sm:text-base font-bold text-primary-900 dark:text-primary-200 mt-1">
+                          {isAr ? 'أ.د/ سلامة داود' : 'Prof. Salama Dawood'}
+                        </h3>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
             {/* Historical scholars */}
             <div className="section-divider max-w-md mx-auto mb-16" />
