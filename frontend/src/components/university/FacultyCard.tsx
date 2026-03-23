@@ -2,23 +2,15 @@
 
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { GraduationCap, Building, HeartPulse, Landmark } from 'lucide-react';
-
-interface Faculty {
-  id: number;
-  slug: string;
-  name: string;
-  description: string | null;
-  departments_count: number;
-  type?: string;
-  established_year?: number;
-}
+import { GraduationCap, Building, HeartPulse, Landmark, FlaskConical } from 'lucide-react';
+import type { Faculty } from '@/lib/types';
 
 const typeConfig: Record<string, { icon: any; color: string; bg: string; labelAr: string; labelEn: string }> = {
   faculty: { icon: GraduationCap, color: 'text-primary-700', bg: 'bg-primary-100', labelAr: 'كلية', labelEn: 'Faculty' },
   institute: { icon: Landmark, color: 'text-accent-700', bg: 'bg-accent-100', labelAr: 'معهد', labelEn: 'Institute' },
   center: { icon: Building, color: 'text-blue-700', bg: 'bg-blue-100', labelAr: 'مركز', labelEn: 'Center' },
   hospital: { icon: HeartPulse, color: 'text-rose-600', bg: 'bg-rose-100', labelAr: 'مستشفى', labelEn: 'Hospital' },
+  research_center: { icon: FlaskConical, color: 'text-purple-700', bg: 'bg-purple-100', labelAr: 'مركز بحثي', labelEn: 'Research Center' },
 };
 
 export function FacultyCard({ faculty }: { faculty: Faculty }) {

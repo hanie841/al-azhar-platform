@@ -69,12 +69,14 @@ export interface Faculty {
   id: number;
   slug: string;
   type?: string;
+  category?: string;
   name: string;
   description: string | null;
   dean_message: string | null;
   featured_image: string | null;
   established_year?: number;
   departments_count: number;
+  programs_count?: number;
   created_at: string;
 }
 
