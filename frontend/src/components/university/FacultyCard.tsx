@@ -49,21 +49,12 @@ export function FacultyCard({ faculty }: { faculty: Faculty }) {
     </div>
   );
 
-  if (isHospital) {
-    return (
-      <Link
-        href={`/hospitals/${faculty.slug}` as any}
-        className="group block bg-white dark:bg-navy-800 rounded-2xl p-6 border border-sand-100 dark:border-navy-800 hover:shadow-lg dark:hover:shadow-navy-900/50 hover:border-rose-200 dark:hover:border-rose-700 transition-all duration-300 hover:-translate-y-1"
-      >
-        {content}
-      </Link>
-    );
-  }
-
   return (
     <Link
       href={`/faculties/${faculty.slug}` as any}
-      className="group block bg-white dark:bg-navy-800 rounded-2xl p-6 border border-sand-100 dark:border-navy-800 hover:shadow-lg dark:hover:shadow-navy-900/50 hover:border-primary-200 dark:hover:border-primary-700 transition-all duration-300 hover:-translate-y-1"
+      className={`group block bg-white dark:bg-navy-800 rounded-2xl p-6 border border-sand-100 dark:border-navy-800 hover:shadow-lg dark:hover:shadow-navy-900/50 transition-all duration-300 hover:-translate-y-1 ${
+        isHospital ? 'hover:border-rose-200 dark:hover:border-rose-700' : 'hover:border-primary-200 dark:hover:border-primary-700'
+      }`}
     >
       {content}
     </Link>
