@@ -517,5 +517,39 @@
     "followUs": "تابعنا",
     "latestPosts": "أحدث المنشورات",
     "noResults": "لم يتم العثور على منشورات"
+  },
+  "podcasts": {
+    "title": "البودكاست",
+    "subtitle": "استمع إلى علماء الأزهر وأصوات الحرم الجامعي",
+    "featured": "الحلقة المميزة",
+    "allEpisodes": "جميع الحلقات",
+    "listen": "استمع",
+    "duration": "المدة",
+    "series": "سلاسل البودكاست",
+    "subscribe": "اشترك",
+    "all": "الكل",
+    "islamicSciences": "العلوم الإسلامية",
+    "arabicLanguage": "اللغة العربية",
+    "campusLife": "الحياة الجامعية",
+    "interviews": "حوارات",
+    "history": "تاريخ",
+    "episodes": "حلقات",
+    "minutes": "د"
+  },
+  "gallery": {
+    "title": "معرض الصور",
+    "subtitle": "استكشف جامعة الأزهر من خلال الصور",
+    "all": "الكل",
+    "campus": "الحرم الجامعي",
+    "events": "فعاليات",
+    "architecture": "عمارة",
+    "students": "طلاب",
+    "history": "تاريخ",
+    "nature": "طبيعة",
+    "viewPhoto": "عرض الصورة",
+    "close": "إغلاق",
+    "previous": "السابق",
+    "next": "التالي",
+    "photos": "صور"
   }
 }

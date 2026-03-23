@@ -512,5 +512,39 @@
     "followUs": "S\u00edguenos",
     "latestPosts": "\u00daltimas publicaciones",
     "noResults": "No se encontraron publicaciones"
+  },
+  "podcasts": {
+    "title": "Podcasts",
+    "subtitle": "Escuche a los eruditos de Al-Azhar y las voces del campus",
+    "featured": "Episodio destacado",
+    "allEpisodes": "Todos los episodios",
+    "listen": "Escuchar",
+    "duration": "Duraci\u00f3n",
+    "series": "Series de podcasts",
+    "subscribe": "Suscribirse",
+    "all": "Todo",
+    "islamicSciences": "Ciencias isl\u00e1micas",
+    "arabicLanguage": "Lengua \u00e1rabe",
+    "campusLife": "Vida en el campus",
+    "interviews": "Entrevistas",
+    "history": "Historia",
+    "episodes": "Episodios",
+    "minutes": "min"
+  },
+  "gallery": {
+    "title": "Galer\u00eda de fotos",
+    "subtitle": "Explore la Universidad Al-Azhar a trav\u00e9s de im\u00e1genes",
+    "all": "Todo",
+    "campus": "Campus",
+    "events": "Eventos",
+    "architecture": "Arquitectura",
+    "students": "Estudiantes",
+    "history": "Historia",
+    "nature": "Naturaleza",
+    "viewPhoto": "Ver foto",
+    "close": "Cerrar",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "photos": "Fotos"
   }
 }

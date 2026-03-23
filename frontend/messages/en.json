@@ -517,5 +517,39 @@
     "followUs": "Follow Us",
     "latestPosts": "Latest Posts",
     "noResults": "No posts found"
+  },
+  "podcasts": {
+    "title": "Podcasts",
+    "subtitle": "Listen to Al-Azhar scholars and campus voices",
+    "featured": "Featured Episode",
+    "allEpisodes": "All Episodes",
+    "listen": "Listen",
+    "duration": "Duration",
+    "series": "Podcast Series",
+    "subscribe": "Subscribe",
+    "all": "All",
+    "islamicSciences": "Islamic Sciences",
+    "arabicLanguage": "Arabic Language",
+    "campusLife": "Campus Life",
+    "interviews": "Interviews",
+    "history": "History",
+    "episodes": "Episodes",
+    "minutes": "min"
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "subtitle": "Explore Al-Azhar University through images",
+    "all": "All",
+    "campus": "Campus",
+    "events": "Events",
+    "architecture": "Architecture",
+    "students": "Students",
+    "history": "History",
+    "nature": "Nature",
+    "viewPhoto": "View Photo",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next",
+    "photos": "Photos"
   }
 }
