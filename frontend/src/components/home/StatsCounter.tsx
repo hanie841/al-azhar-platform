@@ -72,14 +72,14 @@ export function StatsCounter() {
   const t = useTranslations('home');
 
   const stats = [
-    { value: 107, suffix: '', label: t('faculties'), delay: 0 },
-    { value: 500, suffix: 'K', label: t('students'), delay: 0.1 },
-    { value: 17, suffix: 'K', label: t('professors'), delay: 0.2 },
-    { value: 39, suffix: '', label: t('researchCenters'), delay: 0.3 },
-    { value: 5, suffix: '', label: t('hospitals'), delay: 0.4 },
-    { value: 18, suffix: 'K', label: t('staff'), delay: 0.5 },
-    { value: 65, suffix: 'K', label: t('international'), delay: 0.6 },
-    { value: 1, suffix: 'M+', label: t('alumni'), delay: 0.7 },
+    { value: 90, suffix: '', label: t('faculties'), delay: 0 },
+    { value: 155, suffix: 'K+', label: t('students'), delay: 0.1 },
+    { value: 359, suffix: '', label: t('departments'), delay: 0.2 },
+    { value: 42, suffix: '', label: t('researchCenters'), delay: 0.3 },
+    { value: 6, suffix: '', label: t('hospitals'), delay: 0.4 },
+    { value: 162, suffix: 'K+', label: t('staff'), delay: 0.5 },
+    { value: 100, suffix: '+', label: t('international'), delay: 0.6 },
+    { value: 38845, suffix: '', label: t('publications'), delay: 0.7 },
   ];
 
   return (

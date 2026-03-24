@@ -37,7 +37,9 @@
     "hospitals": "University Hospitals",
     "staff": "Staff & Administration",
     "international": "International Students",
-    "alumni": "Alumni & Authors"
+    "alumni": "Alumni & Authors",
+    "departments": "Départements académiques",
+    "publications": "Publications scientifiques"
   },
   "library": {
     "title": "Al-Azhar Digital Library",
@@ -409,6 +411,8 @@
     "researchCenters": "Centres de recherche",
     "libraryBooks": "Livres en biblioth\u00e8que",
     "annualGraduates": "Dipl\u00f4m\u00e9s annuels",
+    "departments": "Départements académiques",
+    "publications": "Publications scientifiques",
     "milestones": "Jalons cl\u00e9s",
     "milestone970": "Fond\u00e9e par le califat fatimide comme centre d'enseignement islamique",
     "milestone988": "Devenue universit\u00e9 \u2014 la plus ancienne institution d\u00e9livrant des dipl\u00f4mes au monde",

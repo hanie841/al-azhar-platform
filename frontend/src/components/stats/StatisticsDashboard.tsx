@@ -77,15 +77,15 @@ export function StatisticsDashboard() {
 
   const stats = [
     { key: 'founded', value: 970, suffix: ' CE', icon: statIcons.founded, delay: 0 },
-    { key: 'faculties', value: 82, suffix: '', icon: statIcons.faculties, delay: 0.05 },
-    { key: 'students', value: 500, suffix: 'K+', icon: statIcons.students, delay: 0.1 },
-    { key: 'professors', value: 18, suffix: 'K+', icon: statIcons.professors, delay: 0.15 },
-    { key: 'staff', value: 35, suffix: 'K+', icon: statIcons.staff, delay: 0.2 },
+    { key: 'faculties', value: 90, suffix: '', icon: statIcons.faculties, delay: 0.05 },
+    { key: 'students', value: 155, suffix: 'K+', icon: statIcons.students, delay: 0.1 },
+    { key: 'departments', value: 359, suffix: '', icon: statIcons.campuses, delay: 0.15 },
+    { key: 'staff', value: 162, suffix: 'K+', icon: statIcons.staff, delay: 0.2 },
     { key: 'internationalStudents', value: 40, suffix: 'K+', icon: statIcons.internationalStudents, delay: 0.25 },
     { key: 'countries', value: 100, suffix: '+', icon: statIcons.countries, delay: 0.3 },
-    { key: 'hospitals', value: 7, suffix: '', icon: statIcons.hospitals, delay: 0.35 },
-    { key: 'researchCenters', value: 50, suffix: '+', icon: statIcons.researchCenters, delay: 0.4 },
-    { key: 'libraryBooks', value: 2, suffix: 'M+', icon: statIcons.libraryBooks, delay: 0.45 },
+    { key: 'hospitals', value: 6, suffix: '', icon: statIcons.hospitals, delay: 0.35 },
+    { key: 'researchCenters', value: 42, suffix: '', icon: statIcons.researchCenters, delay: 0.4 },
+    { key: 'publications', value: 38845, suffix: '', icon: statIcons.libraryBooks, delay: 0.45 },
     { key: 'annualGraduates', value: 100, suffix: 'K+', icon: statIcons.annualGraduates, delay: 0.5 },
   ];
 

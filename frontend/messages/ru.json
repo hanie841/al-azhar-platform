@@ -37,7 +37,9 @@
     "hospitals": "University Hospitals",
     "staff": "Staff & Administration",
     "international": "International Students",
-    "alumni": "Alumni & Authors"
+    "alumni": "Alumni & Authors",
+    "departments": "Академические кафедры",
+    "publications": "Научные публикации"
   },
   "library": {
     "title": "Al-Azhar Digital Library",
@@ -409,6 +411,8 @@
     "researchCenters": "Исследовательские центры",
     "libraryBooks": "Книги в библиотеке",
     "annualGraduates": "Ежегодные выпускники",
+    "departments": "Академические кафедры",
+    "publications": "Научные публикации",
     "milestones": "Ключевые вехи",
     "milestone970": "Основан халифатом Фатимидов как центр исламского образования",
     "milestone988": "Стал университетом — старейшим в мире",

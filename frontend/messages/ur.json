@@ -37,7 +37,9 @@
     "hospitals": "University Hospitals",
     "staff": "Staff & Administration",
     "international": "International Students",
-    "alumni": "Alumni & Authors"
+    "alumni": "Alumni & Authors",
+    "departments": "تعلیمی شعبے",
+    "publications": "سائنسی اشاعتیں"
   },
   "library": {
     "title": "Al-Azhar Digital Library",
@@ -409,6 +411,8 @@
     "researchCenters": "تحقیقی مراکز",
     "libraryBooks": "لائبریری کتب",
     "annualGraduates": "سالانہ فارغ التحصیل",
+    "departments": "تعلیمی شعبے",
+    "publications": "سائنسی اشاعتیں",
     "milestones": "اہم سنگ میل",
     "milestone970": "فاطمی خلافت نے قائم کیا",
     "milestone988": "یونیورسٹی بن گئی",

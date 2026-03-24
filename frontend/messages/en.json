@@ -37,7 +37,9 @@
     "hospitals": "University Hospitals",
     "staff": "Staff & Administration",
     "international": "International Students",
-    "alumni": "Alumni & Authors"
+    "alumni": "Alumni & Authors",
+    "departments": "Academic Departments",
+    "publications": "Scientific Publications"
   },
   "quickLinks": {
     "title": "Explore Al-Azhar",
@@ -410,6 +412,8 @@
     "researchCenters": "Research Centers",
     "libraryBooks": "Books in Library",
     "annualGraduates": "Annual Graduates",
+    "departments": "Academic Departments",
+    "publications": "Scientific Publications",
     "milestones": "Key Milestones",
     "milestone970": "Founded by the Fatimid Caliphate as a center of Islamic learning",
     "milestone988": "Became a university — the oldest degree-granting institution in the world",

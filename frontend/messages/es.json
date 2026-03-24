@@ -37,7 +37,9 @@
     "hospitals": "University Hospitals",
     "staff": "Staff & Administration",
     "international": "International Students",
-    "alumni": "Alumni & Authors"
+    "alumni": "Alumni & Authors",
+    "departments": "Departamentos académicos",
+    "publications": "Publicaciones científicas"
   },
   "library": {
     "title": "Al-Azhar Digital Library",
@@ -409,6 +411,8 @@
     "researchCenters": "Centros de investigación",
     "libraryBooks": "Libros en la biblioteca",
     "annualGraduates": "Graduados anuales",
+    "departments": "Departamentos académicos",
+    "publications": "Publicaciones científicas",
     "milestones": "Hitos clave",
     "milestone970": "Fundada por el Califato Fatimí",
     "milestone988": "Se convirtió en universidad",
