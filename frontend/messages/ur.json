@@ -63,7 +63,16 @@
     "browseLibrary": "لائبریری براؤز کریں",
     "resultsCount": "نتائج",
     "filterByType": "قسم کے مطابق فلٹر",
-    "filterByLanguage": "زبان کے مطابق فلٹر"
+    "filterByLanguage": "زبان کے مطابق فلٹر",
+    "noResults": "کوئی نتائج نہیں ملے",
+    "downloadPdf": "PDF ڈاؤن لوڈ کریں",
+    "readOnline": "آن لائن پڑھیں",
+    "cite": "حوالہ",
+    "bookmark": "بُک مارک",
+    "pages": "صفحات",
+    "views": "مشاہدات",
+    "downloads": "ڈاؤن لوڈز",
+    "backToLibrary": "لائبریری پر واپس"
   },
   "auth": {
     "email": "Email Address",

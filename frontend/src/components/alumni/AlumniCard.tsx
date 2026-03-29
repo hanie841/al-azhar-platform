@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export interface AlumniMember {
   id: number;
@@ -21,9 +21,10 @@ interface AlumniCardProps {
   index?: number;
   isAr?: boolean;
   categoryLabel: string;
+  onSelect: (alumni: AlumniMember) => void;
 }
 
-const categoryColors: Record<string, string> = {
+export const categoryColors: Record<string, string> = {
   scholar: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
   politician: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
   writer: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
@@ -31,7 +32,7 @@ const categoryColors: Record<string, string> = {
   scientist: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300',
 };
 
-const categoryGradients: Record<string, string> = {
+export const categoryGradients: Record<string, string> = {
   scholar: 'from-blue-500 to-blue-600',
   politician: 'from-purple-500 to-purple-600',
   writer: 'from-emerald-500 to-emerald-600',
@@ -39,7 +40,7 @@ const categoryGradients: Record<string, string> = {
   scientist: 'from-cyan-500 to-cyan-600',
 };
 
-export function AlumniCard({ alumni, index = 0, isAr = false, categoryLabel }: AlumniCardProps) {
+export function AlumniCard({ alumni, index = 0, isAr = false, categoryLabel, onSelect }: AlumniCardProps) {
   const name = isAr ? alumni.name_ar : alumni.name;
   const title = isAr ? alumni.title_ar : alumni.title;
   const bio = isAr ? alumni.bio_ar : alumni.bio;
@@ -53,6 +54,7 @@ export function AlumniCard({ alumni, index = 0, isAr = false, categoryLabel }: A
       transition={{ duration: 0.5, delay: index * 0.05 }}
       viewport={{ once: true }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      onClick={() => onSelect(alumni)}
       className="bg-white dark:bg-navy-800 rounded-2xl p-6 shadow-sm dark:shadow-navy-900/50 border border-sand-100 dark:border-navy-700 text-center hover:shadow-lg transition-shadow cursor-pointer group"
     >
       {/* Photo / Initials */}
@@ -95,5 +97,95 @@ export function AlumniCard({ alumni, index = 0, isAr = false, categoryLabel }: A
         </span>
       </div>
     </motion.div>
+  );
+}
+
+interface AlumniModalProps {
+  alumni: AlumniMember | null;
+  isAr: boolean;
+  categoryLabel: string;
+  onClose: () => void;
+}
+
+export function AlumniModal({ alumni, isAr, categoryLabel, onClose }: AlumniModalProps) {
+  if (!alumni) return null;
+
+  const name = isAr ? alumni.name_ar : alumni.name;
+  const title = isAr ? alumni.title_ar : alumni.title;
+  const bio = isAr ? alumni.bio_ar : alumni.bio;
+  const gradient = categoryGradients[alumni.category] || 'from-sand-500 to-sand-600';
+  const colorClass = categoryColors[alumni.category] || 'bg-sand-100 text-sand-800';
+
+  return (
+    <AnimatePresence>
+      {alumni && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-navy-800 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden"
+            dir={isAr ? 'rtl' : 'ltr'}
+          >
+            {/* Header with gradient */}
+            <div className={`bg-gradient-to-br ${gradient} px-8 pt-8 pb-16 text-center relative`}>
+              <button
+                onClick={onClose}
+                className={`absolute top-4 ${isAr ? 'left-4' : 'right-4'} w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Avatar overlapping header */}
+            <div className="flex justify-center -mt-12">
+              <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center ring-4 ring-white dark:ring-navy-800`}>
+                {alumni.photo ? (
+                  <img src={alumni.photo} alt={name} className="w-full h-full rounded-full object-cover" />
+                ) : (
+                  <span className="text-white font-serif text-3xl font-bold">{name.charAt(0)}</span>
+                )}
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="px-8 pt-4 pb-8 text-center">
+              <h2 className="font-serif text-2xl font-bold text-primary-900 dark:text-primary-200 mb-1">
+                {name}
+              </h2>
+              <p className="text-accent-600 dark:text-accent-400 font-medium mb-4">
+                {title}
+              </p>
+
+              <div className="flex items-center justify-center gap-2 mb-6">
+                <span className={`text-xs font-medium px-3 py-1 rounded-full ${colorClass}`}>
+                  {categoryLabel}
+                </span>
+                <span className="text-xs font-medium px-3 py-1 rounded-full bg-sand-100 text-sand-700 dark:bg-navy-700 dark:text-sand-300">
+                  {alumni.era}
+                </span>
+                <span className="text-xs font-medium px-3 py-1 rounded-full bg-sand-100 text-sand-700 dark:bg-navy-700 dark:text-sand-300">
+                  {alumni.century} {isAr ? 'القرن' : 'century'}
+                </span>
+              </div>
+
+              <p className="text-sand-600 dark:text-sand-400 leading-relaxed text-sm">
+                {bio}
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import { AlumniCard, type AlumniMember } from './AlumniCard';
+import { AlumniCard, AlumniModal, type AlumniMember } from './AlumniCard';
 
 const MOCK_ALUMNI: AlumniMember[] = [
   {
@@ -212,6 +212,7 @@ export function AlumniPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<Category>('all');
+  const [selectedAlumni, setSelectedAlumni] = useState<AlumniMember | null>(null);
 
   const categories: { key: Category; label: string }[] = [
     { key: 'all', label: t('all') },
@@ -359,6 +360,7 @@ export function AlumniPage() {
               index={i}
               isAr={isAr}
               categoryLabel={categoryLabelMap[alumni.category]}
+              onSelect={setSelectedAlumni}
             />
           ))}
         </div>
@@ -376,6 +378,14 @@ export function AlumniPage() {
           </motion.div>
         )}
       </div>
+
+      {/* Alumni Detail Modal */}
+      <AlumniModal
+        alumni={selectedAlumni}
+        isAr={isAr}
+        categoryLabel={selectedAlumni ? categoryLabelMap[selectedAlumni.category] : ''}
+        onClose={() => setSelectedAlumni(null)}
+      />
 
       {/* Register as Alumni CTA */}
       <div className="bg-navy-900 relative overflow-hidden">

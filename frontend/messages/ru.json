@@ -63,7 +63,16 @@
     "browseLibrary": "Обзор библиотеки",
     "resultsCount": "результатов",
     "filterByType": "Фильтр по типу",
-    "filterByLanguage": "Фильтр по языку"
+    "filterByLanguage": "Фильтр по языку",
+    "noResults": "Ничего не найдено",
+    "downloadPdf": "Скачать PDF",
+    "readOnline": "Читать онлайн",
+    "cite": "Цитировать",
+    "bookmark": "В закладки",
+    "pages": "Страницы",
+    "views": "Просмотры",
+    "downloads": "Загрузки",
+    "backToLibrary": "Вернуться в библиотеку"
   },
   "auth": {
     "email": "Email Address",

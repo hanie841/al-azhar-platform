@@ -63,7 +63,16 @@
     "browseLibrary": "Parcourir la bibliothèque",
     "resultsCount": "résultats",
     "filterByType": "Filtrer par type",
-    "filterByLanguage": "Filtrer par langue"
+    "filterByLanguage": "Filtrer par langue",
+    "noResults": "Aucun résultat trouvé",
+    "downloadPdf": "Télécharger le PDF",
+    "readOnline": "Lire en ligne",
+    "cite": "Citer",
+    "bookmark": "Marquer",
+    "pages": "Pages",
+    "views": "Vues",
+    "downloads": "Téléchargements",
+    "backToLibrary": "Retour à la bibliothèque"
   },
   "auth": {
     "email": "Email Address",

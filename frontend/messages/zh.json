@@ -63,7 +63,16 @@
     "browseLibrary": "浏览图书馆",
     "resultsCount": "条结果",
     "filterByType": "按类型筛选",
-    "filterByLanguage": "按语言筛选"
+    "filterByLanguage": "按语言筛选",
+    "noResults": "未找到结果",
+    "downloadPdf": "下载PDF",
+    "readOnline": "在线阅读",
+    "cite": "引用",
+    "bookmark": "收藏",
+    "pages": "页数",
+    "views": "浏览量",
+    "downloads": "下载量",
+    "backToLibrary": "返回图书馆"
   },
   "auth": {
     "email": "Email Address",
