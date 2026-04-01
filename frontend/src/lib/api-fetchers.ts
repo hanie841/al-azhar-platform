@@ -16,6 +16,27 @@ import type {
   PaginatedResponse,
   ListResponse,
   SearchResults,
+  Exam,
+  ExamAttempt,
+  ExamStatistics,
+  FacultyProfile,
+  FacultyDashboard,
+  CourseSection,
+  LeaveRequest,
+  AcademicYear,
+  Semester,
+  MsisStudent,
+  MsisCourse,
+  MsisCourseSection,
+  MsisEnrollment,
+  MsisGrade,
+  MsisPayment,
+  LmsCourse,
+  LmsModule,
+  LmsLesson,
+  LmsAssignment,
+  DiscussionThread,
+  DigitalCertificate,
 } from './types';
 
 // Helper: fetch with locale header
@@ -261,4 +282,377 @@ export async function fetchCurrentUser(token: string): Promise<User> {
     headers: { Authorization: `Bearer ${token}` },
   });
   return res.user;
+}
+
+// ===== E-Exam Fetchers =====
+
+export async function fetchExams(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<Exam>> {
+  return api<PaginatedResponse<Exam>>('/exams', {
+    headers: localeHeaders(locale),
+    params: { per_page: 20, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchExam(locale: string, slug: string): Promise<Exam> {
+  const res = await api<{ data: Exam }>(`/exams/${slug}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function startExam(token: string, examId: number): Promise<ExamAttempt> {
+  const res = await api<{ data: ExamAttempt }>(`/exams/${examId}/start`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function saveExamAnswer(
+  token: string,
+  attemptId: number,
+  data: { exam_question_id: number; question_id: number; answer_content: any }
+): Promise<void> {
+  await api(`/exams/attempts/${attemptId}/save-answer`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: JSON.stringify(data),
+  } as any);
+}
+
+export async function submitExam(token: string, attemptId: number): Promise<ExamAttempt> {
+  const res = await api<{ data: ExamAttempt }>(`/exams/attempts/${attemptId}/submit`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function fetchExamAttempt(token: string, attemptId: number): Promise<ExamAttempt> {
+  const res = await api<{ data: ExamAttempt }>(`/exams/attempts/${attemptId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function fetchMyExamAttempts(
+  token: string,
+  locale: string,
+  examId: number
+): Promise<ExamAttempt[]> {
+  const res = await api<ListResponse<ExamAttempt>>(`/exams/${examId}/my-attempts`, {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function fetchExamStatistics(
+  token: string,
+  locale: string,
+  examId: number
+): Promise<ExamStatistics> {
+  const res = await api<{ data: ExamStatistics }>(`/exams/${examId}/statistics`, {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+// ===== Faculty Portal Fetchers =====
+
+export async function fetchFacultyProfiles(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<FacultyProfile>> {
+  return api<PaginatedResponse<FacultyProfile>>('/faculty-portal/profiles', {
+    headers: localeHeaders(locale),
+    params: { per_page: 20, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchFacultyProfileById(
+  locale: string,
+  id: number
+): Promise<FacultyProfile> {
+  const res = await api<{ data: FacultyProfile }>(`/faculty-portal/profiles/${id}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchMyFacultyProfile(
+  token: string,
+  locale: string
+): Promise<FacultyProfile> {
+  const res = await api<{ data: FacultyProfile }>('/faculty-portal/me', {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function fetchFacultyDashboard(
+  token: string,
+  locale: string
+): Promise<FacultyDashboard> {
+  const res = await api<{ data: FacultyDashboard }>('/faculty-portal/dashboard', {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function fetchMyCourses(
+  token: string,
+  locale: string
+): Promise<CourseSection[]> {
+  const res = await api<ListResponse<CourseSection>>('/faculty-portal/my-courses', {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function fetchCourseStudents(
+  token: string,
+  locale: string,
+  sectionId: number
+): Promise<any[]> {
+  const res = await api<ListResponse<any>>(`/faculty-portal/courses/${sectionId}/students`, {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+  } as any);
+  return res.data;
+}
+
+export async function fetchLeaveRequests(
+  token: string,
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<LeaveRequest>> {
+  return api<PaginatedResponse<LeaveRequest>>('/faculty-portal/leaves', {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+    params: { per_page: 20, ...params },
+  } as any);
+}
+
+export async function submitLeaveRequest(
+  token: string,
+  data: { leave_type: string; start_date: string; end_date: string; reason: string }
+): Promise<LeaveRequest> {
+  const res = await api<{ data: LeaveRequest }>('/faculty-portal/leaves', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: JSON.stringify(data),
+  } as any);
+  return res.data;
+}
+
+// ===== M-SIS Fetchers =====
+
+export async function fetchAcademicYears(locale: string): Promise<AcademicYear[]> {
+  const res = await api<ListResponse<AcademicYear>>('/msis/academic-years', {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchSemesters(
+  locale: string,
+  academicYearId?: number
+): Promise<Semester[]> {
+  const params: Record<string, string | number> = {};
+  if (academicYearId) params.academic_year_id = academicYearId;
+  const res = await api<ListResponse<Semester>>('/msis/semesters', {
+    headers: localeHeaders(locale),
+    params,
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchMsisStudents(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<MsisStudent>> {
+  return api<PaginatedResponse<MsisStudent>>('/msis/students', {
+    headers: localeHeaders(locale),
+    params: { per_page: 20, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchMsisStudent(locale: string, id: number): Promise<MsisStudent> {
+  const res = await api<{ data: MsisStudent }>(`/msis/students/${id}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchMsisCourses(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<MsisCourse>> {
+  return api<PaginatedResponse<MsisCourse>>('/msis/courses', {
+    headers: localeHeaders(locale),
+    params: { per_page: 20, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchMsisCourse(locale: string, slug: string): Promise<MsisCourse> {
+  const res = await api<{ data: MsisCourse }>(`/msis/courses/${slug}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchMsisCourseSections(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<MsisCourseSection>> {
+  return api<PaginatedResponse<MsisCourseSection>>('/msis/course-sections', {
+    headers: localeHeaders(locale),
+    params: { per_page: 50, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchMsisEnrollments(
+  token: string,
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<MsisEnrollment>> {
+  return api<PaginatedResponse<MsisEnrollment>>('/msis/enrollments', {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+    params: { per_page: 50, ...params },
+  } as any);
+}
+
+export async function enrollInSection(
+  token: string,
+  courseSectionId: number
+): Promise<MsisEnrollment> {
+  const res = await api<{ data: MsisEnrollment }>('/msis/enrollments', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ course_section_id: courseSectionId }),
+  } as any);
+  return res.data;
+}
+
+export async function dropEnrollment(
+  token: string,
+  enrollmentId: number
+): Promise<void> {
+  await api(`/msis/enrollments/${enrollmentId}`, {
+    method: 'DELETE',
+    headers: { Authorization: `Bearer ${token}` },
+  } as any);
+}
+
+export async function fetchMsisGrades(
+  token: string,
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<MsisGrade>> {
+  return api<PaginatedResponse<MsisGrade>>('/msis/grades', {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+    params: { per_page: 50, ...params },
+  } as any);
+}
+
+export async function fetchTranscript(
+  token: string,
+  locale: string,
+  studentId: number
+): Promise<{ semesters: { semester: Semester; grades: MsisGrade[]; gpa: number }[]; cgpa: number }> {
+  const res = await api<{ data: { semesters: { semester: Semester; grades: MsisGrade[]; gpa: number }[]; cgpa: number } }>(
+    `/msis/grades/transcript/${studentId}`,
+    { headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` } } as any
+  );
+  return res.data;
+}
+
+export async function fetchMsisPayments(
+  token: string,
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<MsisPayment>> {
+  return api<PaginatedResponse<MsisPayment>>('/msis/payments', {
+    headers: { ...localeHeaders(locale), Authorization: `Bearer ${token}` },
+    params: { per_page: 50, ...params },
+  } as any);
+}
+
+// ===== LMS Fetchers =====
+
+export async function fetchLmsCourses(
+  locale: string,
+  params?: Record<string, string | number | boolean | undefined>
+): Promise<PaginatedResponse<LmsCourse>> {
+  return api<PaginatedResponse<LmsCourse>>('/lms/courses', {
+    headers: localeHeaders(locale),
+    params: { per_page: 20, ...params },
+    next: { revalidate: 60 },
+  } as any);
+}
+
+export async function fetchLmsCourse(locale: string, slug: string): Promise<LmsCourse> {
+  const res = await api<{ data: LmsCourse }>(`/lms/courses/${slug}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchLmsModules(locale: string, courseId: number): Promise<LmsModule[]> {
+  const res = await api<ListResponse<LmsModule>>(`/lms/courses/${courseId}/modules`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchLmsLesson(locale: string, id: number): Promise<LmsLesson> {
+  const res = await api<{ data: LmsLesson }>(`/lms/lessons/${id}`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchLmsAssignments(locale: string, courseId: number): Promise<LmsAssignment[]> {
+  const res = await api<ListResponse<LmsAssignment>>(`/lms/courses/${courseId}/assignments`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function fetchDiscussionThreads(locale: string, forumId: number): Promise<DiscussionThread[]> {
+  const res = await api<ListResponse<DiscussionThread>>(`/lms/forums/${forumId}/threads`, {
+    headers: localeHeaders(locale),
+    next: { revalidate: 60 },
+  } as any);
+  return res.data;
+}
+
+export async function verifyCertificate(certificateNumber: string): Promise<DigitalCertificate> {
+  const res = await api<{ data: DigitalCertificate }>(`/lms/certificates/verify/${certificateNumber}`, {
+    headers: localeHeaders('en'),
+  } as any);
+  return res.data;
+}
+
+export async function markLessonComplete(token: string, lessonId: number): Promise<void> {
+  await api(`/lms/lessons/${lessonId}/complete`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+  } as any);
 }

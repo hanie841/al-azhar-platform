@@ -36,6 +36,18 @@ class DatabaseSeeder extends Seeder
             LibraryCollectionSeeder::class,
             PageSeeder::class,
             ResearchPublicationSeeder::class,
+
+            // Academic & Student Systems
+            AcademicYearSeeder::class,
+            CourseSeeder::class,
+            FacultyProfileSeeder::class,
+            CourseSectionSeeder::class,
+            StudentSeeder::class,
+            EnrollmentSeeder::class,
+            GradeSeeder::class,
+            FeeSeeder::class,
+            LmsSeeder::class,
+            ExamSeeder::class,
         ]);
     }
 }

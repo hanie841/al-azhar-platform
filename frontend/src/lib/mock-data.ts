@@ -531,14 +531,14 @@ export const mockPeople = [
   {
     id: 2,
     slug: 'university-president',
-    name_ar: 'أ.د. محمد المحرصاوي',
-    name_en: 'Prof. Muhammad Al-Mahrasawi',
+    name_ar: 'أ.د. سلامة داود',
+    name_en: 'Prof. Salama Dawood',
     title_ar: 'رئيس جامعة الأزهر',
     title_en: 'President of Al-Azhar University',
     role: 'president',
     bio_ar: 'يشرف على إدارة الجامعة وتطوير برامجها الأكاديمية والبحثية.',
     bio_en: 'Oversees university administration and development of academic and research programs.',
-    initials: 'مم',
+    initials: 'سد',
   },
   {
     id: 3,
